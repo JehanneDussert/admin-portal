@@ -21,7 +21,9 @@ export default function Home() {
 
     return (
         <div className='fr-container fr-my-4w'>
-			<SearchBar onButtonClick={handleSearch}/>
+			<SearchBar 
+				onButtonClick={handleSearch}
+			/>
             <div className="fr-grid-row fr-grid-row--gutters fr-my-2w">
 			{products && products.map((product, index) => (
                 <div className='fr-col-4' key={index}>
