@@ -8,15 +8,26 @@ import { defaultColorScheme } from "./defaultColorScheme";
 import Link from "next/link";
 import { Header } from "@codegouvfr/react-dsfr/Header";
 import { Footer } from "@codegouvfr/react-dsfr/Footer";
+import { GET_PRODUCTS_BY_NAME } from "../src/components/constants";
+import { useEffect, useState } from "react";
+import { Product } from "../src/components/interface";
 
 export default function RootLayout({ children }: { children: JSX.Element; }) {
   const lang = "fr";
+  const [products, setProducts] = useState<Product[]>([]);
 
-  const handleSearch = () => {
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     // GET PRODUCTS BY NAME
     // fetch
-    console.log('ici')
+    console.log('ici: ', e);
+    fetch(GET_PRODUCTS_BY_NAME + `?product_name=${e}`)
+		.then(res => res.json())
+		.then(data => setProducts(data));
   }
+
+  useEffect(() => {
+    console.log('ici products: ', products)
+  }, [products])
 
   return (
     <html {...getHtmlAttributes({ defaultColorScheme, lang })} >
@@ -26,6 +37,7 @@ export default function RootLayout({ children }: { children: JSX.Element; }) {
       </head>
       <body>
         <Header
+        // TODO: change
             brandTop={<>INTITULE<br />OFFICIEL</>}
             homeLinkProps={{
                 href: '/',

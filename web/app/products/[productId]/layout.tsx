@@ -12,7 +12,6 @@ export default function layout({
     if (isNaN(productId)) {
         return notFound();
     }
-    console.log('ici: ', params.productId)
 
     return (
         <div className='fr-container fr-my-4w'>

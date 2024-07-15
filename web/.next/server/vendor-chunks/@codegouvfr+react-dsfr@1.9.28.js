@@ -274,6 +274,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "(ssr)/./node_modules/.pnpm/@codegouvfr+react-dsfr@1.9.28/node_modules/@codegouvfr/react-dsfr/SearchBar/index.js":
+/*!*****************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@codegouvfr+react-dsfr@1.9.28/node_modules/@codegouvfr/react-dsfr/SearchBar/index.js ***!
+  \*****************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   SearchBar: () => (/* reexport safe */ _SearchBar__WEBPACK_IMPORTED_MODULE_0__.SearchBar),\n/* harmony export */   addSearchBarTranslations: () => (/* reexport safe */ _SearchBar__WEBPACK_IMPORTED_MODULE_0__.addSearchBarTranslations),\n/* harmony export */   \"default\": () => (/* reexport safe */ _SearchBar__WEBPACK_IMPORTED_MODULE_0__[\"default\"])\n/* harmony export */ });\n/* harmony import */ var _SearchBar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SearchBar */ \"(ssr)/./node_modules/.pnpm/@codegouvfr+react-dsfr@1.9.28/node_modules/@codegouvfr/react-dsfr/SearchBar/SearchBar.js\");\n\n\n//# sourceMappingURL=index.js.map//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9ub2RlX21vZHVsZXMvLnBucG0vQGNvZGVnb3V2ZnIrcmVhY3QtZHNmckAxLjkuMjgvbm9kZV9tb2R1bGVzL0Bjb2RlZ291dmZyL3JlYWN0LWRzZnIvU2VhcmNoQmFyL2luZGV4LmpzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFBc0M7QUFDNEI7QUFDbEUiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9ub2RlX21vZHVsZXMvLnBucG0vQGNvZGVnb3V2ZnIrcmVhY3QtZHNmckAxLjkuMjgvbm9kZV9tb2R1bGVzL0Bjb2RlZ291dmZyL3JlYWN0LWRzZnIvU2VhcmNoQmFyL2luZGV4LmpzPzY5MGUiXSwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IHsgZGVmYXVsdCB9IGZyb20gXCIuL1NlYXJjaEJhclwiO1xuZXhwb3J0IHsgU2VhcmNoQmFyLCBhZGRTZWFyY2hCYXJUcmFuc2xhdGlvbnMgfSBmcm9tIFwiLi9TZWFyY2hCYXJcIjtcbi8vIyBzb3VyY2VNYXBwaW5nVVJMPWluZGV4LmpzLm1hcCJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(ssr)/./node_modules/.pnpm/@codegouvfr+react-dsfr@1.9.28/node_modules/@codegouvfr/react-dsfr/SearchBar/index.js\n");
+
+/***/ }),
+
 /***/ "(ssr)/./node_modules/.pnpm/@codegouvfr+react-dsfr@1.9.28/node_modules/@codegouvfr/react-dsfr/dsfr/dsfr.module.min.js":
 /*!**********************************************************************************************************************!*\
   !*** ./node_modules/.pnpm/@codegouvfr+react-dsfr@1.9.28/node_modules/@codegouvfr/react-dsfr/dsfr/dsfr.module.min.js ***!
