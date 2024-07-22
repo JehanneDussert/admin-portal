@@ -1,4 +1,5 @@
 export interface Product {
 	title: string,
-	desc: string
+	desc: string,
+	id: number
 }
