@@ -5,13 +5,15 @@ import { DELETE_PRODUCT_BY_ID, GET_DELETED_PRODUCTS, GET_PRODUCTS_BY_NAME, GET_R
 import { Product } from '../src/components/interface';
 import { SearchBar } from "@codegouvfr/react-dsfr/SearchBar";
 import { Button } from "@codegouvfr/react-dsfr/Button";
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
-    const [products, setProducts] = useState<Product[]>([]);
-    const [deletedProducts, setDeletedProducts] = useState<Product[]>([]);
-	const [redoProducts, setRedoProducts] = useState<Product[]>([]);
-    const [query, setQuery] = useState('');
-
+    const   [products, setProducts] = useState<Product[]>([]);
+    const   [deletedProducts, setDeletedProducts] = useState<Product[]>([]);
+	const   [redoProducts, setRedoProducts] = useState<Product[]>([]);
+    const   [query, setQuery] = useState('');
+    const   router = useRouter();
+	
     useEffect(() => {
         fetch(GET_PRODUCTS_BY_NAME + `?product_name=${query}`)
             .then(res => res.json())
@@ -73,7 +75,7 @@ export default function Home() {
                     iconId="fr-icon-arrow-go-back-fill"
                     onClick={handleRestoreProducts}
                     priority="tertiary no outline"
-                    title="Retour"
+                    title="Défaire"
                     disabled={deletedProducts.length === 0}
                 />
                 <Button
@@ -86,14 +88,14 @@ export default function Home() {
             </div>
             <div className="fr-grid-row fr-grid-row--gutters fr-my-2w">
                 {products && products.map((product, index) => (
-                    <div className='fr-col-4' key={product.id}>
+                    <div className='fr-col-4' key={index}>
                         <Card
                             background
                             border
                             desc={product.desc}
                             footer={
                                 <ul className="fr-btns-group fr-btns-group--inline-reverse fr-btns-group--inline-lg">
-                                    <li><button id={product.title} className="fr-btn">Modifier</button></li>
+                                    <li><button id={product.title} onClick={() => router.push(`/products/${product?.id}/edit`)} className="fr-btn">Modifier</button></li>
                                     <li><button className="fr-btn fr-btn--secondary" onClick={() => handleDelete(product.id)}>Supprimer</button></li>
                                 </ul>
                             }

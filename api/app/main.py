@@ -115,9 +115,14 @@ async def redo_product() -> List[Product]:
 
     for index, product in enumerate(list_products):
         product.id = index
-    print('redo: ', len(redo_stack))
-    print('list: ', len(list_products))
-    print('del: ', len(deleted_products))
 
     return list_products
 
+@app.put("/api/products/{product_id}", response_model=Product)
+async def update_product(product: Product) -> Product:
+    if product.id >= len(list_products):
+        raise HTTPException(status_code=404, detail="Product not found")
+    
+    list_products[product.id] = product
+
+    return product
