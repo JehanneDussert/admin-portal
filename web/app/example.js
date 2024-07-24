@@ -1,1 +1,0 @@
-const example = 42;
