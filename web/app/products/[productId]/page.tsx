@@ -1,45 +1,47 @@
-"use client";
+'use client';
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { GET_ALL_PRODUCTS } from '../../constants';
 import { Product } from '../../interfaces';
-import { Accordion } from "@codegouvfr/react-dsfr/Accordion";
+import { Accordion } from '@codegouvfr/react-dsfr/Accordion';
 import { useFetch } from '../../utils';
 import { ModifyDeleteButtons } from '../../components/ModifyDeleteButtons';
 
-export default function ProductInfos({ params }: { params: {productId: Number }}) {
-  const	[product, setProduct] = useState<Product | null>();
+export default function ProductInfos({
+	params,
+}: {
+	params: { productId: number };
+}) {
+	const [product, setProduct] = useState<Product | null>();
 
 	useEffect(() => {
-		const	getProductData = async() => {
-			const   data = await useFetch({ url: GET_ALL_PRODUCTS + `/${params.productId}`, method: 'GET' });
-			
+		const getProductData = async () => {
+			const data = await useFetch({
+				url: GET_ALL_PRODUCTS + `/${params.productId}`,
+				method: 'GET',
+			});
+
 			setProduct(data);
-		}
+		};
 		getProductData();
 	}, []);
 
 	return (
-		<div className='fr-grid-col'>
-			{
-				product && 
+		<div className="fr-grid-col">
+			{product && (
 				<>
-					<div className='fr-grid-row'>
-						<h1 className='fr-col'>{product.title}</h1>
-						<ModifyDeleteButtons
-							product={product}
-						/>
+					<div className="fr-grid-row">
+						<h1 className="fr-col">{product.title}</h1>
+						<ModifyDeleteButtons product={product} />
 					</div>
 					<>
-						<Accordion label="Résumé">
-							{product.desc}
-						</Accordion>
+						<Accordion label="Résumé">{product.desc}</Accordion>
 						<Accordion label="Description">
 							{product.desc}
 						</Accordion>
 					</>
 				</>
-			}
+			)}
 		</div>
-	)
+	);
 }
