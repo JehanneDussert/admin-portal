@@ -15,4 +15,3 @@ export default function layout({
 
 	return <div className="fr-container fr-my-4w">{children}</div>;
 }
-
