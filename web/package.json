@@ -14,8 +14,8 @@
   },
   "lint-staged": {
     "app/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write",
-      "eslint --fix",
+      "pnpm run lint",
+      "pnpm run format",
       "git add"
     ]
   },
