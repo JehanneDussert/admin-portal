@@ -13,13 +13,15 @@ module.exports = {
         'plugin:import/warnings',
         'plugin:import/typescript',
         'plugin:prettier/recommended',
+        '@typescript-eslint/eslint-recommended',
+        '@typescript-eslint/recommended',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
             jsx: true,
         },
-        ecmaVersion: 12,
+        ecmaVersion: 2021,  // Mise à jour de la version ECMAScript
         sourceType: 'module',
         project: './tsconfig.json',
     },
@@ -41,6 +43,9 @@ module.exports = {
         ],
         'react/react-in-jsx-scope': 'off',
         '@typescript-eslint/explicit-module-boundary-types': 'off',
+        'import/resolver': {
+            'typescript': {}
+        }
     },
     settings: {
         react: {

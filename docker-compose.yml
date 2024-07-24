@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./api/app:/app
+
+  frontend:
+    build:
+      context: ./web
+    ports:
+      - "3000:3000"

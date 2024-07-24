@@ -8,6 +8,7 @@ import { defaultColorScheme } from './defaultColorScheme';
 import Link from 'next/link';
 import { Header } from '@codegouvfr/react-dsfr/Header';
 import { Footer } from '@codegouvfr/react-dsfr/Footer';
+import React from 'react';
 
 export default function RootLayout({ children }: { children: JSX.Element }) {
 	const lang = 'fr';
