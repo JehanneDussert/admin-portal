@@ -18,7 +18,6 @@ export default function Home() {
 			url: GET_PRODUCTS_BY_NAME + `?product_name=${text}`,
 			method: 'GET',
 		});
-
 		setProducts(data);
 	};
 
@@ -28,8 +27,13 @@ export default function Home() {
 
 	return (
 		<div className="fr-container fr-my-4w">
-			<SearchBar onButtonClick={handleSearch} allowEmptySearch={true} />
+			<SearchBar
+				data-testid="search-bar"
+				onButtonClick={handleSearch}
+				allowEmptySearch={true}
+			/>
 			<UndoRedoButtons
+				data-testid="undo-redo-buttons"
 				setProducts={setProducts}
 				setDeletedProducts={setDeletedProducts}
 				setRedoProducts={setRedoProducts}
