@@ -6,7 +6,8 @@ const nextConfig = {
       type: "asset/resource"
     });
     return config;
-  }
+  },
+  reactStrictMode: false
 };
 
 module.exports = nextConfig;
