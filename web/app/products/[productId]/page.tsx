@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { GET_ALL_PRODUCTS } from '../../constants';
-import { Product } from '../../interfaces';
+import { GET_ALL_PRODUCTS } from '../../utils/constants';
+import { Product } from 'app/interfaces/Product';
 import { Accordion } from '@codegouvfr/react-dsfr/Accordion';
-import { useFetch } from '../../utils';
+import { useFetch } from '../../utils/hooks';
 import { ModifyDeleteButtons } from '../../components/ModifyDeleteButtons';
 
 export default function ProductInfos({

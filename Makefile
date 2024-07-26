@@ -1,7 +1,9 @@
 .PHONY: install build run test clean
 
 install:
-	pip install -r requirements.txt
+	pip install -r api/requirements.txt
+	cd web && pnpm i
+	cd ..
 
 build:
 	docker-compose build
@@ -12,6 +14,8 @@ run:
 test:
 	pytest
 	rm -rf .pytest_cache
+	cd web && pnpm run cypress:run
+	cd ..
 
 clean:
 	docker-compose down -v

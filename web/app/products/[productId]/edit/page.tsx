@@ -1,12 +1,12 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { GET_ALL_PRODUCTS } from '../../../constants';
-import { Product } from '../../../interfaces';
+import { GET_ALL_PRODUCTS } from '../../../utils/constants';
+import { Product } from 'app/interfaces/Product';
 import { useRouter } from 'next/navigation';
 import Button from '@codegouvfr/react-dsfr/Button';
 import { Input } from '@codegouvfr/react-dsfr/Input';
-import { useFetch } from '../../../utils';
+import { useFetch } from '../../../utils/hooks';
 
 export default function EditView({
 	params,
