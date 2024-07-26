@@ -6,6 +6,7 @@ import { Product } from 'app/interfaces/Product';
 import { Accordion } from '@codegouvfr/react-dsfr/Accordion';
 import { useFetch } from '../../utils/hooks';
 import { ModifyDeleteButtons } from '../../components/ModifyDeleteButtons';
+import { Reviews } from 'app/components/Reviews';
 
 export default function ProductInfos({
 	params,
@@ -41,6 +42,8 @@ export default function ProductInfos({
 							{product.desc}
 						</Accordion>
 					</>
+					<h3 className="fr-my-2w">Avis clients</h3>
+					<Reviews reviews={product.reviews} />
 				</>
 			)}
 		</div>

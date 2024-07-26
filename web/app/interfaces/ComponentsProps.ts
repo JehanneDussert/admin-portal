@@ -1,4 +1,4 @@
-import { Product } from './Product';
+import { Product, Review } from './Product';
 
 export interface ProductsListProps {
 	products: Product[];
@@ -16,4 +16,8 @@ export interface UndoRedoButtonsProps {
 
 export interface ModifyDeleteButtonsProps {
 	product: Product;
+}
+
+export interface ReviewsProps {
+	reviews: Review[];
 }
