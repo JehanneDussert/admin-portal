@@ -1,15 +1,15 @@
 from typing import List
 from app.models.product import Product
 from fastapi import HTTPException
+import json
 
-list_products = [
-    Product(title="Tomate", desc="Une description", id=0),
-    Product(title="Patate", desc="Une description", id=1),
-    Product(title="Salade", desc="Une description", id=2),
-    Product(title="Avocat", desc="Une description", id=3),
-    Product(title="Asperge", desc="Une description", id=4),
-    Product(title="Potimaron", desc="Une description", id=5),
-]
+def load_products_from_file(file_path: str) -> List[Product]:
+    with open(file_path, 'r') as f:
+        products_data = json.load(f)
+    return [Product(**product) for product in products_data]
+
+file_path = '../data/products.json'
+list_products = load_products_from_file(file_path)
 
 #   Save deleted products for restoration
 deleted_products: List[Product] = []

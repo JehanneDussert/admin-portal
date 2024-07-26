@@ -32,10 +32,11 @@ export default function ProductInfos({
 				<>
 					<div className="fr-grid-row">
 						<h1 className="fr-col">{product.title}</h1>
+						<h3>{product.price}€</h3>
 						<ModifyDeleteButtons product={product} />
 					</div>
 					<>
-						<Accordion label="Résumé">{product.desc}</Accordion>
+						<Accordion label="Résumé">{product.resume}</Accordion>
 						<Accordion label="Description">
 							{product.desc}
 						</Accordion>

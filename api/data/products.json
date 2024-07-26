@@ -1,0 +1,211 @@
+[
+    {
+        "id": 0,
+        "title": "Product A",
+        "resume": "A brief description of Product A.",
+        "desc": "Detailed description of Product A.",
+        "price": 29,
+        "reviews": [
+            {"title": "Excellent!", "desc": "This product exceeded my expectations.", "rate": 5},
+            {"title": "Not bad", "desc": "The product is good but could be improved.", "rate": 3}
+        ]
+    },
+    {
+        "id": 1,
+        "title": "Product B",
+        "resume": "A brief description of Product B.",
+        "desc": "Detailed description of Product B.",
+        "price": 49,
+        "reviews": [
+            {"title": "Great value", "desc": "Worth every penny!", "rate": 4},
+            {"title": "Could be better", "desc": "The product has some flaws.", "rate": 2}
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Product C",
+        "resume": "A brief description of Product C.",
+        "desc": "Detailed description of Product C.",
+        "price": 19,
+        "reviews": [
+            {"title": "Perfect for the price", "desc": "Good quality for a low price.", "rate": 5},
+            {"title": "Okay", "desc": "Not the best, but acceptable.", "rate": 3}
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Product D",
+        "resume": "A brief description of Product D.",
+        "desc": "Detailed description of Product D.",
+        "price": 89,
+        "reviews": [
+            {"title": "High quality", "desc": "This product is well-made and durable.", "rate": 5},
+            {"title": "Expensive", "desc": "Too pricey for what it offers.", "rate": 2}
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Product E",
+        "resume": "A brief description of Product E.",
+        "desc": "Detailed description of Product E.",
+        "price": 35,
+        "reviews": [
+            {"title": "Nice design", "desc": "The design is sleek and modern.", "rate": 4},
+            {"title": "Not very functional", "desc": "The product looks good but doesn’t work well.", "rate": 2}
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Product F",
+        "resume": "A brief description of Product F.",
+        "desc": "Detailed description of Product F.",
+        "price": 55,
+        "reviews": [
+            {"title": "Well worth it", "desc": "Great performance and features.", "rate": 5},
+            {"title": "Average", "desc": "It’s okay but not outstanding.", "rate": 3}
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Product G",
+        "resume": "A brief description of Product G.",
+        "desc": "Detailed description of Product G.",
+        "price": 45,
+        "reviews": [
+            {"title": "Good product", "desc": "Meets the expectations.", "rate": 4},
+            {"title": "Not satisfied", "desc": "The quality could be better.", "rate": 2}
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Product H",
+        "resume": "A brief description of Product H.",
+        "desc": "Detailed description of Product H.",
+        "price": 22,
+        "reviews": [
+            {"title": "Value for money", "desc": "A great deal for the price.", "rate": 4},
+            {"title": "Disappointing", "desc": "The product didn’t meet my expectations.", "rate": 1}
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Product I",
+        "resume": "A brief description of Product I.",
+        "desc": "Detailed description of Product I.",
+        "price": 79,
+        "reviews": [
+            {"title": "Fantastic", "desc": "Absolutely worth buying!", "rate": 5},
+            {"title": "Too costly", "desc": "Seems overpriced for what it offers.", "rate": 3}
+        ]
+    },
+    {
+        "id": 9,
+        "title": "Product J",
+        "resume": "A brief description of Product J.",
+        "desc": "Detailed description of Product J.",
+        "price": 60,
+        "reviews": [
+            {"title": "Good quality", "desc": "Solid construction and reliable.", "rate": 4},
+            {"title": "Average experience", "desc": "It’s okay, but I expected more.", "rate": 3}
+        ]
+    },
+    {
+        "id": 10,
+        "title": "Product K",
+        "resume": "A brief description of Product K.",
+        "desc": "Detailed description of Product K.",
+        "price": 12,
+        "reviews": [
+            {"title": "Cheap and cheerful", "desc": "Decent for the price.", "rate": 4},
+            {"title": "Not great", "desc": "The product feels flimsy.", "rate": 2}
+        ]
+    },
+    {
+        "id": 11,
+        "title": "Product L",
+        "resume": "A brief description of Product L.",
+        "desc": "Detailed description of Product L.",
+        "price": 92,
+        "reviews": [
+            {"title": "Excellent quality", "desc": "Top-notch product, highly recommend.", "rate": 5},
+            {"title": "Very expensive", "desc": "High cost for such a product.", "rate": 3}
+        ]
+    },
+    {
+        "id": 12,
+        "title": "Product M",
+        "resume": "A brief description of Product M.",
+        "desc": "Detailed description of Product M.",
+        "price": 28,
+        "reviews": [
+            {"title": "Great value", "desc": "Affordable and works well.", "rate": 4},
+            {"title": "Mediocre", "desc": "It’s okay, nothing special.", "rate": 3}
+        ]
+    },
+    {
+        "id": 13,
+        "title": "Product N",
+        "resume": "A brief description of Product N.",
+        "desc": "Detailed description of Product N.",
+        "price": 65,
+        "reviews": [
+            {"title": "Good purchase", "desc": "I’m happy with this buy.", "rate": 4},
+            {"title": "Not impressed", "desc": "Expected better quality.", "rate": 2}
+        ]
+    },
+    {
+        "id": 14,
+        "title": "Product O",
+        "resume": "A brief description of Product O.",
+        "desc": "Detailed description of Product O.",
+        "price": 38,
+        "reviews": [
+            {"title": "Nice product", "desc": "It’s a nice addition.", "rate": 4},
+            {"title": "Disappointing", "desc": "Not as good as I hoped.", "rate": 2}
+        ]
+    },
+    {
+        "id": 15,
+        "title": "Product P",
+        "resume": "A brief description of Product P.",
+        "desc": "Detailed description of Product P.",
+        "price": 85,
+        "reviews": [
+            {"title": "Top quality", "desc": "Fantastic product, highly recommend.", "rate": 5},
+            {"title": "Pricey", "desc": "The price is quite high.", "rate": 3}
+        ]
+    },
+    {
+        "id": 16,
+        "title": "Product Q",
+        "resume": "A brief description of Product Q.",
+        "desc": "Detailed description of Product Q.",
+        "price": 21,
+        "reviews": [
+            {"title": "Good for the price", "desc": "Works well and affordable.", "rate": 4},
+            {"title": "Average quality", "desc": "Not the best quality but acceptable.", "rate": 3}
+        ]
+    },
+    {
+        "id": 17,
+        "title": "Product R",
+        "resume": "A brief description of Product R.",
+        "desc": "Detailed description of Product R.",
+        "price": 74,
+        "reviews": [
+            {"title": "Very good", "desc": "I’m pleased with this purchase.", "rate": 4},
+            {"title": "Not worth it", "desc": "The product does not justify the cost.", "rate": 2}
+        ]
+    },
+    {
+        "id": 18,
+        "title": "Product S",
+        "resume": "A brief description of Product S.",
+        "desc": "Detailed description of Product S.",
+        "price": 48,
+        "reviews": [
+            {"title": "Good product", "desc": "Reliable and good performance.", "rate": 4},
+            {"title": "Subpar", "desc": "It’s not as good as expected.", "rate": 1}
+        ]
+    }
+]

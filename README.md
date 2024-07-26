@@ -73,6 +73,7 @@ L'application est composée comme suit :
 Le front-end écoute sur le __port 3000__ et peut être lancé dans le dossier web/ avec la commande :
 
 ```bash
+pnpm install
 pnpm run dev
 ```
 

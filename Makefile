@@ -17,6 +17,10 @@ test:
 	cd web && pnpm run cypress:run
 	cd ..
 
+format:
+	cd web && pnpm run format && pnpm run lint
+	cd ..
+
 clean:
 	docker-compose down -v
 	rm -rf api/.pytest_cache

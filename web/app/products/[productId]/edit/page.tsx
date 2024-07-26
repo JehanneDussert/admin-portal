@@ -46,7 +46,7 @@ export default function EditView({
 	};
 
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setProduct((prevProduct) => ({
+		setProduct((prevProduct: Product) => ({
 			...prevProduct,
 			[e.target.name]: e.target.value,
 		}));
@@ -55,7 +55,7 @@ export default function EditView({
 	const handleTextAreaChange = (
 		e: React.ChangeEvent<HTMLTextAreaElement>,
 	) => {
-		setProduct((prevProduct) => ({
+		setProduct((prevProduct: Product) => ({
 			...prevProduct,
 			[e.target.name]: e.target.value,
 		}));
@@ -82,7 +82,7 @@ export default function EditView({
 				textArea
 				nativeTextAreaProps={{
 					name: 'desc',
-					value: product?.desc,
+					value: product?.resume,
 					onChange: handleTextAreaChange,
 				}}
 			/>
