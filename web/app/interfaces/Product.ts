@@ -13,4 +13,5 @@ export interface Product {
 	price: number;
 	average_rate: number;
 	reviews: Review[];
+	last_modified: Date;
 }

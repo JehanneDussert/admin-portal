@@ -2,9 +2,10 @@ from typing import List
 from app.models.product import Product
 from fastapi import HTTPException
 import json
+from datetime import datetime
 
 def load_products_from_file(file_path: str) -> List[Product]:
-    with open(file_path, 'r') as f:
+    with open(file_path, 'r', encoding='utf-8') as f:
         products_data = json.load(f)
     products = [Product(**product) for product in products_data]
     
@@ -47,6 +48,8 @@ def update_product(product: Product) -> Product:
     
     if product.id >= len(list_products):
         raise HTTPException(status_code=404, detail="Product not found")
+    
+    product.last_modified = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
     
     list_products[product.id] = product
     

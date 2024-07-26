@@ -11,3 +11,5 @@ export const DELETE_PRODUCT_BY_ID = 'http://localhost:8000/api/delete_product';
 export const UPDATE_RESTORE_PRODUCT =
 	'http://localhost:8000/api/restore_product';
 export const UPDATE_REDO_PRODUCT = 'http://localhost:8000/api/redo_product';
+
+export const GET_PRODUCTS_SORT_BY_NAME = 'http://localhost:8000/api/products/sort_by_name';

@@ -6,8 +6,8 @@ class Review(BaseModel):
     title: str
     desc: str
     rate: int
-    date: datetime
-    
+    date: str
+
 class Product(BaseModel):
     id: int
     title: str
@@ -16,6 +16,7 @@ class Product(BaseModel):
     price: int
     average_rate: float = 0.0
     reviews: List[Review]
+    last_modified: str
     
     def calculate_average_rate(self) -> None:
         if self.reviews:

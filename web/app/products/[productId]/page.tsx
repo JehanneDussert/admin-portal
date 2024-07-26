@@ -16,6 +16,11 @@ export default function ProductInfos({
 	params: { productId: number };
 }) {
 	const [product, setProduct] = useState<Product | null>();
+	const options: Intl.DateTimeFormatOptions = {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric',
+	};
 
 	useEffect(() => {
 		const getProductData = async () => {
@@ -34,23 +39,31 @@ export default function ProductInfos({
 			{product && (
 				<>
 					<div className="fr-grid-row">
-						<h1 className="fr-col">{product.title}</h1>
+						<div className="fr-col">
+							<h1 className="fr-col">{product.title}</h1>
+							<p>
+								Modifié le{' '}
+								{new Date(
+									product.last_modified,
+								).toLocaleDateString(undefined, options)}
+							</p>
+						</div>
 						<ModifyDeleteButtons product={product} />
 					</div>
-					<Badge
-						className="fr-mb-2w"
-						noIcon
-						severity={getSeverity(product.average_rate)}
-					>
+					<Badge noIcon severity={getSeverity(product.average_rate)}>
 						Note moyenne : {product.average_rate}
 					</Badge>
-					<h3>{product.price}€</h3>
-					<>
-						<Accordion label="Résumé">{product.resume}</Accordion>
-						<Accordion label="Description">
-							{product.desc}
-						</Accordion>
-					</>
+					<h3 className="fr-my-2w">{product.price}€</h3>
+					<div className="fr-container fr-my-4w">
+						<div className="fr-grid-row fr-grid-row--center">
+							<img
+								className="fr-mb-2w"
+								src="https://www.systeme-de-design.gouv.fr/img/placeholder.16x9.png"
+							/>
+						</div>
+					</div>
+					<Accordion label="Résumé">{product.resume}</Accordion>
+					<Accordion label="Description">{product.desc}</Accordion>
 					<h6 className="fr-my-2w">
 						Avis clients ({product.reviews.length})
 					</h6>

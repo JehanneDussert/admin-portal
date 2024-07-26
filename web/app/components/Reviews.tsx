@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Card from '@codegouvfr/react-dsfr/Card';
 import { ReviewsProps } from 'app/interfaces/ComponentsProps';
 
@@ -10,10 +10,10 @@ export const Reviews: React.FC<ReviewsProps> = ({ reviews }) => {
 	};
 
 	return (
-		<div className="fr-my-2w">
+		<div>
 			{reviews &&
 				reviews.map((review, index) => (
-					<div className="fr-my-2w" key={index}>
+					<div className="fr-py-1w" key={index}>
 						<Card
 							background
 							border

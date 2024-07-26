@@ -55,7 +55,7 @@ export const UndoRedoButtons: React.FC<UndoRedoButtonsProps> = ({
 	};
 
 	return (
-		<div className="fr-grid-row fr-grid-row--right fr-my-2w">
+		<div className="">
 			<Button
 				iconId="fr-icon-arrow-go-back-fill"
 				onClick={handleRestoreProducts}

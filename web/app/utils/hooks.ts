@@ -1,4 +1,4 @@
-import { fetchProps } from '../interfaces';
+import { fetchProps } from "app/interfaces/Hooks";
 
 export const useFetch = async (props: fetchProps) => {
 	const { url, method, headers, body } = props;

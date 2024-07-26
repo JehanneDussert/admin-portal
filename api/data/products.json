@@ -1,211 +1,230 @@
 [
     {
         "id": 0,
-        "title": "Product A",
-        "resume": "A brief description of Product A.",
-        "desc": "Detailed description of Product A.",
+        "title": "Produit A",
+        "resume": "Une brève description du produit A.",
+        "desc": "Description détaillée du produit A.",
         "price": 29,
+        "last_modified": "2024-07-10",
         "reviews": [
-            {"title": "Excellent!", "desc": "This product exceeded my expectations.", "rate": 5, "date": "2024-07-20"},
-            {"title": "Not bad", "desc": "The product is good but could be improved.", "rate": 3, "date": "2024-06-15"}
+            {"title": "Excellent!", "desc": "Ce produit a dépassé mes attentes.", "rate": 5, "date": "2024-07-20"},
+            {"title": "Pas mal", "desc": "Le produit est bon mais pourrait être amélioré.", "rate": 3, "date": "2024-06-15"}
         ]
     },
     {
         "id": 1,
-        "title": "Product B",
-        "resume": "A brief description of Product B.",
-        "desc": "Detailed description of Product B.",
+        "title": "Produit B",
+        "resume": "Une brève description du produit B.",
+        "desc": "Description détaillée du produit B.",
         "price": 49,
+        "last_modified": "2024-06-15",
         "reviews": [
-            {"title": "Great value", "desc": "Worth every penny!", "rate": 4, "date": "2024-07-10"},
-            {"title": "Could be better", "desc": "The product has some flaws.", "rate": 2, "date": "2024-06-25"}
+            {"title": "Bon rapport qualité-prix", "desc": "Vaut chaque centime!", "rate": 4, "date": "2024-07-10"},
+            {"title": "Pourrait être mieux", "desc": "Le produit a quelques défauts.", "rate": 2, "date": "2024-06-25"}
         ]
     },
     {
         "id": 2,
-        "title": "Product C",
-        "resume": "A brief description of Product C.",
-        "desc": "Detailed description of Product C.",
+        "title": "Produit C",
+        "resume": "Une brève description du produit C.",
+        "desc": "Description détaillée du produit C.",
         "price": 19,
+        "last_modified": "2024-08-01",
         "reviews": [
-            {"title": "Perfect for the price", "desc": "Good quality for a low price.", "rate": 5, "date": "2024-07-05"},
-            {"title": "Okay", "desc": "Not the best, but acceptable.", "rate": 3, "date": "2024-06-30"}
+            {"title": "Parfait pour le prix", "desc": "Bonne qualité pour un prix bas.", "rate": 5, "date": "2024-07-05"},
+            {"title": "Correct", "desc": "Pas le meilleur, mais acceptable.", "rate": 3, "date": "2024-06-30"}
         ]
     },
     {
         "id": 3,
-        "title": "Product D",
-        "resume": "A brief description of Product D.",
-        "desc": "Detailed description of Product D.",
+        "title": "Produit D",
+        "resume": "Une brève description du produit D.",
+        "desc": "Description détaillée du produit D.",
         "price": 89,
+        "last_modified": "2024-06-25",
         "reviews": [
-            {"title": "High quality", "desc": "This product is well-made and durable.", "rate": 5, "date": "2024-07-15"},
-            {"title": "Expensive", "desc": "Too pricey for what it offers.", "rate": 2, "date": "2024-06-20"}
+            {"title": "Haute qualité", "desc": "Ce produit est bien fabriqué et durable.", "rate": 5, "date": "2024-07-15"},
+            {"title": "Cher", "desc": "Trop cher pour ce qu'il offre.", "rate": 2, "date": "2024-06-20"}
         ]
     },
     {
         "id": 4,
-        "title": "Product E",
-        "resume": "A brief description of Product E.",
-        "desc": "Detailed description of Product E.",
+        "title": "Produit E",
+        "resume": "Une brève description du produit E.",
+        "desc": "Description détaillée du produit E.",
         "price": 35,
+        "last_modified": "2024-07-05",
         "reviews": [
-            {"title": "Nice design", "desc": "The design is sleek and modern.", "rate": 4, "date": "2024-07-01"},
-            {"title": "Not very functional", "desc": "The product looks good but doesn’t work well.", "rate": 2, "date": "2024-06-28"}
+            {"title": "Beau design", "desc": "Le design est élégant et moderne.", "rate": 4, "date": "2024-07-01"},
+            {"title": "Pas très fonctionnel", "desc": "Le produit est joli mais ne fonctionne pas bien.", "rate": 2, "date": "2024-06-28"}
         ]
     },
     {
         "id": 5,
-        "title": "Product F",
-        "resume": "A brief description of Product F.",
-        "desc": "Detailed description of Product F.",
+        "title": "Produit F",
+        "resume": "Une brève description du produit F.",
+        "desc": "Description détaillée du produit F.",
         "price": 55,
+        "last_modified": "2024-07-15",
         "reviews": [
-            {"title": "Well worth it", "desc": "Great performance and features.", "rate": 5, "date": "2024-07-12"},
-            {"title": "Average", "desc": "It’s okay but not outstanding.", "rate": 3, "date": "2024-06-22"}
+            {"title": "Vaut bien le prix", "desc": "Excellente performance et fonctionnalités.", "rate": 5, "date": "2024-07-12"},
+            {"title": "Moyen", "desc": "C'est correct mais sans plus.", "rate": 3, "date": "2024-06-22"}
         ]
     },
     {
         "id": 6,
-        "title": "Product G",
-        "resume": "A brief description of Product G.",
-        "desc": "Detailed description of Product G.",
+        "title": "Produit G",
+        "resume": "Une brève description du produit G.",
+        "desc": "Description détaillée du produit G.",
         "price": 45,
+        "last_modified": "2024-08-10",
         "reviews": [
-            {"title": "Good product", "desc": "Meets the expectations.", "rate": 4, "date": "2024-07-08"},
-            {"title": "Not satisfied", "desc": "The quality could be better.", "rate": 2, "date": "2024-06-18"}
+            {"title": "Bon produit", "desc": "Répond aux attentes.", "rate": 4, "date": "2024-07-08"},
+            {"title": "Pas satisfait", "desc": "La qualité pourrait être meilleure.", "rate": 2, "date": "2024-06-18"}
         ]
     },
     {
         "id": 7,
-        "title": "Product H",
-        "resume": "A brief description of Product H.",
-        "desc": "Detailed description of Product H.",
+        "title": "Produit H",
+        "resume": "Une brève description du produit H.",
+        "desc": "Description détaillée du produit H.",
         "price": 22,
+        "last_modified": "2024-06-01",
         "reviews": [
-            {"title": "Value for money", "desc": "A great deal for the price.", "rate": 4, "date": "2024-07-03"},
-            {"title": "Disappointing", "desc": "The product didn’t meet my expectations.", "rate": 1, "date": "2024-06-26"}
+            {"title": "Bon rapport qualité-prix", "desc": "Un bon deal pour le prix.", "rate": 4, "date": "2024-07-03"},
+            {"title": "Décevant", "desc": "Le produit n'a pas répondu à mes attentes.", "rate": 1, "date": "2024-06-26"}
         ]
     },
     {
         "id": 8,
-        "title": "Product I",
-        "resume": "A brief description of Product I.",
-        "desc": "Detailed description of Product I.",
+        "title": "Produit I",
+        "resume": "Une brève description du produit I.",
+        "desc": "Description détaillée du produit I.",
         "price": 79,
+        "last_modified": "2024-07-25",
         "reviews": [
-            {"title": "Fantastic", "desc": "Absolutely worth buying!", "rate": 5, "date": "2024-07-18"},
-            {"title": "Too costly", "desc": "Seems overpriced for what it offers.", "rate": 3, "date": "2024-06-12"}
+            {"title": "Fantastique", "desc": "Absolument vaut l'achat!", "rate": 5, "date": "2024-07-18"},
+            {"title": "Trop cher", "desc": "Semble trop cher pour ce qu'il offre.", "rate": 3, "date": "2024-06-12"}
         ]
     },
     {
         "id": 9,
-        "title": "Product J",
-        "resume": "A brief description of Product J.",
-        "desc": "Detailed description of Product J.",
+        "title": "Produit J",
+        "resume": "Une brève description du produit J.",
+        "desc": "Description détaillée du produit J.",
         "price": 60,
+        "last_modified": "2024-06-30",
         "reviews": [
-            {"title": "Good quality", "desc": "Solid construction and reliable.", "rate": 4, "date": "2024-07-22"},
-            {"title": "Average experience", "desc": "It’s okay, but I expected more.", "rate": 3, "date": "2024-06-17"}
+            {"title": "Bonne qualité", "desc": "Construction solide et fiable.", "rate": 4, "date": "2024-07-22"},
+            {"title": "Expérience moyenne", "desc": "C'est correct, mais j'attendais plus.", "rate": 3, "date": "2024-06-17"}
         ]
     },
     {
         "id": 10,
-        "title": "Product K",
-        "resume": "A brief description of Product K.",
-        "desc": "Detailed description of Product K.",
+        "title": "Produit K",
+        "resume": "Une brève description du produit K.",
+        "desc": "Description détaillée du produit K.",
         "price": 12,
+        "last_modified": "2024-07-01",
         "reviews": [
-            {"title": "Cheap and cheerful", "desc": "Decent for the price.", "rate": 4, "date": "2024-07-25"},
-            {"title": "Not great", "desc": "The product feels flimsy.", "rate": 2, "date": "2024-06-09"}
+            {"title": "Bon marché et joyeux", "desc": "Correct pour le prix.", "rate": 4, "date": "2024-07-25"},
+            {"title": "Pas génial", "desc": "Le produit semble fragile.", "rate": 2, "date": "2024-06-09"}
         ]
     },
     {
         "id": 11,
-        "title": "Product L",
-        "resume": "A brief description of Product L.",
-        "desc": "Detailed description of Product L.",
+        "title": "Produit L",
+        "resume": "Une brève description du produit L.",
+        "desc": "Description détaillée du produit L.",
         "price": 92,
+        "last_modified": "2024-08-05",
         "reviews": [
-            {"title": "Excellent quality", "desc": "Top-notch product, highly recommend.", "rate": 5, "date": "2024-07-13"},
-            {"title": "Very expensive", "desc": "High cost for such a product.", "rate": 3, "date": "2024-06-21"}
+            {"title": "Excellente qualité", "desc": "Produit de premier ordre, fortement recommandé.", "rate": 5, "date": "2024-07-13"},
+            {"title": "Très cher", "desc": "Prix élevé pour un tel produit.", "rate": 3, "date": "2024-06-21"}
         ]
     },
     {
         "id": 12,
-        "title": "Product M",
-        "resume": "A brief description of Product M.",
-        "desc": "Detailed description of Product M.",
+        "title": "Produit M",
+        "resume": "Une brève description du produit M.",
+        "desc": "Description détaillée du produit M.",
         "price": 28,
+        "last_modified": "2024-06-20",
         "reviews": [
-            {"title": "Great value", "desc": "Affordable and works well.", "rate": 4, "date": "2024-07-14"},
-            {"title": "Mediocre", "desc": "It’s okay, nothing special.", "rate": 3, "date": "2024-06-27"}
+            {"title": "Bon rapport qualité-prix", "desc": "Abordable et fonctionne bien.", "rate": 4, "date": "2024-07-14"},
+            {"title": "Médiocre", "desc": "C'est correct, rien de spécial.", "rate": 3, "date": "2024-06-27"}
         ]
     },
     {
         "id": 13,
-        "title": "Product N",
-        "resume": "A brief description of Product N.",
-        "desc": "Detailed description of Product N.",
+        "title": "Produit N",
+        "resume": "Une brève description du produit N.",
+        "desc": "Description détaillée du produit N.",
         "price": 65,
+        "last_modified": "2024-07-20",
         "reviews": [
-            {"title": "Good purchase", "desc": "I’m happy with this buy.", "rate": 4, "date": "2024-07-16"},
-            {"title": "Not impressed", "desc": "Expected better quality.", "rate": 2, "date": "2024-06-23"}
+            {"title": "Bon achat", "desc": "Je suis content de cet achat.", "rate": 4, "date": "2024-07-16"},
+            {"title": "Pas impressionné", "desc": "J'attendais une meilleure qualité.", "rate": 2, "date": "2024-06-23"}
         ]
     },
     {
         "id": 14,
-        "title": "Product O",
-        "resume": "A brief description of Product O.",
-        "desc": "Detailed description of Product O.",
+        "title": "Produit O",
+        "resume": "Une brève description du produit O.",
+        "desc": "Description détaillée du produit O.",
         "price": 38,
+        "last_modified": "2024-06-10",
         "reviews": [
-            {"title": "Nice product", "desc": "It’s a nice addition.", "rate": 4, "date": "2024-07-17"},
-            {"title": "Disappointing", "desc": "Not as good as I hoped.", "rate": 2, "date": "2024-06-29"}
+            {"title": "Bon produit", "desc": "C'est un bel ajout.", "rate": 4, "date": "2024-07-17"},
+            {"title": "Décevant", "desc": "Pas aussi bien que je l'espérais.", "rate": 2, "date": "2024-06-29"}
         ]
     },
     {
         "id": 15,
-        "title": "Product P",
-        "resume": "A brief description of Product P.",
-        "desc": "Detailed description of Product P.",
+        "title": "Produit P",
+        "resume": "Une brève description du produit P.",
+        "desc": "Description détaillée du produit P.",
         "price": 85,
+        "last_modified": "2024-08-20",
         "reviews": [
-            {"title": "Top quality", "desc": "Fantastic product, highly recommend.", "rate": 5, "date": "2024-07-21"},
-            {"title": "Pricey", "desc": "The price is quite high.", "rate": 3, "date": "2024-06-19"}
+            {"title": "Qualité supérieure", "desc": "Produit fantastique, fortement recommandé.", "rate": 5, "date": "2024-07-21"},
+            {"title": "Cher", "desc": "Le prix est assez élevé.", "rate": 3, "date": "2024-06-19"}
         ]
     },
     {
         "id": 16,
-        "title": "Product Q",
-        "resume": "A brief description of Product Q.",
-        "desc": "Detailed description of Product Q.",
+        "title": "Produit Q",
+        "resume": "Une brève description du produit Q.",
+        "desc": "Description détaillée du produit Q.",
         "price": 21,
+        "last_modified": "2024-06-30",
         "reviews": [
-            {"title": "Good for the price", "desc": "Works well and affordable.", "rate": 4, "date": "2024-07-04"},
-            {"title": "Average quality", "desc": "Not the best quality but acceptable.", "rate": 3, "date": "2024-06-16"}
+            {"title": "Bon pour le prix", "desc": "Fonctionne bien et abordable.", "rate": 4, "date": "2024-07-04"},
+            {"title": "Qualité moyenne", "desc": "Pas la meilleure qualité mais acceptable.", "rate": 3, "date": "2024-06-16"}
         ]
     },
     {
         "id": 17,
-        "title": "Product R",
-        "resume": "A brief description of Product R.",
-        "desc": "Detailed description of Product R.",
+        "title": "Produit R",
+        "resume": "Une brève description du produit R.",
+        "desc": "Description détaillée du produit R.",
         "price": 74,
+        "last_modified": "2024-07-30",
         "reviews": [
-            {"title": "Very good", "desc": "I’m pleased with this purchase.", "rate": 4, "date": "2024-07-23"},
-            {"title": "Not worth it", "desc": "The product does not justify the cost.", "rate": 2, "date": "2024-06-24"}
+            {"title": "Très bien", "desc": "Je suis satisfait de cet achat.", "rate": 4, "date": "2024-07-23"},
+            {"title": "Pas à la hauteur", "desc": "Le produit ne justifie pas le coût.", "rate": 2, "date": "2024-06-24"}
         ]
     },
     {
         "id": 18,
-        "title": "Product S",
-        "resume": "A brief description of Product S.",
-        "desc": "Detailed description of Product S.",
+        "title": "Produit S",
+        "resume": "Une brève description du produit S.",
+        "desc": "Description détaillée du produit S.",
         "price": 48,
+        "last_modified": "2024-08-15",
         "reviews": [
-            {"title": "Good product", "desc": "Reliable and good performance.", "rate": 4, "date": "2024-07-19"},
-            {"title": "Subpar", "desc": "It’s not as good as expected.", "rate": 1, "date": "2024-06-14"}
+            {"title": "Bon produit", "desc": "Fiable et bonnes performances.", "rate": 4, "date": "2024-07-19"},
+            {"title": "Médiocre", "desc": "Pas aussi bon que prévu.", "rate": 1, "date": "2024-06-14"}
         ]
     }
 ]

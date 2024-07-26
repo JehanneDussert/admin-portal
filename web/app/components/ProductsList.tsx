@@ -6,6 +6,7 @@ import { DELETE_PRODUCT_BY_ID, GET_DELETED_PRODUCTS } from '../utils/constants';
 import { ProductsListProps } from 'app/interfaces/ComponentsProps';
 import { Badge } from '@codegouvfr/react-dsfr/Badge';
 import { getSeverity } from 'app/utils/utils';
+import { Tag } from '@codegouvfr/react-dsfr/Tag';
 
 export const ProductsList: React.FC<ProductsListProps> = ({
 	products,
@@ -49,6 +50,7 @@ export const ProductsList: React.FC<ProductsListProps> = ({
 								</Badge>
 							}
 							desc={product.desc}
+							start={<ul className="fr-tags-group"><li><Tag>{product.price} €</Tag></li></ul>}
 							footer={
 								<ul className="fr-btns-group fr-btns-group--inline-reverse fr-btns-group--inline-lg">
 									<li>
