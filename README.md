@@ -55,7 +55,7 @@ pytest
 
 #### Organisation
 
-L'application est composé comme suit :
+L'application est composée comme suit :
 - fichiers de configuration et Dockerfile à la racine
 - dossier app/ comprenant :
     - les composants réutilisables : 
@@ -79,9 +79,14 @@ pnpm run dev
 Le routage repose sur Next.js ce qui permet d'accéder facilement :
 
 ```bash
-route 'http://localhost:3000/'  # liste des produits
-route 'http://localhost:3000/products/{productId}'  # page d'un produit particulier
-route 'http://localhost:3000/products/{productId}/edit'  # page de modification d'un produit
+# liste des produits
+http://localhost:3000/
+
+# page d'un produit particulier
+http://localhost:3000/products/{productId}
+
+# page de modification d'un produit
+http://localhost:3000/products/{productId}/edit
 ```
 
 ### Back-end
