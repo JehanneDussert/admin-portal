@@ -12,7 +12,7 @@ export const ModifyDeleteButtons: React.FC<ModifyDeleteButtonsProps> = ({
 
 	const handleDelete = async (id: number) => {
 		await useFetch({
-			url: DELETE_PRODUCT_BY_ID + `?product_id=${id}`,
+			url: DELETE_PRODUCT_BY_ID + `/${id}`,
 			method: 'DELETE',
 		});
 

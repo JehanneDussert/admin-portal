@@ -91,6 +91,71 @@ http://localhost:3000/products/{productId}/edit
 
 ### Back-end
 
+#### Organisation
+
+L'application est composée comme suit :
+- fichier d'installation des dépendances (requirements.txt) et Dockerfile à la racine
+- dossier app/ comprenant :
+    - le main permettant de lancer l'app et de définir le partage des ressources entre origines multiples (CORS)
+    - un dossier crud qui définit la logique de chaque route
+    - un dossier models qui définit le modèle Product utilisé
+    - un dossier routes qui définit les routes de l'API
+- dossier pyetst-rest-api composé des tests des différentes routes
+
+#### Accès
+
+Le back-end écoute sur le __port 8000__ et peut être lancé dans le dossier api/app/ avec la commande :
+
+```bash
+fastapi dev main.py
+```
+
+Un swagger est accessible à l'adresse :
+```bash
+http://localhost:8000/docs
+```
+
+Les routes sont les suivantes :
+
+```bash
+
+#   GET
+
+#   liste des produits
+http://localhost:8000/api/products
+
+#   produit particulier identifié par son id
+http://localhost:8000/api/products/{productId}
+
+#   liste des produits composés dans leur title du product_name spécifié
+#   si le champs est vide, tous les produits sont retournés
+http://localhost:8000/api/products_by_name/?product_name={productName}
+
+#   liste des produits supprimés
+http://localhost:8000/api/deleted_products
+
+#   liste des produits restaurés après suppression
+http://localhost:8000/api/redo_products
+
+#   POST
+
+#   restauration du dernier produit supprimé
+http://localhost:8000/api/restore_product
+
+#   suppression du dernier produit restauré
+http://localhost:8000/api/redo_product
+
+#   PUT
+
+#   modification d'un produit identifié par son id
+http://localhost:8000/api/products/{productId}
+
+#   DELETE
+
+#   suppression d'un produit identifié par son id
+http://localhost:8000/api/delete_product/{productId}
+```
+
 ### Ressources
 
 - [Cypress docs](https://docs.cypress.io/guides/end-to-end-testing/writing-your-first-end-to-end-test)

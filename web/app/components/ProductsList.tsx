@@ -14,7 +14,7 @@ export const ProductsList: React.FC<ProductsListProps> = ({
 
 	const handleDelete = async (id: number) => {
 		const updatedProducts = await useFetch({
-			url: DELETE_PRODUCT_BY_ID + `?product_id=${id}`,
+			url: DELETE_PRODUCT_BY_ID + `/${id}`,
 			method: 'DELETE',
 		});
 		const updatedDeletedProducts = await useFetch({

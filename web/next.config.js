@@ -7,7 +7,14 @@ const nextConfig = {
     });
     return config;
   },
-  reactStrictMode: false
+  reactStrictMode: false,
+  serverRuntimeConfig: {
+    host: process.env.HOST || 'localhost',
+    port: process.env.PORT || '3000',
+  },
+  publicRuntimeConfig: {
+    apiUrl: process.env.API_URL || 'http://localhost:8000',
+  },
 };
 
 module.exports = nextConfig;
