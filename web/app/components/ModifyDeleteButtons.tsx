@@ -1,8 +1,8 @@
 import React from 'react';
-import { useFetch } from '../utils';
-import { DELETE_PRODUCT_BY_ID } from '../constants';
+import { useFetch } from '../utils/hooks';
+import { DELETE_PRODUCT_BY_ID } from '../utils/constants';
 import Button from '@codegouvfr/react-dsfr/Button';
-import { ModifyDeleteButtonsProps } from '../interfaces';
+import { ModifyDeleteButtonsProps } from 'app/interfaces/ComponentsProps';
 import { useRouter } from 'next/navigation';
 
 export const ModifyDeleteButtons: React.FC<ModifyDeleteButtonsProps> = ({

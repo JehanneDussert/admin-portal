@@ -1,9 +1,9 @@
 import React from 'react';
-import { ProductsListProps } from '../interfaces';
 import Card from '@codegouvfr/react-dsfr/Card';
 import { useRouter } from 'next/navigation';
-import { useFetch } from '../utils';
-import { DELETE_PRODUCT_BY_ID, GET_DELETED_PRODUCTS } from '../constants';
+import { useFetch } from '../utils/hooks';
+import { DELETE_PRODUCT_BY_ID, GET_DELETED_PRODUCTS } from '../utils/constants';
+import { ProductsListProps } from 'app/interfaces/ComponentsProps';
 
 export const ProductsList: React.FC<ProductsListProps> = ({
 	products,
@@ -28,7 +28,10 @@ export const ProductsList: React.FC<ProductsListProps> = ({
 
 	// TODO: display deleted products?
 	return (
-		<div className="fr-grid-row fr-grid-row--gutters fr-my-2w">
+		<div
+			data-testid="products-list"
+			className="fr-grid-row fr-grid-row--gutters fr-my-2w"
+		>
 			{products &&
 				products.map((product, index) => (
 					<div className="fr-col-4" key={index}>
@@ -41,6 +44,7 @@ export const ProductsList: React.FC<ProductsListProps> = ({
 									<li>
 										<button
 											id={product.title}
+											data-testid={`edit-button-${product.id}`}
 											onClick={() =>
 												router.push(
 													`/products/${product?.id}/edit`,
@@ -53,6 +57,7 @@ export const ProductsList: React.FC<ProductsListProps> = ({
 									</li>
 									<li>
 										<button
+											data-testid={`delete-button-${product.id}`}
 											className="fr-btn fr-btn--secondary"
 											onClick={() =>
 												handleDelete(product.id)

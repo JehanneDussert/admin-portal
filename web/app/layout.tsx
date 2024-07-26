@@ -8,20 +8,25 @@ import { defaultColorScheme } from './defaultColorScheme';
 import Link from 'next/link';
 import { Header } from '@codegouvfr/react-dsfr/Header';
 import { Footer } from '@codegouvfr/react-dsfr/Footer';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function RootLayout({ children }: { children: JSX.Element }) {
+	const [isClient, setIsClient] = useState(false);
+
+	useEffect(() => {
+		setIsClient(true);
+	}, []);
+
 	const lang = 'fr';
 
 	return (
 		<html lang={lang} {...getHtmlAttributes({ defaultColorScheme, lang })}>
 			<head>
 				<StartDsfr />
-				<DsfrHead Link={Link} />
+				{isClient && <DsfrHead Link={Link} />}
 			</head>
 			<body>
 				<Header
-					// TODO: change
 					brandTop={
 						<>
 							INTITULE
@@ -41,13 +46,12 @@ export default function RootLayout({ children }: { children: JSX.Element }) {
 				<Footer
 					accessibility="fully compliant"
 					contentDescription="
-                Ce message est à remplacer par les informations de votre site.
-
-                Comme exemple de contenu, vous pouvez indiquer les informations 
-                suivantes : Le site officiel d’information administrative pour les entreprises.
-                Retrouvez toutes les informations et démarches administratives nécessaires à la création, 
-                à la gestion et au développement de votre entreprise.
-                "
+            Ce message est à remplacer par les informations de votre site.
+            Comme exemple de contenu, vous pouvez indiquer les informations 
+            suivantes : Le site officiel d’information administrative pour les entreprises.
+            Retrouvez toutes les informations et démarches administratives nécessaires à la création, 
+            à la gestion et au développement de votre entreprise.
+            "
 				/>
 			</body>
 		</html>

@@ -1,13 +1,13 @@
 import React from 'react';
-import { useFetch } from '../utils';
+import { useFetch } from '../utils/hooks';
 import {
 	GET_DELETED_PRODUCTS,
 	GET_REDO_PRODUCTS,
 	UPDATE_REDO_PRODUCT,
 	UPDATE_RESTORE_PRODUCT,
-} from '../constants';
+} from '../utils/constants';
 import Button from '@codegouvfr/react-dsfr/Button';
-import { UndoRedoButtonsProps } from '../interfaces';
+import { UndoRedoButtonsProps } from 'app/interfaces/ComponentsProps';
 
 export const UndoRedoButtons: React.FC<UndoRedoButtonsProps> = ({
 	setProducts,

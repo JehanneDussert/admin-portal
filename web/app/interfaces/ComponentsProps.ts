@@ -1,15 +1,4 @@
-export interface Product {
-	title: string;
-	desc: string;
-	id: number;
-}
-
-export interface fetchProps {
-	url: string;
-	method?: string;
-	headers?: HeadersInit | undefined;
-	body?: string;
-}
+import { Product } from './Product';
 
 export interface ProductsListProps {
 	products: Product[];
