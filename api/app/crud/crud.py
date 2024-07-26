@@ -6,7 +6,12 @@ import json
 def load_products_from_file(file_path: str) -> List[Product]:
     with open(file_path, 'r') as f:
         products_data = json.load(f)
-    return [Product(**product) for product in products_data]
+    products = [Product(**product) for product in products_data]
+    
+    for product in products:
+        product.calculate_average_rate()
+    
+    return products
 
 file_path = '../data/products.json'
 list_products = load_products_from_file(file_path)

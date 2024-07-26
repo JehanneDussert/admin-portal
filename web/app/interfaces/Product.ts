@@ -2,6 +2,7 @@ export interface Review {
 	title: string;
 	desc: string;
 	rate: number;
+	date: Date;
 }
 
 export interface Product {
@@ -10,5 +11,6 @@ export interface Product {
 	desc: string;
 	resume: string;
 	price: number;
+	average_rate: number;
 	reviews: Review[];
 }

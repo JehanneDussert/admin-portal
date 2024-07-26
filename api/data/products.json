@@ -6,8 +6,8 @@
         "desc": "Detailed description of Product A.",
         "price": 29,
         "reviews": [
-            {"title": "Excellent!", "desc": "This product exceeded my expectations.", "rate": 5},
-            {"title": "Not bad", "desc": "The product is good but could be improved.", "rate": 3}
+            {"title": "Excellent!", "desc": "This product exceeded my expectations.", "rate": 5, "date": "2024-07-20"},
+            {"title": "Not bad", "desc": "The product is good but could be improved.", "rate": 3, "date": "2024-06-15"}
         ]
     },
     {
@@ -17,8 +17,8 @@
         "desc": "Detailed description of Product B.",
         "price": 49,
         "reviews": [
-            {"title": "Great value", "desc": "Worth every penny!", "rate": 4},
-            {"title": "Could be better", "desc": "The product has some flaws.", "rate": 2}
+            {"title": "Great value", "desc": "Worth every penny!", "rate": 4, "date": "2024-07-10"},
+            {"title": "Could be better", "desc": "The product has some flaws.", "rate": 2, "date": "2024-06-25"}
         ]
     },
     {
@@ -28,8 +28,8 @@
         "desc": "Detailed description of Product C.",
         "price": 19,
         "reviews": [
-            {"title": "Perfect for the price", "desc": "Good quality for a low price.", "rate": 5},
-            {"title": "Okay", "desc": "Not the best, but acceptable.", "rate": 3}
+            {"title": "Perfect for the price", "desc": "Good quality for a low price.", "rate": 5, "date": "2024-07-05"},
+            {"title": "Okay", "desc": "Not the best, but acceptable.", "rate": 3, "date": "2024-06-30"}
         ]
     },
     {
@@ -39,8 +39,8 @@
         "desc": "Detailed description of Product D.",
         "price": 89,
         "reviews": [
-            {"title": "High quality", "desc": "This product is well-made and durable.", "rate": 5},
-            {"title": "Expensive", "desc": "Too pricey for what it offers.", "rate": 2}
+            {"title": "High quality", "desc": "This product is well-made and durable.", "rate": 5, "date": "2024-07-15"},
+            {"title": "Expensive", "desc": "Too pricey for what it offers.", "rate": 2, "date": "2024-06-20"}
         ]
     },
     {
@@ -50,8 +50,8 @@
         "desc": "Detailed description of Product E.",
         "price": 35,
         "reviews": [
-            {"title": "Nice design", "desc": "The design is sleek and modern.", "rate": 4},
-            {"title": "Not very functional", "desc": "The product looks good but doesn’t work well.", "rate": 2}
+            {"title": "Nice design", "desc": "The design is sleek and modern.", "rate": 4, "date": "2024-07-01"},
+            {"title": "Not very functional", "desc": "The product looks good but doesn’t work well.", "rate": 2, "date": "2024-06-28"}
         ]
     },
     {
@@ -61,8 +61,8 @@
         "desc": "Detailed description of Product F.",
         "price": 55,
         "reviews": [
-            {"title": "Well worth it", "desc": "Great performance and features.", "rate": 5},
-            {"title": "Average", "desc": "It’s okay but not outstanding.", "rate": 3}
+            {"title": "Well worth it", "desc": "Great performance and features.", "rate": 5, "date": "2024-07-12"},
+            {"title": "Average", "desc": "It’s okay but not outstanding.", "rate": 3, "date": "2024-06-22"}
         ]
     },
     {
@@ -72,8 +72,8 @@
         "desc": "Detailed description of Product G.",
         "price": 45,
         "reviews": [
-            {"title": "Good product", "desc": "Meets the expectations.", "rate": 4},
-            {"title": "Not satisfied", "desc": "The quality could be better.", "rate": 2}
+            {"title": "Good product", "desc": "Meets the expectations.", "rate": 4, "date": "2024-07-08"},
+            {"title": "Not satisfied", "desc": "The quality could be better.", "rate": 2, "date": "2024-06-18"}
         ]
     },
     {
@@ -83,8 +83,8 @@
         "desc": "Detailed description of Product H.",
         "price": 22,
         "reviews": [
-            {"title": "Value for money", "desc": "A great deal for the price.", "rate": 4},
-            {"title": "Disappointing", "desc": "The product didn’t meet my expectations.", "rate": 1}
+            {"title": "Value for money", "desc": "A great deal for the price.", "rate": 4, "date": "2024-07-03"},
+            {"title": "Disappointing", "desc": "The product didn’t meet my expectations.", "rate": 1, "date": "2024-06-26"}
         ]
     },
     {
@@ -94,8 +94,8 @@
         "desc": "Detailed description of Product I.",
         "price": 79,
         "reviews": [
-            {"title": "Fantastic", "desc": "Absolutely worth buying!", "rate": 5},
-            {"title": "Too costly", "desc": "Seems overpriced for what it offers.", "rate": 3}
+            {"title": "Fantastic", "desc": "Absolutely worth buying!", "rate": 5, "date": "2024-07-18"},
+            {"title": "Too costly", "desc": "Seems overpriced for what it offers.", "rate": 3, "date": "2024-06-12"}
         ]
     },
     {
@@ -105,8 +105,8 @@
         "desc": "Detailed description of Product J.",
         "price": 60,
         "reviews": [
-            {"title": "Good quality", "desc": "Solid construction and reliable.", "rate": 4},
-            {"title": "Average experience", "desc": "It’s okay, but I expected more.", "rate": 3}
+            {"title": "Good quality", "desc": "Solid construction and reliable.", "rate": 4, "date": "2024-07-22"},
+            {"title": "Average experience", "desc": "It’s okay, but I expected more.", "rate": 3, "date": "2024-06-17"}
         ]
     },
     {
@@ -116,8 +116,8 @@
         "desc": "Detailed description of Product K.",
         "price": 12,
         "reviews": [
-            {"title": "Cheap and cheerful", "desc": "Decent for the price.", "rate": 4},
-            {"title": "Not great", "desc": "The product feels flimsy.", "rate": 2}
+            {"title": "Cheap and cheerful", "desc": "Decent for the price.", "rate": 4, "date": "2024-07-25"},
+            {"title": "Not great", "desc": "The product feels flimsy.", "rate": 2, "date": "2024-06-09"}
         ]
     },
     {
@@ -127,8 +127,8 @@
         "desc": "Detailed description of Product L.",
         "price": 92,
         "reviews": [
-            {"title": "Excellent quality", "desc": "Top-notch product, highly recommend.", "rate": 5},
-            {"title": "Very expensive", "desc": "High cost for such a product.", "rate": 3}
+            {"title": "Excellent quality", "desc": "Top-notch product, highly recommend.", "rate": 5, "date": "2024-07-13"},
+            {"title": "Very expensive", "desc": "High cost for such a product.", "rate": 3, "date": "2024-06-21"}
         ]
     },
     {
@@ -138,8 +138,8 @@
         "desc": "Detailed description of Product M.",
         "price": 28,
         "reviews": [
-            {"title": "Great value", "desc": "Affordable and works well.", "rate": 4},
-            {"title": "Mediocre", "desc": "It’s okay, nothing special.", "rate": 3}
+            {"title": "Great value", "desc": "Affordable and works well.", "rate": 4, "date": "2024-07-14"},
+            {"title": "Mediocre", "desc": "It’s okay, nothing special.", "rate": 3, "date": "2024-06-27"}
         ]
     },
     {
@@ -149,8 +149,8 @@
         "desc": "Detailed description of Product N.",
         "price": 65,
         "reviews": [
-            {"title": "Good purchase", "desc": "I’m happy with this buy.", "rate": 4},
-            {"title": "Not impressed", "desc": "Expected better quality.", "rate": 2}
+            {"title": "Good purchase", "desc": "I’m happy with this buy.", "rate": 4, "date": "2024-07-16"},
+            {"title": "Not impressed", "desc": "Expected better quality.", "rate": 2, "date": "2024-06-23"}
         ]
     },
     {
@@ -160,8 +160,8 @@
         "desc": "Detailed description of Product O.",
         "price": 38,
         "reviews": [
-            {"title": "Nice product", "desc": "It’s a nice addition.", "rate": 4},
-            {"title": "Disappointing", "desc": "Not as good as I hoped.", "rate": 2}
+            {"title": "Nice product", "desc": "It’s a nice addition.", "rate": 4, "date": "2024-07-17"},
+            {"title": "Disappointing", "desc": "Not as good as I hoped.", "rate": 2, "date": "2024-06-29"}
         ]
     },
     {
@@ -171,8 +171,8 @@
         "desc": "Detailed description of Product P.",
         "price": 85,
         "reviews": [
-            {"title": "Top quality", "desc": "Fantastic product, highly recommend.", "rate": 5},
-            {"title": "Pricey", "desc": "The price is quite high.", "rate": 3}
+            {"title": "Top quality", "desc": "Fantastic product, highly recommend.", "rate": 5, "date": "2024-07-21"},
+            {"title": "Pricey", "desc": "The price is quite high.", "rate": 3, "date": "2024-06-19"}
         ]
     },
     {
@@ -182,8 +182,8 @@
         "desc": "Detailed description of Product Q.",
         "price": 21,
         "reviews": [
-            {"title": "Good for the price", "desc": "Works well and affordable.", "rate": 4},
-            {"title": "Average quality", "desc": "Not the best quality but acceptable.", "rate": 3}
+            {"title": "Good for the price", "desc": "Works well and affordable.", "rate": 4, "date": "2024-07-04"},
+            {"title": "Average quality", "desc": "Not the best quality but acceptable.", "rate": 3, "date": "2024-06-16"}
         ]
     },
     {
@@ -193,8 +193,8 @@
         "desc": "Detailed description of Product R.",
         "price": 74,
         "reviews": [
-            {"title": "Very good", "desc": "I’m pleased with this purchase.", "rate": 4},
-            {"title": "Not worth it", "desc": "The product does not justify the cost.", "rate": 2}
+            {"title": "Very good", "desc": "I’m pleased with this purchase.", "rate": 4, "date": "2024-07-23"},
+            {"title": "Not worth it", "desc": "The product does not justify the cost.", "rate": 2, "date": "2024-06-24"}
         ]
     },
     {
@@ -204,8 +204,8 @@
         "desc": "Detailed description of Product S.",
         "price": 48,
         "reviews": [
-            {"title": "Good product", "desc": "Reliable and good performance.", "rate": 4},
-            {"title": "Subpar", "desc": "It’s not as good as expected.", "rate": 1}
+            {"title": "Good product", "desc": "Reliable and good performance.", "rate": 4, "date": "2024-07-19"},
+            {"title": "Subpar", "desc": "It’s not as good as expected.", "rate": 1, "date": "2024-06-14"}
         ]
     }
 ]

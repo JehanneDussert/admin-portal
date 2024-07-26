@@ -4,6 +4,8 @@ import { useRouter } from 'next/navigation';
 import { useFetch } from '../utils/hooks';
 import { DELETE_PRODUCT_BY_ID, GET_DELETED_PRODUCTS } from '../utils/constants';
 import { ProductsListProps } from 'app/interfaces/ComponentsProps';
+import { Badge } from '@codegouvfr/react-dsfr/Badge';
+import { getSeverity } from 'app/utils/utils';
 
 export const ProductsList: React.FC<ProductsListProps> = ({
 	products,
@@ -38,6 +40,14 @@ export const ProductsList: React.FC<ProductsListProps> = ({
 						<Card
 							background
 							border
+							badge={
+								<Badge
+									noIcon
+									severity={getSeverity(product.average_rate)}
+								>
+									Note moyenne : {product.average_rate} / 5
+								</Badge>
+							}
 							desc={product.desc}
 							footer={
 								<ul className="fr-btns-group fr-btns-group--inline-reverse fr-btns-group--inline-lg">
