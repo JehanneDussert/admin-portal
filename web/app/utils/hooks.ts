@@ -1,4 +1,4 @@
-import { fetchProps } from "app/interfaces/Hooks";
+import { fetchProps } from 'app/interfaces/Hooks';
 
 export const useFetch = async (props: fetchProps) => {
 	const { url, method, headers, body } = props;
@@ -17,5 +17,6 @@ export const useFetch = async (props: fetchProps) => {
 		}
 	} catch (error) {
 		console.error('Error: ', error);
+		throw error;
 	}
 };

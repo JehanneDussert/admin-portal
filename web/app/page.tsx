@@ -14,25 +14,25 @@ export default function Home() {
 	const [deletedProducts, setDeletedProducts] = useState<Product[]>([]);
 	const [redoProducts, setRedoProducts] = useState<Product[]>([]);
 
-	const handleSearch = async (text: string) => {
-		const data = await useFetch({
-			url: GET_PRODUCTS_BY_NAME + `?product_name=${text}`,
-			method: 'GET',
-		});
-		setProducts(data);
-	};
+	const fetchProducts = async (url: string) => {
+		const data = await useFetch({ url, method: 'GET' });
 
-	const handleSort = async (type: string) => {
-		const data = await useFetch({
-			url: GET_ALL_PRODUCTS + `/${type}`,
-			method: 'GET',
-		});
-		setProducts(data);
+		setProducts(data.products);
+		setDeletedProducts(data.deleted_products);
+		setRedoProducts(data.redo_products);
 	};
 
 	useEffect(() => {
-		handleSearch('');
+		fetchProducts(GET_PRODUCTS_BY_NAME + `?product_name=`);
 	}, []);
+
+	const handleSearch = (text: string) => {
+		fetchProducts(GET_PRODUCTS_BY_NAME + `?product_name=${text}`);
+	};
+
+	const handleSort = (type: string) => {
+		fetchProducts(GET_ALL_PRODUCTS + `/${type}`);
+	};
 
 	return (
 		<div className="fr-container fr-my-4w">
@@ -76,14 +76,15 @@ export default function Home() {
 					setProducts={setProducts}
 					setDeletedProducts={setDeletedProducts}
 					setRedoProducts={setRedoProducts}
-					undoDisability={deletedProducts.length === 0}
-					redoDisability={redoProducts.length === 0}
+					undoVisibility={deletedProducts.length === 0}
+					redoVisibility={redoProducts.length === 0}
 				/>
 			</div>
 			<ProductsList
 				products={products}
 				setProducts={setProducts}
 				setDeletedProducts={setDeletedProducts}
+				setRedoProducts={setRedoProducts}
 			/>
 			{/* SET PAGINATION */}
 		</div>

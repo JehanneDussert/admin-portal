@@ -2,7 +2,11 @@ import React from 'react';
 import Card from '@codegouvfr/react-dsfr/Card';
 import { useRouter } from 'next/navigation';
 import { useFetch } from '../utils/hooks';
-import { DELETE_PRODUCT_BY_ID, GET_DELETED_PRODUCTS } from '../utils/constants';
+import {
+	DELETE_PRODUCT_BY_ID,
+	GET_DELETED_PRODUCTS,
+	UPDATE_RESTORE_PRODUCT,
+} from '../utils/constants';
 import { ProductsListProps } from 'app/interfaces/ComponentsProps';
 import { Badge } from '@codegouvfr/react-dsfr/Badge';
 import { getSeverity } from 'app/utils/utils';
@@ -12,6 +16,7 @@ export const ProductsList: React.FC<ProductsListProps> = ({
 	products,
 	setProducts,
 	setDeletedProducts,
+	setRedoProducts,
 }) => {
 	const router = useRouter();
 
@@ -29,7 +34,17 @@ export const ProductsList: React.FC<ProductsListProps> = ({
 		setDeletedProducts(updatedDeletedProducts);
 	};
 
-	// TODO: display deleted products?
+	const handleRestoreProducts = async () => {
+		const data = await useFetch({
+			url: UPDATE_RESTORE_PRODUCT,
+			method: 'POST',
+		});
+
+		setProducts(data.products);
+		setDeletedProducts(data.deleted_products);
+		setRedoProducts(data.redo_products);
+	};
+
 	return (
 		<div
 			data-testid="products-list"
@@ -39,6 +54,7 @@ export const ProductsList: React.FC<ProductsListProps> = ({
 				products.map((product, index) => (
 					<div className="fr-col-4" key={index}>
 						<Card
+							style={product.is_deleted ? { opacity: 0.2 } : {}}
 							background
 							border
 							badge={
@@ -50,7 +66,13 @@ export const ProductsList: React.FC<ProductsListProps> = ({
 								</Badge>
 							}
 							desc={product.desc}
-							start={<ul className="fr-tags-group"><li><Tag>{product.price} €</Tag></li></ul>}
+							start={
+								<ul className="fr-tags-group">
+									<li>
+										<Tag>{product.price} €</Tag>
+									</li>
+								</ul>
+							}
 							footer={
 								<ul className="fr-btns-group fr-btns-group--inline-reverse fr-btns-group--inline-lg">
 									<li>
@@ -72,10 +94,14 @@ export const ProductsList: React.FC<ProductsListProps> = ({
 											data-testid={`delete-button-${product.id}`}
 											className="fr-btn fr-btn--secondary"
 											onClick={() =>
-												handleDelete(product.id)
+												product.is_deleted
+													? handleRestoreProducts()
+													: handleDelete(product.id)
 											}
 										>
-											Supprimer
+											{product.is_deleted
+												? 'Restaurer'
+												: 'Supprimer'}
 										</button>
 									</li>
 								</ul>

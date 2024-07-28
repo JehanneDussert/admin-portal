@@ -1,5 +1,5 @@
 from typing import List
-from app.models.product import Product
+from app.models.product import Product, ProductsResponse
 from fastapi import HTTPException
 import json
 from datetime import datetime
@@ -28,8 +28,8 @@ redo_stack: List[Product] = []
 #   ---------------------
 
 #   Return all the available products
-def get_products() -> List[Product]:
-    return list_products
+def get_products() -> ProductsResponse:
+    return { 'products': list_products, 'deleted_products': deleted_products, 'redo_products': redo_stack }
 
 #   Return a product identified by its id
 def get_product_by_id(product_id: int) -> Product:
@@ -65,12 +65,9 @@ def delete_product(product_id: int) -> List[Product]:
     if product_id >= len(list_products):
         raise HTTPException(status_code=404, detail="Product not found")
     
-    product_to_delete = list_products.pop(product_id)
-    deleted_products.append(product_to_delete)
-    
-    for index, product in enumerate(list_products):
-        product.id = index
-    
+    list_products[product_id].is_deleted = True
+    deleted_products.append(list_products[product_id])
+   
     return list_products
 
 #   Restore last deleted product and return updated list
@@ -80,13 +77,9 @@ def restore_product() -> List[Product]:
         raise HTTPException(status_code=404, detail="No product to restore")
     
     product_to_restore = deleted_products.pop()
+    product_to_restore.is_deleted = False
     redo_stack.append(product_to_restore)
-    product_to_restore.id = len(list_products)
-    list_products.append(product_to_restore)
-    
-    for index, product in enumerate(list_products):
-        product.id = index
-    
+ 
     return list_products
 
 #   Replay product deletion and return updated list
@@ -96,13 +89,8 @@ def redo_product() -> List[Product]:
         raise HTTPException(status_code=404, detail="No product to redo")
     
     product_to_redo = redo_stack.pop()
-    
-    if product_to_redo in list_products:
-        list_products.remove(product_to_redo)
-    
+    product_to_redo.is_deleted = True
+
     deleted_products.append(product_to_redo)
-    
-    for index, product in enumerate(list_products):
-        product.id = index
     
     return list_products

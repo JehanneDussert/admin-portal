@@ -14,4 +14,5 @@ export interface Product {
 	average_rate: number;
 	reviews: Review[];
 	last_modified: Date;
+	is_deleted: boolean;
 }

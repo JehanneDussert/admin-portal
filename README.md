@@ -1,3 +1,4 @@
+<!-- Parler des fonctionnalités -->
 ## Installation
 
 ### Stack

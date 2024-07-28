@@ -33,7 +33,7 @@ export default function EditView({
 		resume: 'default' as Severity,
 		desc: 'default' as Severity,
 	});
-	const [disability, setDisability] = useState<boolean>(false);
+	const [visibility, setVisibility] = useState<boolean>(false);
 
 	useEffect(() => {
 		const getProductData = async () => {
@@ -66,7 +66,7 @@ export default function EditView({
 			const hasError = Object.values(newStates).some(
 				(state) => state === 'error',
 			);
-			setDisability(hasError);
+			setVisibility(hasError);
 
 			return newStates;
 		});
@@ -152,7 +152,7 @@ export default function EditView({
 				stateRelatedMessage="Veuillez saisir une description correcte."
 			/>
 			<Button
-				disabled={disability}
+				disabled={visibility}
 				iconId="fr-icon-save-fill"
 				onClick={updateProduct}
 			>
