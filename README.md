@@ -123,7 +123,7 @@ Les routes sont les suivantes :
 
 #   GET
 
-#   liste des produits
+#   liste des produits: disponibles, supprimés, restaurés
 http://localhost:8000/api/products
 
 #   produit particulier identifié par son id
@@ -135,9 +135,6 @@ http://localhost:8000/api/products_by_name/?product_name={productName}
 
 #   liste des produits supprimés
 http://localhost:8000/api/deleted_products
-
-#   liste des produits restaurés après suppression
-http://localhost:8000/api/redo_products
 
 #   POST
 
