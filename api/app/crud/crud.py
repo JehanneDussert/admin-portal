@@ -3,6 +3,7 @@ from app.models.product import Product, ProductsResponse
 from fastapi import HTTPException
 import json
 from datetime import datetime
+from pathlib import Path
 
 def load_products_from_file(file_path: str) -> List[Product]:
     with open(file_path, 'r', encoding='utf-8') as f:
@@ -14,7 +15,8 @@ def load_products_from_file(file_path: str) -> List[Product]:
     
     return products
 
-file_path = '../data/products.json'
+current_dir = Path(__file__).resolve().parent
+file_path = current_dir / '../../data/products.json'
 list_products = load_products_from_file(file_path)
 
 #   Save deleted products for restoration
