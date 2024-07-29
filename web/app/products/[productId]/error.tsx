@@ -1,13 +1,14 @@
 'use client';
 
+import React from 'react';
 import { Error404 } from '../../components/Error404';
 
-export default function NotFound({
-	error,
-	reset,
+export default function Error({
+  error,
+  reset,
 }: {
-	error: Error & { digest?: string };
-	reset: () => void;
+  error: Error & { digest?: string }
+  reset: () => void
 }) {
-	return <Error404 />;
+	return <Error404 error={error} reset={reset}/>;
 }

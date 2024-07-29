@@ -19,6 +19,11 @@ export const ProductsList: React.FC<ProductsListProps> = ({
 	setRedoProducts,
 }) => {
 	const router = useRouter();
+	const options: Intl.DateTimeFormatOptions = {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric',
+	};
 
 	const handleDelete = async (id: number) => {
 		const updatedProducts = await useFetch({
@@ -70,6 +75,17 @@ export const ProductsList: React.FC<ProductsListProps> = ({
 								<ul className="fr-tags-group">
 									<li>
 										<Tag>{product.price} €</Tag>
+									</li>
+									<li>
+										<Tag>
+											Modifié le{' '}
+											{new Date(
+												product.last_modified,
+											).toLocaleDateString(
+												undefined,
+												options,
+											)}
+										</Tag>
 									</li>
 								</ul>
 							}

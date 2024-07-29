@@ -9,7 +9,7 @@ import { ModifyDeleteButtons } from '../../components/ModifyDeleteButtons';
 import { Reviews } from 'app/components/Reviews';
 import { Badge } from '@codegouvfr/react-dsfr/Badge';
 import { getSeverity } from 'app/utils/utils';
-
+import { Breadcrumb } from '@codegouvfr/react-dsfr/Breadcrumb';
 export default function ProductInfos({
 	params,
 }: {
@@ -46,6 +46,13 @@ export default function ProductInfos({
 
 	return (
 		<div className="fr-grid-col">
+			<Breadcrumb
+				currentPageLabel="Page Actuelle"
+				homeLinkProps={{
+					href: '/',
+				}}
+				segments={[]}
+			/>
 			{product && (
 				<>
 					<div className="fr-grid-row">

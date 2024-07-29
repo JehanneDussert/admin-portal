@@ -30,3 +30,4 @@ class ProductsResponse(BaseModel):
     products: List[Product]
     deleted_products: List[Product]
     redo_products: List[Product]
+    total_products: int
