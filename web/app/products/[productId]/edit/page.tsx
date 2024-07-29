@@ -11,11 +11,7 @@ import { Notice } from '@codegouvfr/react-dsfr/Notice';
 
 type Severity = 'success' | 'error' | 'default';
 
-export default function EditView({
-	params,
-}: {
-	params: { productId: number };
-}) {
+export default function Edit({ params }: { params: { productId: number } }) {
 	const [product, setProduct] = useState<Product>({
 		title: '',
 		desc: '',
@@ -25,6 +21,7 @@ export default function EditView({
 		average_rate: 0,
 		reviews: [],
 		last_modified: new Date(),
+		is_deleted: false,
 	});
 	const router = useRouter();
 	const [states, setStates] = useState({
@@ -34,15 +31,20 @@ export default function EditView({
 		desc: 'default' as Severity,
 	});
 	const [visibility, setVisibility] = useState<boolean>(false);
+	const [error, setError] = useState<Error | null>(null);
 
 	useEffect(() => {
 		const getProductData = async () => {
-			const data = await useFetch({
-				url: GET_ALL_PRODUCTS + `/${params.productId}`,
-				method: 'GET',
-			});
+			try {
+				const data = await useFetch({
+					url: GET_ALL_PRODUCTS + `/${params.productId}`,
+					method: 'GET',
+				});
 
-			setProduct(data);
+				setProduct(data);
+			} catch (error) {
+				setError(error as Error);
+			}
 		};
 		getProductData();
 	}, []);
@@ -73,14 +75,18 @@ export default function EditView({
 	};
 
 	const updateProduct = async () => {
-		await useFetch({
-			url: GET_ALL_PRODUCTS + `/${params.productId}`,
-			method: 'PUT',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({ ...product }),
-		});
+		try {
+			await useFetch({
+				url: GET_ALL_PRODUCTS + `/${params.productId}`,
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ ...product }),
+			});
+		} catch (error) {
+			setError(error as Error);
+		}
 
 		router.push(`/products/${product?.id}`);
 	};
@@ -102,6 +108,12 @@ export default function EditView({
 		}));
 		validateField(e.target.name, e.target.value);
 	};
+
+	useEffect(() => {
+		if (error) {
+			throw new Error(`Error loading products`);
+		}
+	}, [error]);
 
 	return (
 		<div className="fr-grid-col">

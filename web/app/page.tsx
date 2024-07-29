@@ -13,13 +13,18 @@ export default function Home() {
 	const [products, setProducts] = useState<Product[]>([]);
 	const [deletedProducts, setDeletedProducts] = useState<Product[]>([]);
 	const [redoProducts, setRedoProducts] = useState<Product[]>([]);
+	const [error, setError] = useState<Error | null>(null);
 
 	const fetchProducts = async (url: string) => {
-		const data = await useFetch({ url, method: 'GET' });
+		try {
+			const data = await useFetch({ url, method: 'GET' });
 
-		setProducts(data.products);
-		setDeletedProducts(data.deleted_products);
-		setRedoProducts(data.redo_products);
+			setProducts(data.products);
+			setDeletedProducts(data.deleted_products);
+			setRedoProducts(data.redo_products);
+		} catch (error) {
+			setError(error as Error);
+		}
 	};
 
 	useEffect(() => {
@@ -33,6 +38,12 @@ export default function Home() {
 	const handleSort = (type: string) => {
 		fetchProducts(GET_ALL_PRODUCTS + `/${type}`);
 	};
+
+	useEffect(() => {
+		if (error) {
+			throw new Error(`Error loading products`);
+		}
+	}, [error]);
 
 	return (
 		<div className="fr-container fr-my-4w">
@@ -48,6 +59,14 @@ export default function Home() {
 					className="fr-col"
 					options={[
 						{
+							label: 'Nom',
+							nativeInputProps: {
+								// checked: true,
+								value: 'name',
+								onClick: () => handleSort('sort_by_name'),
+							},
+						},
+						{
 							label: 'Date de modification',
 							nativeInputProps: {
 								value: 'date',
@@ -59,13 +78,6 @@ export default function Home() {
 							nativeInputProps: {
 								value: 'rate',
 								onClick: () => handleSort('sort_by_rate'),
-							},
-						},
-						{
-							label: 'Nom',
-							nativeInputProps: {
-								value: 'name',
-								onClick: () => handleSort('sort_by_name'),
 							},
 						},
 					]}

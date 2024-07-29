@@ -21,18 +21,28 @@ export default function ProductInfos({
 		month: 'long',
 		day: 'numeric',
 	};
+	const [error, setError] = useState<Error | null>(null);
 
 	useEffect(() => {
 		const getProductData = async () => {
-			const data = await useFetch({
-				url: GET_ALL_PRODUCTS + `/${params.productId}`,
-				method: 'GET',
-			});
-
-			setProduct(data);
+			try {
+				const data = await useFetch({
+					url: GET_ALL_PRODUCTS + `/${params.productId}`,
+					method: 'GET',
+				});
+				setProduct(data);
+			} catch (error) {
+				setError(error as Error);
+			}
 		};
 		getProductData();
 	}, []);
+
+	useEffect(() => {
+		if (error) {
+			throw new Error(`Error loading products`);
+		}
+	}, [error]);
 
 	return (
 		<div className="fr-grid-col">
