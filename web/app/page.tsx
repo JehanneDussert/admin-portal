@@ -61,7 +61,6 @@ export default function Home() {
 						{
 							label: 'Nom',
 							nativeInputProps: {
-								// checked: true,
 								value: 'name',
 								onClick: () => handleSort('sort_by_name'),
 							},
