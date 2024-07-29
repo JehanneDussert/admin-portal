@@ -23,9 +23,17 @@ async def get_products_by_name(product_name: str = Query(None)) -> ProductsRespo
     if product_name:
         filtered_products = [product for product in list_products
                              if product_name.lower() in product.title.lower()]
-        return { 'products': filtered_products, 'deleted_products': deleted_products, 'redo_products': redo_stack }
+        return { 
+            'products': filtered_products, 
+            'deleted_products': deleted_products, 
+            'redo_products': redo_stack 
+        }
     
-    return { 'products': list_products, 'deleted_products': deleted_products, 'redo_products': redo_stack }
+    return {
+        'products': list_products, 
+        'deleted_products': deleted_products, 
+        'redo_products': redo_stack 
+    }
 
 #   Return products sorted by date
 @router.get("/products/sort_by_date", response_model=ProductsResponse)
@@ -36,21 +44,33 @@ def get_products_sorted_by_date() -> ProductsResponse:
         reverse=True
     )
     
-    return { 'products': sorted_products, 'deleted_products': deleted_products, 'redo_products': redo_stack }
+    return { 
+        'products': sorted_products, 
+        'deleted_products': deleted_products, 
+        'redo_products': redo_stack 
+    }
 
 #   Return products sorted by rate
 @router.get("/products/sort_by_rate", response_model=ProductsResponse)
 def get_products_sorted_by_rate() -> ProductsResponse:
     sorted_products = sorted(list_products, key=lambda p: p.average_rate, reverse=True)
     
-    return { 'products': sorted_products, 'deleted_products': deleted_products, 'redo_products': redo_stack }
+    return { 
+        'products': sorted_products, 
+        'deleted_products': deleted_products, 
+        'redo_products': redo_stack 
+    }
 
 # #   Return products sorted by name
 @router.get("/products/sort_by_name", response_model=ProductsResponse)
 def get_products_sorted_by_name() -> ProductsResponse:
     sorted_products = sorted(list_products, key=lambda p: p.title.lower())
 
-    return { 'products': sorted_products, 'deleted_products': deleted_products, 'redo_products': redo_stack }
+    return { 
+        'products': sorted_products, 
+        'deleted_products': deleted_products, 
+        'redo_products': redo_stack 
+    }
 
 #   Return a product identified by its id
 @router.get("/products/{product_id}", response_model=Product)
@@ -71,14 +91,22 @@ async def get_deleted_products_list():
 async def restore_product_endpoint():
     restore_product()
     
-    return { 'products': list_products, 'deleted_products': deleted_products, 'redo_products': redo_stack }
+    return { 
+        'products': list_products, 
+        'deleted_products': deleted_products, 
+        'redo_products': redo_stack 
+    }
 
 #   Redo last restored product deletion
 @router.post("/redo_product", response_model=ProductsResponse)
 async def redo_product_endpoint():
     redo_product()
     
-    return { 'products': list_products, 'deleted_products': deleted_products, 'redo_products': redo_stack }
+    return { 
+        'products': list_products, 
+        'deleted_products': deleted_products, 
+        'redo_products': redo_stack 
+    }
 
 #   ---------------
 #         PUT

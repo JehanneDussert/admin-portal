@@ -2,7 +2,7 @@ from typing import List
 from app.models.product import Product, ProductsResponse
 from fastapi import HTTPException
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 def load_products_from_file(file_path: str) -> List[Product]:
@@ -51,7 +51,7 @@ def update_product(product: Product) -> Product:
     if product.id >= len(list_products):
         raise HTTPException(status_code=404, detail="Product not found")
     
-    product.last_modified = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
+    product.last_modified = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
     
     list_products[product.id] = product
     
