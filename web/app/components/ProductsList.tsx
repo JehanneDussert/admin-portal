@@ -4,7 +4,11 @@ import {
 	DELETE_PRODUCT_BY_ID,
 	UPDATE_RESTORE_PRODUCT,
 } from '../constants/constants';
-import { ProductsListProps, ProductsType, Severity } from 'app/interfaces/ComponentsProps';
+import {
+	ProductsListProps,
+	ProductsType,
+	Severity,
+} from 'app/interfaces/ComponentsProps';
 import { Products } from './Products';
 import { Product } from 'app/interfaces/Product';
 
@@ -49,30 +53,36 @@ export const ProductsList: React.FC<ProductsListProps> = ({
 	};
 
 	const isValueSelected = (productType: string, products: Product[]) => {
-		return value !== productType && products.length !== 0
-	}
+		return value !== productType && products.length !== 0;
+	};
 
 	return (
 		<>
-			{isValueSelected(ProductsType.Deleted, allProducts.availableProducts) && (
-					<Products
-						title='Produits en ligne'
-						products={allProducts.availableProducts}
-						severity={Severity.Success}
-						badgeTitle="En ligne"
-						buttonTitle="Supprimer"
-						handleClick={handleDelete}
-					/>
-			)}
-			{isValueSelected(ProductsType.Available, allProducts.deletedProducts) && (
+			{isValueSelected(
+				ProductsType.Deleted,
+				allProducts.availableProducts,
+			) && (
 				<Products
-						title='Produits supprimés'
-						products={allProducts.deletedProducts}
-						severity={Severity.Error}
-						badgeTitle="Supprimé"
-						buttonTitle="Restaurer"
-						handleClick={handleRestoreProducts}
-					/>
+					title="Produits en ligne"
+					products={allProducts.availableProducts}
+					severity={Severity.Success}
+					badgeTitle="En ligne"
+					buttonTitle="Supprimer"
+					handleClick={handleDelete}
+				/>
+			)}
+			{isValueSelected(
+				ProductsType.Available,
+				allProducts.deletedProducts,
+			) && (
+				<Products
+					title="Produits supprimés"
+					products={allProducts.deletedProducts}
+					severity={Severity.Error}
+					badgeTitle="Supprimé"
+					buttonTitle="Restaurer"
+					handleClick={handleRestoreProducts}
+				/>
 			)}
 		</>
 	);

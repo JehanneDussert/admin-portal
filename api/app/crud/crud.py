@@ -20,7 +20,7 @@ file_path = current_dir / '../../data/products.json'
 list_products = load_products_from_file(file_path)
 
 #   Save deleted products for restoration
-deleted_products: List[Product] = []
+deleted_products: List[Product] = [product for product in list_products if product.is_deleted]
 
 #   Save restore products to replay deletion
 redo_stack: List[Product] = []

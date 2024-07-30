@@ -62,13 +62,14 @@ export default function ProductInfos({
 							</Button>
 							<ModifyDeleteButtons product={product} />
 						</div>
-							<h1 className="">{product.title}</h1>
-							<p>
-								Modifié le{' '}
-								{new Date(
-									product.last_modified,
-								).toLocaleDateString(undefined, options)}
-							</p>
+						<h1 className="">{product.title}</h1>
+						<p>
+							Modifié le{' '}
+							{new Date(product.last_modified).toLocaleDateString(
+								undefined,
+								options,
+							)}
+						</p>
 					</div>
 					<Badge noIcon severity={getSeverity(product.average_rate)}>
 						Note moyenne : {product.average_rate}

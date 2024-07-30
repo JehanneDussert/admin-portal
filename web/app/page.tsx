@@ -36,7 +36,6 @@ export default function Home() {
 				),
 				redoProducts: data.redo_products,
 			}));
-			
 		} catch (error) {
 			setError(error as Error);
 		}

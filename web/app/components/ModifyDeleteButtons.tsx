@@ -20,22 +20,23 @@ export const ModifyDeleteButtons: React.FC<ModifyDeleteButtonsProps> = ({
 	};
 
 	return (
-		<div  className='fr-col'>
-		<div className="fr-grid-row fr-grid-row--right">
-			<Button
-				iconId="fr-icon-ball-pen-fill"
-				priority="tertiary no outline"
-				title="Modifier"
-				linkProps={{
-					href: `/products/${product.id}/edit`,
-				}}
-			/>
-			<Button
-				iconId="fr-icon-delete-fill"
-				priority="tertiary no outline"
-				title="Supprimer"
-				onClick={() => handleDelete(product.id)}
-			/>
-		</div></div>
+		<div className="fr-col">
+			<div className="fr-grid-row fr-grid-row--right">
+				<Button
+					iconId="fr-icon-ball-pen-fill"
+					priority="tertiary no outline"
+					title="Modifier"
+					linkProps={{
+						href: `/products/${product.id}/edit`,
+					}}
+				/>
+				<Button
+					iconId="fr-icon-delete-fill"
+					priority="tertiary no outline"
+					title="Supprimer"
+					onClick={() => handleDelete(product.id)}
+				/>
+			</div>
+		</div>
 	);
 };

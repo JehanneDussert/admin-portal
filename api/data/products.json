@@ -88,7 +88,7 @@
             {"title": "Bon produit", "desc": "Répond aux attentes.", "rate": 4, "date": "2024-07-08"},
             {"title": "Pas satisfait", "desc": "La qualité pourrait être meilleure.", "rate": 2, "date": "2024-06-18"}
         ],
-        "is_deleted": false
+        "is_deleted": true
     },
     {
         "id": 7,
@@ -140,7 +140,7 @@
             {"title": "Bon marché et joyeux", "desc": "Correct pour le prix.", "rate": 4, "date": "2024-07-25"},
             {"title": "Pas génial", "desc": "Le produit semble fragile.", "rate": 2, "date": "2024-06-09"}
         ],
-        "is_deleted": false
+        "is_deleted": true
     },
     {
         "id": 11,
@@ -192,7 +192,7 @@
             {"title": "Bon produit", "desc": "C'est un bel ajout.", "rate": 4, "date": "2024-07-17"},
             {"title": "Décevant", "desc": "Pas aussi bien que je l'espérais.", "rate": 2, "date": "2024-06-29"}
         ],
-        "is_deleted": false
+        "is_deleted": true
     },
     {
         "id": 15,

@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { ProductsProps } from 'app/interfaces/ComponentsProps';
 
 export const Products: React.FC<ProductsProps> = ({
-    title,
+	title,
 	products,
 	severity,
 	badgeTitle,
@@ -16,87 +16,86 @@ export const Products: React.FC<ProductsProps> = ({
 	const router = useRouter();
 
 	return (
-        <>
-        
-		    <h1>{title}</h1>
-		<div
-			data-testid="products-list"
-			className="fr-grid-row fr-grid-row--gutters fr-my-2w"
-		>
-			{products &&
-				products.map((product, index) => (
-					<div className="fr-col-4" key={index}>
-						<Card
-							background
-							border
-							badge={
-								<Badge noIcon severity={severity}>
-									{badgeTitle}
-								</Badge>
-							}
-							desc={product.desc}
-							start={
-								<ul className="fr-tags-group">
-									<li>
-										<Tag>{product.price} €</Tag>
-									</li>
-									<li>
-										<Tag>
-											Note moyenne :{' '}
-											{product.average_rate} / 5
-										</Tag>
-									</li>
-								</ul>
-							}
-							footer={
-								<ul className="fr-btns-group fr-btns-group--inline-reverse fr-btns-group--inline-lg">
-									<li>
-										{!product.is_deleted && (
+		<>
+			<h1>{title}</h1>
+			<div
+				data-testid="products-list"
+				className="fr-grid-row fr-grid-row--gutters fr-my-2w"
+			>
+				{products &&
+					products.map((product, index) => (
+						<div className="fr-col-4" key={index}>
+							<Card
+								background
+								border
+								badge={
+									<Badge noIcon severity={severity}>
+										{badgeTitle}
+									</Badge>
+								}
+								desc={product.desc}
+								start={
+									<ul className="fr-tags-group">
+										<li>
+											<Tag>{product.price} €</Tag>
+										</li>
+										<li>
+											<Tag>
+												Note moyenne :{' '}
+												{product.average_rate} / 5
+											</Tag>
+										</li>
+									</ul>
+								}
+								footer={
+									<ul className="fr-btns-group fr-btns-group--inline-reverse fr-btns-group--inline-lg">
+										<li>
+											{!product.is_deleted && (
+												<button
+													id={product.title}
+													data-testid={
+														!product.is_deleted &&
+														`edit-button-${product.id}`
+													}
+													onClick={() =>
+														router.push(
+															`/products/${product?.id}/edit`,
+														)
+													}
+													className="fr-btn"
+												>
+													Modifier
+												</button>
+											)}
+										</li>
+										<li>
 											<button
-												id={product.title}
 												data-testid={
 													!product.is_deleted &&
-													`edit-button-${product.id}`
+													`delete-button-${product.id}`
 												}
+												className="fr-btn fr-btn--secondary"
 												onClick={() =>
-													router.push(
-														`/products/${product?.id}/edit`,
-													)
+													handleClick(product.id)
 												}
-												className="fr-btn"
 											>
-												Modifier
+												{buttonTitle}
 											</button>
-										)}
-									</li>
-									<li>
-										<button
-											data-testid={
-												!product.is_deleted &&
-												`delete-button-${product.id}`
-											}
-											className="fr-btn fr-btn--secondary"
-											onClick={() =>
-												handleClick(product.id)
-											}
-										>
-											{buttonTitle}
-										</button>
-									</li>
-								</ul>
-							}
-							imageAlt="texte alternatif de l’image"
-							imageUrl="https://www.systeme-de-design.gouv.fr/img/placeholder.16x9.png"
-							linkProps={{
-								href: `/products/${product.id}`,
-							}}
-							size="medium"
-							title={product.title}
-							titleAs="h3"
-						/>
-					</div>
-				))}
-		</div>
-        </>
+										</li>
+									</ul>
+								}
+								imageAlt="texte alternatif de l’image"
+								imageUrl="https://www.systeme-de-design.gouv.fr/img/placeholder.16x9.png"
+								linkProps={{
+									href: `/products/${product.id}`,
+								}}
+								size="medium"
+								title={product.title}
+								titleAs="h3"
+							/>
+						</div>
+					))}
+			</div>
+		</>
 	);
 };
