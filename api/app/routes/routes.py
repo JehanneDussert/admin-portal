@@ -18,8 +18,8 @@ async def get_products_list() -> ProductsResponse:
     return get_products()
 
 #   Return a product identified by its title
-@router.get("/products_by_name", response_model=ProductsResponse)
-async def get_products_by_name(product_name: str = Query(None)) -> ProductsResponse:
+@router.get("/search_by_name", response_model=ProductsResponse)
+async def get_products_searched_by_name(product_name: str = Query(None)) -> ProductsResponse:
     if product_name:
         filtered_products = [product for product in list_products
                              if product_name.lower() in product.title.lower()]
