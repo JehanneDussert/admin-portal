@@ -89,6 +89,7 @@ export default function Home() {
 					setRedoProducts={setRedoProducts}
 					undoVisibility={deletedProducts.length === 0}
 					redoVisibility={redoProducts.length === 0}
+					productId={deletedProducts[deletedProducts.length - 1] !== undefined ? deletedProducts[deletedProducts.length - 1].id : -1}
 				/>
 			</div>
 			<ProductsList

@@ -13,6 +13,7 @@ export const UndoRedoButtons: React.FC<UndoRedoButtonsProps> = ({
 	setRedoProducts,
 	undoVisibility,
 	redoVisibility,
+	productId,
 }) => {
 	const handleRedo = async () => {
 		const data = await useFetch({
@@ -25,9 +26,9 @@ export const UndoRedoButtons: React.FC<UndoRedoButtonsProps> = ({
 		setRedoProducts(data.redo_products);
 	};
 
-	const handleRestoreProducts = async () => {
+	const handleRestoreProducts = async (productId: number) => {
 		const data = await useFetch({
-			url: UPDATE_RESTORE_PRODUCT,
+			url: UPDATE_RESTORE_PRODUCT + `/${productId}`,
 			method: 'POST',
 		});
 
@@ -37,10 +38,10 @@ export const UndoRedoButtons: React.FC<UndoRedoButtonsProps> = ({
 	};
 
 	return (
-		<div className="">
+		<div>
 			<Button
 				iconId="fr-icon-arrow-go-back-fill"
-				onClick={handleRestoreProducts}
+				onClick={() => handleRestoreProducts(productId)}
 				priority="tertiary no outline"
 				title="Défaire"
 				disabled={undoVisibility}

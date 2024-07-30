@@ -13,6 +13,7 @@ export interface UndoRedoButtonsProps {
 	setRedoProducts: React.Dispatch<React.SetStateAction<Product[]>>;
 	undoVisibility: boolean;
 	redoVisibility: boolean;
+	productId: number;
 }
 
 export interface ModifyDeleteButtonsProps {
