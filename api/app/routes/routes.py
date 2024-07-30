@@ -25,13 +25,11 @@ async def get_products_by_name(product_name: str = Query(None)) -> ProductsRespo
                              if product_name.lower() in product.title.lower()]
         return { 
             'products': filtered_products, 
-            'deleted_products': deleted_products, 
             'redo_products': redo_stack 
         }
     
     return {
         'products': list_products, 
-        'deleted_products': deleted_products, 
         'redo_products': redo_stack 
     }
 
@@ -46,7 +44,6 @@ def get_products_sorted_by_date() -> ProductsResponse:
     
     return { 
         'products': sorted_products, 
-        'deleted_products': deleted_products, 
         'redo_products': redo_stack 
     }
 
@@ -57,7 +54,6 @@ def get_products_sorted_by_rate() -> ProductsResponse:
     
     return { 
         'products': sorted_products, 
-        'deleted_products': deleted_products, 
         'redo_products': redo_stack 
     }
 
@@ -68,7 +64,6 @@ def get_products_sorted_by_name() -> ProductsResponse:
 
     return { 
         'products': sorted_products, 
-        'deleted_products': deleted_products, 
         'redo_products': redo_stack 
     }
 
@@ -76,11 +71,6 @@ def get_products_sorted_by_name() -> ProductsResponse:
 @router.get("/products/{product_id}", response_model=Product)
 async def get_product(product_id: int = Path(..., ge=0)) -> List[Product]:
     return get_product_by_id(product_id)
-
-#   Return all the deleted products
-@router.get("/deleted_products", response_model=List[Product])
-async def get_deleted_products_list() -> List[Product]:
-    return deleted_products
 
 #   ---------------
 #        POST
@@ -93,7 +83,6 @@ async def restore_product_endpoint(product_id: int = Path(..., ge=0)) -> Product
     
     return { 
         'products': list_products, 
-        'deleted_products': deleted_products, 
         'redo_products': redo_stack 
     }
 
@@ -104,7 +93,6 @@ async def redo_product_endpoint() -> ProductsResponse:
     
     return { 
         'products': list_products, 
-        'deleted_products': deleted_products, 
         'redo_products': redo_stack 
     }
 

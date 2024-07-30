@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { ProductsProps } from 'app/interfaces/ComponentsProps';
 
 export const Products: React.FC<ProductsProps> = ({
+    title,
 	products,
 	severity,
 	badgeTitle,
@@ -15,6 +16,9 @@ export const Products: React.FC<ProductsProps> = ({
 	const router = useRouter();
 
 	return (
+        <>
+        
+		    <h1>{title}</h1>
 		<div
 			data-testid="products-list"
 			className="fr-grid-row fr-grid-row--gutters fr-my-2w"
@@ -47,25 +51,30 @@ export const Products: React.FC<ProductsProps> = ({
 							footer={
 								<ul className="fr-btns-group fr-btns-group--inline-reverse fr-btns-group--inline-lg">
 									<li>
-										{!product.is_deleted && <button
-											id={product.title}
-											data-testid={
-												!product.is_deleted &&
-												`edit-button-${product.id}`
-											}
-											onClick={() =>
-												router.push(
-													`/products/${product?.id}/edit`,
-												)
-											}
-											className="fr-btn"
-										>
-											Modifier
-										</button>}
+										{!product.is_deleted && (
+											<button
+												id={product.title}
+												data-testid={
+													!product.is_deleted &&
+													`edit-button-${product.id}`
+												}
+												onClick={() =>
+													router.push(
+														`/products/${product?.id}/edit`,
+													)
+												}
+												className="fr-btn"
+											>
+												Modifier
+											</button>
+										)}
 									</li>
 									<li>
 										<button
-											data-testid={!product.is_deleted && `delete-button-${product.id}`}
+											data-testid={
+												!product.is_deleted &&
+												`delete-button-${product.id}`
+											}
 											className="fr-btn fr-btn--secondary"
 											onClick={() =>
 												handleClick(product.id)
@@ -88,5 +97,6 @@ export const Products: React.FC<ProductsProps> = ({
 					</div>
 				))}
 		</div>
+        </>
 	);
 };

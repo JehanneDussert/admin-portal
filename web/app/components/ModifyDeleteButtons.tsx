@@ -20,6 +20,7 @@ export const ModifyDeleteButtons: React.FC<ModifyDeleteButtonsProps> = ({
 	};
 
 	return (
+		<div  className='fr-col'>
 		<div className="fr-grid-row fr-grid-row--right">
 			<Button
 				iconId="fr-icon-ball-pen-fill"
@@ -35,6 +36,6 @@ export const ModifyDeleteButtons: React.FC<ModifyDeleteButtonsProps> = ({
 				title="Supprimer"
 				onClick={() => handleDelete(product.id)}
 			/>
-		</div>
+		</div></div>
 	);
 };

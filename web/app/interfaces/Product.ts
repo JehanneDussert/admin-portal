@@ -16,3 +16,9 @@ export interface Product {
 	last_modified: Date;
 	is_deleted: boolean;
 }
+
+export interface AllProducts {
+	availableProducts: Product[];
+	deletedProducts: Product[];
+	redoProducts: Product[];
+}

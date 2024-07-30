@@ -6,11 +6,10 @@ import {
 } from '../constants/constants';
 import Button from '@codegouvfr/react-dsfr/Button';
 import { UndoRedoButtonsProps } from 'app/interfaces/ComponentsProps';
+import { Product } from 'app/interfaces/Product';
 
 export const UndoRedoButtons: React.FC<UndoRedoButtonsProps> = ({
-	setProducts,
-	setDeletedProducts,
-	setRedoProducts,
+	setAllProducts,
 	undoVisibility,
 	redoVisibility,
 	productId,
@@ -21,9 +20,16 @@ export const UndoRedoButtons: React.FC<UndoRedoButtonsProps> = ({
 			method: 'POST',
 		});
 
-		setProducts(data.products);
-		setDeletedProducts(data.deleted_products);
-		setRedoProducts(data.redo_products);
+		setAllProducts((prevState) => ({
+			...prevState,
+			availableProducts: data.products.filter(
+				(product: Product) => !product.is_deleted,
+			),
+			deletedProducts: data.products.filter(
+				(product: Product) => product.is_deleted,
+			),
+			redoProducts: data.redo_products,
+		}));
 	};
 
 	const handleRestoreProducts = async (productId: number) => {
@@ -32,9 +38,16 @@ export const UndoRedoButtons: React.FC<UndoRedoButtonsProps> = ({
 			method: 'POST',
 		});
 
-		setProducts(data.products);
-		setDeletedProducts(data.deleted_products);
-		setRedoProducts(data.redo_products);
+		setAllProducts((prevState) => ({
+			...prevState,
+			availableProducts: data.products.filter(
+				(product: Product) => !product.is_deleted,
+			),
+			deletedProducts: data.products.filter(
+				(product: Product) => product.is_deleted,
+			),
+			redoProducts: data.redo_products,
+		}));
 	};
 
 	return (

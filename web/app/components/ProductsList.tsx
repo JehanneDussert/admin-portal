@@ -1,38 +1,33 @@
-import React, { useEffect } from 'react';
-import Card from '@codegouvfr/react-dsfr/Card';
-import { useRouter } from 'next/navigation';
+import React from 'react';
 import { useFetch } from '../hooks/hooks';
 import {
 	DELETE_PRODUCT_BY_ID,
-	GET_DELETED_PRODUCTS,
 	UPDATE_RESTORE_PRODUCT,
 } from '../constants/constants';
-import { ProductsListProps, Severity } from 'app/interfaces/ComponentsProps';
-import { Badge } from '@codegouvfr/react-dsfr/Badge';
-// import { getSeverity } from 'app/utils/utils';
-import { Tag } from '@codegouvfr/react-dsfr/Tag';
+import { ProductsListProps, ProductsType, Severity } from 'app/interfaces/ComponentsProps';
 import { Products } from './Products';
+import { Product } from 'app/interfaces/Product';
 
 export const ProductsList: React.FC<ProductsListProps> = ({
-	products,
-	setProducts,
-	setDeletedProducts,
-	setRedoProducts,
+	value,
+	allProducts,
+	setAllProducts,
 }) => {
-	const router = useRouter();
-
 	const handleDelete = async (id: number) => {
-		const updatedProducts = await useFetch({
+		const data = await useFetch({
 			url: DELETE_PRODUCT_BY_ID + `/${id}`,
 			method: 'DELETE',
 		});
-		const updatedDeletedProducts = await useFetch({
-			url: GET_DELETED_PRODUCTS,
-			method: 'GET',
-		});
 
-		setProducts(updatedProducts);
-		setDeletedProducts(updatedDeletedProducts);
+		setAllProducts((prevState) => ({
+			...prevState,
+			availableProducts: data.filter(
+				(product: Product) => !product.is_deleted,
+			),
+			deletedProducts: data.filter(
+				(product: Product) => product.is_deleted,
+			),
+		}));
 	};
 
 	const handleRestoreProducts = async (id: number) => {
@@ -41,29 +36,44 @@ export const ProductsList: React.FC<ProductsListProps> = ({
 			method: 'POST',
 		});
 
-		setProducts(data.products);
-		setDeletedProducts(data.deleted_products);
-		setRedoProducts(data.redo_products);
+		setAllProducts((prevState) => ({
+			...prevState,
+			availableProducts: data.products.filter(
+				(product: Product) => !product.is_deleted,
+			),
+			deletedProducts: data.products.filter(
+				(product: Product) => product.is_deleted,
+			),
+			redoProducts: data.redo_products,
+		}));
 	};
+
+	const isValueSelected = (productType: string, products: Product[]) => {
+		return value !== productType && products.length !== 0
+	}
 
 	return (
 		<>
-			<h1>Produits en ligne</h1>
-			<Products
-				products={products.filter((product) => !product.is_deleted)}
-				severity={Severity.Success}
-				badgeTitle="En ligne"
-				buttonTitle="Supprimer"
-				handleClick={handleDelete}
-			/>
-			<h1>Produits supprimés</h1>
-			<Products
-				products={products.filter((product) => product.is_deleted)}
-				severity={Severity.Error}
-				badgeTitle="Supprimé"
-				buttonTitle="Restaurer"
-				handleClick={handleRestoreProducts}
-			/>
+			{isValueSelected(ProductsType.Deleted, allProducts.availableProducts) && (
+					<Products
+						title='Produits en ligne'
+						products={allProducts.availableProducts}
+						severity={Severity.Success}
+						badgeTitle="En ligne"
+						buttonTitle="Supprimer"
+						handleClick={handleDelete}
+					/>
+			)}
+			{isValueSelected(ProductsType.Available, allProducts.deletedProducts) && (
+				<Products
+						title='Produits supprimés'
+						products={allProducts.deletedProducts}
+						severity={Severity.Error}
+						badgeTitle="Supprimé"
+						buttonTitle="Restaurer"
+						handleClick={handleRestoreProducts}
+					/>
+			)}
 		</>
 	);
 };

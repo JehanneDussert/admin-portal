@@ -10,6 +10,8 @@ import { Reviews } from 'app/components/Reviews';
 import { Badge } from '@codegouvfr/react-dsfr/Badge';
 import { getSeverity } from 'app/utils/utils';
 import { Severity } from 'app/interfaces/ComponentsProps';
+import Button from '@codegouvfr/react-dsfr/Button';
+import { useRouter } from 'next/navigation';
 
 export default function ProductInfos({
 	params,
@@ -22,6 +24,7 @@ export default function ProductInfos({
 		month: 'long',
 		day: 'numeric',
 	};
+	const router = useRouter();
 	const [error, setError] = useState<Error | null>(null);
 
 	useEffect(() => {
@@ -49,23 +52,37 @@ export default function ProductInfos({
 		<div className="fr-grid-col">
 			{product && (
 				<>
-					<div className="fr-grid-row">
-						<div className="fr-col">
-							<h1 className="fr-col">{product.title}</h1>
+					<div className="fr-grid-col">
+						<div className="fr-grid-row fr-my-4w">
+							<Button
+								iconId="fr-icon-arrow-left-s-line"
+								onClick={() => router.push('/')}
+							>
+								Retour
+							</Button>
+							<ModifyDeleteButtons product={product} />
+						</div>
+							<h1 className="">{product.title}</h1>
 							<p>
 								Modifié le{' '}
 								{new Date(
 									product.last_modified,
 								).toLocaleDateString(undefined, options)}
 							</p>
-						</div>
-						<ModifyDeleteButtons product={product} />
 					</div>
 					<Badge noIcon severity={getSeverity(product.average_rate)}>
 						Note moyenne : {product.average_rate}
 					</Badge>
-					<Badge noIcon severity={product.is_deleted ? Severity.Error : Severity.Success} className='fr-ml-2w'>
-						{product.is_deleted ? "Supprimé" : "En ligne"}
+					<Badge
+						noIcon
+						severity={
+							product.is_deleted
+								? Severity.Error
+								: Severity.Success
+						}
+						className="fr-ml-2w"
+					>
+						{product.is_deleted ? 'Supprimé' : 'En ligne'}
 					</Badge>
 					<h3 className="fr-my-2w">{product.price}€</h3>
 					<div className="fr-container fr-my-4w">

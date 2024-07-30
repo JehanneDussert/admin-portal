@@ -1,16 +1,13 @@
-import { Product, Review } from './Product';
+import { AllProducts, Product, Review } from './Product';
 
 export interface ProductsListProps {
-	products: Product[];
-	setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
-	setDeletedProducts: React.Dispatch<React.SetStateAction<Product[]>>;
-	setRedoProducts: React.Dispatch<React.SetStateAction<Product[]>>;
+	value: string;
+	allProducts: AllProducts;
+	setAllProducts: React.Dispatch<React.SetStateAction<AllProducts>>;
 }
 
 export interface UndoRedoButtonsProps {
-	setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
-	setDeletedProducts: React.Dispatch<React.SetStateAction<Product[]>>;
-	setRedoProducts: React.Dispatch<React.SetStateAction<Product[]>>;
+	setAllProducts: React.Dispatch<React.SetStateAction<AllProducts>>;
 	undoVisibility: boolean;
 	redoVisibility: boolean;
 	productId: number;
@@ -24,12 +21,19 @@ export interface ReviewsProps {
 	reviews: Review[];
 }
 
+export enum ProductsType {
+	All = 'all',
+	Available = 'available',
+	Deleted = 'deleted',
+}
+
 export enum Severity {
 	Error = 'error',
 	Success = 'success',
 }
 
 export interface ProductsProps {
+	title: string;
 	products: Product[];
 	severity: Severity | 'new' | undefined;
 	badgeTitle: string;

@@ -31,7 +31,10 @@ redo_stack: List[Product] = []
 
 #   Return all the available products
 def get_products() -> ProductsResponse:
-    return { 'products': list_products, 'deleted_products': deleted_products, 'redo_products': redo_stack }
+    return { 
+        'products': list_products, 
+        'redo_products': redo_stack
+    }
 
 #   Return a product identified by its id
 def get_product_by_id(product_id: int) -> Product:

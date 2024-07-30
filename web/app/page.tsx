@@ -1,27 +1,42 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { GET_ALL_PRODUCTS, GET_PRODUCTS_BY_NAME } from './constants/constants';
-import { Product } from './interfaces/Product';
+import {
+	GET_ALL_PRODUCTS,
+	GET_PRODUCTS_BY_NAME,
+	selectOptions,
+} from './constants/constants';
+import { AllProducts, Product } from './interfaces/Product';
 import { SearchBar } from '@codegouvfr/react-dsfr/SearchBar';
 import { useFetch } from './hooks/hooks';
 import { ProductsList } from './components/ProductsList';
 import { UndoRedoButtons } from './components/UndoRedoButtons';
 import { RadioButtons } from '@codegouvfr/react-dsfr/RadioButtons';
+import { Select } from '@codegouvfr/react-dsfr/SelectNext';
 
 export default function Home() {
-	const [products, setProducts] = useState<Product[]>([]);
-	const [deletedProducts, setDeletedProducts] = useState<Product[]>([]);
-	const [redoProducts, setRedoProducts] = useState<Product[]>([]);
+	const [allProducts, setAllProducts] = useState<AllProducts>({
+		availableProducts: [],
+		deletedProducts: [],
+		redoProducts: [],
+	});
+	const [value, setValue] = useState<string>('all');
 	const [error, setError] = useState<Error | null>(null);
 
 	const fetchProducts = async (url: string) => {
 		try {
 			const data = await useFetch({ url, method: 'GET' });
 
-			setProducts(data.products);
-			setDeletedProducts(data.deleted_products);
-			setRedoProducts(data.redo_products);
+			setAllProducts(() => ({
+				availableProducts: data.products.filter(
+					(product: Product) => !product.is_deleted,
+				),
+				deletedProducts: data.products.filter(
+					(product: Product) => product.is_deleted,
+				),
+				redoProducts: data.redo_products,
+			}));
+			
 		} catch (error) {
 			setError(error as Error);
 		}
@@ -47,12 +62,24 @@ export default function Home() {
 
 	return (
 		<div className="fr-container fr-my-4w">
-			<SearchBar
-				data-testid="search-bar"
-				onButtonClick={handleSearch}
-				allowEmptySearch={true}
-			/>
-			<div className="fr-grid-row fr-grid-row--right fr-my-2w">
+			<div className="fr-grid-row fr-grid-row--gutters">
+				<SearchBar
+					className="fr-col-9 fr-p-0"
+					data-testid="search-bar"
+					onButtonClick={handleSearch}
+					allowEmptySearch={true}
+				/>
+				<Select
+					className="fr-col-3 fr-p-0"
+					label={null}
+					options={selectOptions}
+					nativeSelectProps={{
+						value,
+						onChange: (e) => setValue(e.target.value),
+					}}
+				/>
+			</div>
+			<div className="fr-grid-row fr-grid-row--right fr-my-4w">
 				<RadioButtons
 					legend="Trier par"
 					name="radio"
@@ -84,21 +111,25 @@ export default function Home() {
 				/>
 				<UndoRedoButtons
 					data-testid="undo-redo-buttons"
-					setProducts={setProducts}
-					setDeletedProducts={setDeletedProducts}
-					setRedoProducts={setRedoProducts}
-					undoVisibility={deletedProducts.length === 0}
-					redoVisibility={redoProducts.length === 0}
-					productId={deletedProducts[deletedProducts.length - 1] !== undefined ? deletedProducts[deletedProducts.length - 1].id : -1}
+					setAllProducts={setAllProducts}
+					undoVisibility={allProducts.deletedProducts.length === 0}
+					redoVisibility={allProducts.redoProducts.length === 0}
+					productId={
+						allProducts.deletedProducts[
+							allProducts.deletedProducts.length - 1
+						] !== undefined
+							? allProducts.deletedProducts[
+									allProducts.deletedProducts.length - 1
+								].id
+							: -1
+					}
 				/>
 			</div>
 			<ProductsList
-				products={products}
-				setProducts={setProducts}
-				setDeletedProducts={setDeletedProducts}
-				setRedoProducts={setRedoProducts}
+				value={value}
+				allProducts={allProducts}
+				setAllProducts={setAllProducts}
 			/>
-			{/* SET PAGINATION */}
 		</div>
 	);
 }
