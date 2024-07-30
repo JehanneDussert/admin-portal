@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import Card from '@codegouvfr/react-dsfr/Card';
 import { useRouter } from 'next/navigation';
-import { useFetch } from '../utils/hooks';
+import { useFetch } from '../hooks/hooks';
 import {
 	DELETE_PRODUCT_BY_ID,
 	GET_DELETED_PRODUCTS,
 	UPDATE_RESTORE_PRODUCT,
-} from '../utils/constants';
+} from '../constants/constants';
 import { ProductsListProps, Severity } from 'app/interfaces/ComponentsProps';
 import { Badge } from '@codegouvfr/react-dsfr/Badge';
 // import { getSeverity } from 'app/utils/utils';

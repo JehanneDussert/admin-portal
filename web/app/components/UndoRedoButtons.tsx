@@ -1,9 +1,9 @@
 import React from 'react';
-import { useFetch } from '../utils/hooks';
+import { useFetch } from '../hooks/hooks';
 import {
 	UPDATE_REDO_PRODUCT,
 	UPDATE_RESTORE_PRODUCT,
-} from '../utils/constants';
+} from '../constants/constants';
 import Button from '@codegouvfr/react-dsfr/Button';
 import { UndoRedoButtonsProps } from 'app/interfaces/ComponentsProps';
 

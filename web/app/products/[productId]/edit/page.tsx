@@ -1,12 +1,12 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { GET_ALL_PRODUCTS } from '../../../utils/constants';
+import { GET_ALL_PRODUCTS } from '../../../constants/constants';
 import { Product } from 'app/interfaces/Product';
 import { useRouter } from 'next/navigation';
 import Button from '@codegouvfr/react-dsfr/Button';
 import { Input } from '@codegouvfr/react-dsfr/Input';
-import { useFetch } from '../../../utils/hooks';
+import { useFetch } from '../../../hooks/hooks';
 import { Notice } from '@codegouvfr/react-dsfr/Notice';
 
 type Severity = 'success' | 'error' | 'default';

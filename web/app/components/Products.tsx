@@ -47,7 +47,7 @@ export const Products: React.FC<ProductsProps> = ({
 							footer={
 								<ul className="fr-btns-group fr-btns-group--inline-reverse fr-btns-group--inline-lg">
 									<li>
-										<button
+										{!product.is_deleted && <button
 											id={product.title}
 											data-testid={
 												!product.is_deleted &&
@@ -61,11 +61,11 @@ export const Products: React.FC<ProductsProps> = ({
 											className="fr-btn"
 										>
 											Modifier
-										</button>
+										</button>}
 									</li>
 									<li>
 										<button
-											// data-testid={`delete-button-${product.id}`}
+											data-testid={!product.is_deleted && `delete-button-${product.id}`}
 											className="fr-btn fr-btn--secondary"
 											onClick={() =>
 												handleClick(product.id)

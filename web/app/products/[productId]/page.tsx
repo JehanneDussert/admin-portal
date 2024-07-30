@@ -1,14 +1,15 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { GET_ALL_PRODUCTS } from '../../utils/constants';
+import { GET_ALL_PRODUCTS } from '../../constants/constants';
 import { Product } from 'app/interfaces/Product';
 import { Accordion } from '@codegouvfr/react-dsfr/Accordion';
-import { useFetch } from '../../utils/hooks';
+import { useFetch } from '../../hooks/hooks';
 import { ModifyDeleteButtons } from '../../components/ModifyDeleteButtons';
 import { Reviews } from 'app/components/Reviews';
 import { Badge } from '@codegouvfr/react-dsfr/Badge';
 import { getSeverity } from 'app/utils/utils';
+import { Severity } from 'app/interfaces/ComponentsProps';
 
 export default function ProductInfos({
 	params,
@@ -62,6 +63,9 @@ export default function ProductInfos({
 					</div>
 					<Badge noIcon severity={getSeverity(product.average_rate)}>
 						Note moyenne : {product.average_rate}
+					</Badge>
+					<Badge noIcon severity={product.is_deleted ? Severity.Error : Severity.Success} className='fr-ml-2w'>
+						{product.is_deleted ? "Supprimé" : "En ligne"}
 					</Badge>
 					<h3 className="fr-my-2w">{product.price}€</h3>
 					<div className="fr-container fr-my-4w">

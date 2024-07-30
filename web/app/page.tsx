@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { GET_ALL_PRODUCTS, GET_PRODUCTS_BY_NAME } from './utils/constants';
+import { GET_ALL_PRODUCTS, GET_PRODUCTS_BY_NAME } from './constants/constants';
 import { Product } from './interfaces/Product';
 import { SearchBar } from '@codegouvfr/react-dsfr/SearchBar';
-import { useFetch } from './utils/hooks';
+import { useFetch } from './hooks/hooks';
 import { ProductsList } from './components/ProductsList';
 import { UndoRedoButtons } from './components/UndoRedoButtons';
 import { RadioButtons } from '@codegouvfr/react-dsfr/RadioButtons';
