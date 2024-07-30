@@ -22,3 +22,16 @@ export interface ModifyDeleteButtonsProps {
 export interface ReviewsProps {
 	reviews: Review[];
 }
+
+export enum Severity {
+	Error = 'error',
+	Success = 'success',
+}
+
+export interface ProductsProps {
+	products: Product[];
+	severity: Severity | 'new' | undefined;
+	badgeTitle: string;
+	buttonTitle: string;
+	handleClick: (productId: number) => void;
+}

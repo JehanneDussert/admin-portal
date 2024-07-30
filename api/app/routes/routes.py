@@ -74,12 +74,12 @@ def get_products_sorted_by_name() -> ProductsResponse:
 
 #   Return a product identified by its id
 @router.get("/products/{product_id}", response_model=Product)
-async def get_product(product_id: int = Path(..., ge=0)):
+async def get_product(product_id: int = Path(..., ge=0)) -> List[Product]:
     return get_product_by_id(product_id)
 
 #   Return all the deleted products
 @router.get("/deleted_products", response_model=List[Product])
-async def get_deleted_products_list():
+async def get_deleted_products_list() -> List[Product]:
     return deleted_products
 
 #   ---------------
@@ -87,9 +87,9 @@ async def get_deleted_products_list():
 #   ---------------
 
 #   Undo last product deletion
-@router.post("/restore_product", response_model=ProductsResponse)
-async def restore_product_endpoint():
-    restore_product()
+@router.post("/restore_product/{product_id}", response_model=ProductsResponse)
+async def restore_product_endpoint(product_id: int = Path(..., ge=0)) -> ProductsResponse:
+    restore_product(product_id)
     
     return { 
         'products': list_products, 
@@ -99,7 +99,7 @@ async def restore_product_endpoint():
 
 #   Redo last restored product deletion
 @router.post("/redo_product", response_model=ProductsResponse)
-async def redo_product_endpoint():
+async def redo_product_endpoint() -> ProductsResponse:
     redo_product()
     
     return { 
@@ -114,7 +114,7 @@ async def redo_product_endpoint():
 
 #   Update one product identified by its id
 @router.put("/products/{product_id}", response_model=Product)
-async def update_product_endpoint(product: Product):
+async def update_product_endpoint(product: Product) -> Product:
     return update_product(product)
 
 #   ---------------
@@ -123,5 +123,5 @@ async def update_product_endpoint(product: Product):
 
 #   Delete one product identified by its id
 @router.delete("/delete_product/{product_id}", response_model=List[Product])
-async def delete_product_by_id(product_id: int = Path(..., ge=0)):
+async def delete_product_by_id(product_id: int = Path(..., ge=0)) -> List[Product]:
     return delete_product(product_id)

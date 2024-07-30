@@ -22,6 +22,7 @@ export default function RootLayout({ children }: { children: JSX.Element }) {
 	return (
 		<html lang={lang} {...getHtmlAttributes({ defaultColorScheme, lang })}>
 			<head>
+				<title>Test Jehanne Dussert</title>
 				<StartDsfr />
 				{isClient && <DsfrHead Link={Link} />}
 			</head>

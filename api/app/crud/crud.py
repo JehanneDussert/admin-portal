@@ -73,13 +73,18 @@ def delete_product(product_id: int) -> List[Product]:
     return list_products
 
 #   Restore last deleted product and return updated list
-def restore_product() -> List[Product]:
+def restore_product(product_id: int) -> List[Product]:
     
     if not deleted_products:
         raise HTTPException(status_code=404, detail="No product to restore")
     
-    product_to_restore = deleted_products.pop()
+    product_to_restore = next((product for product in deleted_products if product.id == product_id), None)
+    
+    if not product_to_restore:
+        raise HTTPException(status_code=404, detail="Product to restore does not existe")
+    
     product_to_restore.is_deleted = False
+    deleted_products.remove(product_to_restore)
     redo_stack.append(product_to_restore)
  
     return list_products
