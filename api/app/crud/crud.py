@@ -31,7 +31,7 @@ deleted_products: List[Product] = [
 ]
 
 #   Save restore products to replay deletion
-redo_stack: List[Product] = []
+redo_products: List[Product] = []
 
 #   ---------------------
 #       GET products
@@ -42,7 +42,7 @@ redo_stack: List[Product] = []
 def get_products() -> ProductsResponse:
     return {
         "products": list_products,
-        "redo_products": redo_stack,
+        "redo_products": redo_products,
     }
 
 
@@ -106,7 +106,7 @@ def delete_product(
 #   Restore last deleted product and return updated list
 def restore_product(
     product_id: int,
-) -> List[Product]:
+) -> ProductsResponse:
 
     if not deleted_products:
         raise HTTPException(
@@ -131,23 +131,23 @@ def restore_product(
 
     product_to_restore.is_deleted = False
     deleted_products.remove(product_to_restore)
-    redo_stack.append(product_to_restore)
+    redo_products.append(product_to_restore)
 
-    return list_products
+    return { "products": list_products, "redo_products": redo_products }
 
 
 #   Replay product deletion and return updated list
 def redo_product() -> List[Product]:
 
-    if not redo_stack:
+    if not redo_products:
         raise HTTPException(
             status_code=404,
             detail="No product to redo",
         )
 
-    product_to_redo = redo_stack.pop()
+    product_to_redo = redo_products.pop()
     product_to_redo.is_deleted = True
 
     deleted_products.append(product_to_redo)
 
-    return list_products
+    return { "products": list_products, "redo_products": redo_products }

@@ -4,7 +4,7 @@ from typing import List
 from fastapi import APIRouter, Path, Query
 
 from app.crud.crud import (delete_product, get_product_by_id, get_products,
-                           list_products, redo_product, redo_stack,
+                           list_products, redo_product, redo_products,
                            restore_product, update_product)
 from app.models.product import Product, ProductsResponse
 
@@ -15,7 +15,7 @@ router = APIRouter()
 #   ---------------
 
 
-#   Return all the available products
+#   Return all the products
 @router.get("/products", response_model=ProductsResponse)
 async def get_products_list() -> ProductsResponse:
     return get_products()
@@ -37,12 +37,12 @@ async def get_products_searched_by_name(
         ]
         return {
             "products": filtered_products,
-            "redo_products": redo_stack,
+            "redo_products": redo_products,
         }
 
     return {
         "products": list_products,
-        "redo_products": redo_stack,
+        "redo_products": redo_products,
     }
 
 
@@ -64,7 +64,7 @@ def get_products_sorted_by_date() -> ProductsResponse:
 
     return {
         "products": sorted_products,
-        "redo_products": redo_stack,
+        "redo_products": redo_products,
     }
 
 
@@ -82,7 +82,7 @@ def get_products_sorted_by_rate() -> ProductsResponse:
 
     return {
         "products": sorted_products,
-        "redo_products": redo_stack,
+        "redo_products": redo_products,
     }
 
 
@@ -99,7 +99,7 @@ def get_products_sorted_by_name() -> ProductsResponse:
 
     return {
         "products": sorted_products,
-        "redo_products": redo_stack,
+        "redo_products": redo_products,
     }
 
 
@@ -129,7 +129,7 @@ async def restore_product_endpoint(
 
     return {
         "products": list_products,
-        "redo_products": redo_stack,
+        "redo_products": redo_products,
     }
 
 
@@ -143,7 +143,7 @@ async def redo_product_endpoint() -> ProductsResponse:
 
     return {
         "products": list_products,
-        "redo_products": redo_stack,
+        "redo_products": redo_products,
     }
 
 

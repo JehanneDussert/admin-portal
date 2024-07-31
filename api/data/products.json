@@ -1,7 +1,7 @@
 [
     {
         "id": 0,
-        "title": "Produit A",
+        "title": "Produit AB",
         "resume": "Une brève description du produit A.",
         "desc": "Description détaillée du produit A.",
         "price": 29,
@@ -14,7 +14,7 @@
     },
     {
         "id": 1,
-        "title": "Produit B",
+        "title": "Produit BC",
         "resume": "Une brève description du produit B.",
         "desc": "Description détaillée du produit B.",
         "price": 49,
@@ -27,7 +27,7 @@
     },
     {
         "id": 2,
-        "title": "Produit C",
+        "title": "Produit CD",
         "resume": "Une brève description du produit C.",
         "desc": "Description détaillée du produit C.",
         "price": 19,
@@ -40,7 +40,7 @@
     },
     {
         "id": 3,
-        "title": "Produit D",
+        "title": "Produit DE",
         "resume": "Une brève description du produit D.",
         "desc": "Description détaillée du produit D.",
         "price": 89,
@@ -53,7 +53,7 @@
     },
     {
         "id": 4,
-        "title": "Produit E",
+        "title": "Produit EF",
         "resume": "Une brève description du produit E.",
         "desc": "Description détaillée du produit E.",
         "price": 35,
@@ -66,7 +66,7 @@
     },
     {
         "id": 5,
-        "title": "Produit F",
+        "title": "Produit FG",
         "resume": "Une brève description du produit F.",
         "desc": "Description détaillée du produit F.",
         "price": 55,
@@ -79,7 +79,7 @@
     },
     {
         "id": 6,
-        "title": "Produit G",
+        "title": "Produit GH",
         "resume": "Une brève description du produit G.",
         "desc": "Description détaillée du produit G.",
         "price": 45,
@@ -88,11 +88,11 @@
             {"title": "Bon produit", "desc": "Répond aux attentes.", "rate": 4, "date": "2024-07-08"},
             {"title": "Pas satisfait", "desc": "La qualité pourrait être meilleure.", "rate": 2, "date": "2024-06-18"}
         ],
-        "is_deleted": true
+        "is_deleted": false
     },
     {
         "id": 7,
-        "title": "Produit H",
+        "title": "Produit HI",
         "resume": "Une brève description du produit H.",
         "desc": "Description détaillée du produit H.",
         "price": 22,
@@ -105,7 +105,7 @@
     },
     {
         "id": 8,
-        "title": "Produit I",
+        "title": "Produit IJ",
         "resume": "Une brève description du produit I.",
         "desc": "Description détaillée du produit I.",
         "price": 79,
@@ -118,7 +118,7 @@
     },
     {
         "id": 9,
-        "title": "Produit J",
+        "title": "Produit JK",
         "resume": "Une brève description du produit J.",
         "desc": "Description détaillée du produit J.",
         "price": 60,
@@ -131,7 +131,7 @@
     },
     {
         "id": 10,
-        "title": "Produit K",
+        "title": "Produit KL",
         "resume": "Une brève description du produit K.",
         "desc": "Description détaillée du produit K.",
         "price": 12,
@@ -140,11 +140,11 @@
             {"title": "Bon marché et joyeux", "desc": "Correct pour le prix.", "rate": 4, "date": "2024-07-25"},
             {"title": "Pas génial", "desc": "Le produit semble fragile.", "rate": 2, "date": "2024-06-09"}
         ],
-        "is_deleted": true
+        "is_deleted": false
     },
     {
         "id": 11,
-        "title": "Produit L",
+        "title": "Produit LM",
         "resume": "Une brève description du produit L.",
         "desc": "Description détaillée du produit L.",
         "price": 92,
@@ -157,7 +157,7 @@
     },
     {
         "id": 12,
-        "title": "Produit M",
+        "title": "Produit MN",
         "resume": "Une brève description du produit M.",
         "desc": "Description détaillée du produit M.",
         "price": 28,
@@ -170,7 +170,7 @@
     },
     {
         "id": 13,
-        "title": "Produit N",
+        "title": "Produit NO",
         "resume": "Une brève description du produit N.",
         "desc": "Description détaillée du produit N.",
         "price": 65,
@@ -183,7 +183,7 @@
     },
     {
         "id": 14,
-        "title": "Produit O",
+        "title": "Produit OP",
         "resume": "Une brève description du produit O.",
         "desc": "Description détaillée du produit O.",
         "price": 38,
@@ -192,11 +192,11 @@
             {"title": "Bon produit", "desc": "C'est un bel ajout.", "rate": 4, "date": "2024-07-17"},
             {"title": "Décevant", "desc": "Pas aussi bien que je l'espérais.", "rate": 2, "date": "2024-06-29"}
         ],
-        "is_deleted": true
+        "is_deleted": false
     },
     {
         "id": 15,
-        "title": "Produit P",
+        "title": "Produit PQ",
         "resume": "Une brève description du produit P.",
         "desc": "Description détaillée du produit P.",
         "price": 85,
@@ -209,7 +209,7 @@
     },
     {
         "id": 16,
-        "title": "Produit Q",
+        "title": "Produit QR",
         "resume": "Une brève description du produit Q.",
         "desc": "Description détaillée du produit Q.",
         "price": 21,
@@ -222,7 +222,7 @@
     },
     {
         "id": 17,
-        "title": "Produit R",
+        "title": "Produit RS",
         "resume": "Une brève description du produit R.",
         "desc": "Description détaillée du produit R.",
         "price": 74,
@@ -235,7 +235,7 @@
     },
     {
         "id": 18,
-        "title": "Produit S",
+        "title": "Produit ST",
         "resume": "Une brève description du produit S.",
         "desc": "Description détaillée du produit S.",
         "price": 48,
