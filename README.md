@@ -11,12 +11,14 @@
 ### ✏️ Modification des informations d’un produit
 - [x] Depuis la page d'accueil avec redirection vers la page produit
 - [x] Depuis la page produit
-- [x] ⚠️ Les avis et notes laissées par les internautes ne peuvent pas être modifiés
+
+<br/>⚠️ Les avis et notes laissées par les internautes ne peuvent pas être modifiés
 
 ### 🗑️ Suppression d’un produit du catalogue
 - [x] Depuis la page d'accueil
 - [x] Depuis la page produit avec redirection vers l'accueil
-Le produit peut ensuite être restauré grâce au bouton "Restaurer" sur la carte produit ou grâce au bouton "Undo" / flèche retour. La suppression peut-être rejouée si annulée grâce au bouton "Redo".
+
+<br/>Le produit peut ensuite être restauré grâce au bouton "Restaurer" sur la carte produit ou grâce au bouton "Undo" / flèche retour. La suppression peut-être rejouée si annulée grâce au bouton "Redo".
 
 ## 💻 Installation
 
