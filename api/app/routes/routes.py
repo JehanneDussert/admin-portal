@@ -35,15 +35,13 @@ async def get_products_searched_by_name(
             for product in list_products
             if product_name.lower() in product.title.lower()
         ]
-        return {
-            "products": filtered_products,
-            "redo_products": redo_products,
-        }
+        return ProductsResponse(
+            products=filtered_products, redo_products=redo_products
+        )
 
-    return {
-        "products": list_products,
-        "redo_products": redo_products,
-    }
+    return ProductsResponse(
+        products=list_products, redo_products=redo_products
+    )
 
 
 #   Return products sorted by date
@@ -62,10 +60,9 @@ def get_products_sorted_by_date():
         reverse=True,
     )
 
-    return {
-        "products": sorted_products,
-        "redo_products": redo_products,
-    }
+    return ProductsResponse(
+        products=sorted_products, redo_products=redo_products
+    )
 
 
 #   Return products sorted by rate
@@ -80,10 +77,9 @@ def get_products_sorted_by_rate() -> ProductsResponse:
         reverse=True,
     )
 
-    return {
-        "products": sorted_products,
-        "redo_products": redo_products,
-    }
+    return ProductsResponse(
+        products=sorted_products, redo_products=redo_products
+    )
 
 
 #   Return products sorted by name
@@ -97,10 +93,9 @@ def get_products_sorted_by_name() -> ProductsResponse:
         key=lambda p: p.title.lower(),
     )
 
-    return {
-        "products": sorted_products,
-        "redo_products": redo_products,
-    }
+    return ProductsResponse(
+        products=sorted_products, redo_products=redo_products
+    )
 
 
 #   Return a product identified by its id
@@ -127,10 +122,9 @@ async def restore_product_endpoint(
 ) -> ProductsResponse:
     restore_product(product_id)
 
-    return {
-        "products": list_products,
-        "redo_products": redo_products,
-    }
+    return ProductsResponse(
+        products=list_products, redo_products=redo_products
+    )
 
 
 #   Redo last restored product deletion
@@ -141,10 +135,9 @@ async def restore_product_endpoint(
 async def redo_product_endpoint() -> ProductsResponse:
     redo_product()
 
-    return {
-        "products": list_products,
-        "redo_products": redo_products,
-    }
+    return ProductsResponse(
+        products=list_products, redo_products=redo_products
+    )
 
 
 #   ---------------
@@ -170,10 +163,14 @@ async def update_product_endpoint(
 
 #   Delete one product identified by its id
 @router.delete(
-    "/delete_product/{product_id}",
-    response_model=List[Product],
+    "/delete_product/{product_id}", response_model=ProductsResponse
 )
 async def delete_product_by_id(
     product_id: int = Path(..., ge=0)
-) -> List[Product]:
-    return delete_product(product_id)
+) -> ProductsResponse:
+    delete_product(product_id)
+    redo_products = []
+
+    return ProductsResponse(
+        products=list_products, redo_products=redo_products
+    )

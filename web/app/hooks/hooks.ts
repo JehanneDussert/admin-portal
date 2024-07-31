@@ -12,7 +12,6 @@ export const useFetch = async (props: fetchProps) => {
 			headers: headers,
 			body: body,
 		});
-
 		if (response.ok) {
 			return response.json();
 		} else {

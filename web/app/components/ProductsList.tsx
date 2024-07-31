@@ -27,15 +27,7 @@ export const ProductsList: React.FC<ProductsListProps> = ({
 				method: 'DELETE',
 			});
 
-			setAllProducts((prevState) => ({
-				...prevState,
-				availableProducts: data.filter(
-					(product: Product) => !product.is_deleted,
-				),
-				deletedProducts: data.filter(
-					(product: Product) => product.is_deleted,
-				),
-			}));
+			setAllProductsFromData(data, setAllProducts);
 		} catch (error) {
 			setError(error as Error);
 		}

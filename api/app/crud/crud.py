@@ -40,10 +40,9 @@ redo_products: List[Product] = []
 
 #   Return all the available products
 def get_products() -> ProductsResponse:
-    return {
-        "products": list_products,
-        "redo_products": redo_products,
-    }
+    return ProductsResponse(
+        products=list_products, redo_products=redo_products
+    )
 
 
 #   Return a product identified by its id
@@ -87,15 +86,9 @@ def update_product(product: Product) -> Product:
 
 
 #   Delete a product identified by its id and return updated list
-def delete_product(
-    product_id: int,
-) -> List[Product]:
-
+def delete_product(product_id: int) -> List[Product]:
     if product_id >= len(list_products):
-        raise HTTPException(
-            status_code=404,
-            detail="Product not found",
-        )
+        raise HTTPException(status_code=404, detail="Product not found")
 
     list_products[product_id].is_deleted = True
     deleted_products.append(list_products[product_id])
@@ -133,7 +126,9 @@ def restore_product(
     deleted_products.remove(product_to_restore)
     redo_products.append(product_to_restore)
 
-    return {"products": list_products, "redo_products": redo_products}
+    return ProductsResponse(
+        products=list_products, redo_products=redo_products
+    )
 
 
 #   Replay product deletion and return updated list
@@ -150,4 +145,6 @@ def redo_product() -> List[Product]:
 
     deleted_products.append(product_to_redo)
 
-    return {"products": list_products, "redo_products": redo_products}
+    return ProductsResponse(
+        products=list_products, redo_products=redo_products
+    )
