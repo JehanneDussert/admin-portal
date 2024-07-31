@@ -84,6 +84,14 @@ export const ProductsList: React.FC<ProductsListProps> = ({
 					handleClick={handleRestoreProducts}
 				/>
 			)}
+			{!isValueSelected(
+				ProductsType.Deleted,
+				allProducts.availableProducts,
+			) &&
+				!isValueSelected(
+					ProductsType.Available,
+					allProducts.deletedProducts,
+				) && <h1>Aucun produit ne correspond à votre recherche.</h1>}
 		</>
 	);
 };

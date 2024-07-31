@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { GET_ALL_PRODUCTS } from '../../../constants/constants';
 import { Product } from 'app/interfaces/Product';
 import { useRouter } from 'next/navigation';
@@ -30,6 +30,8 @@ export default function Edit({ params }: { params: { productId: number } }) {
 		resume: 'default' as Severity,
 		desc: 'default' as Severity,
 	});
+	const resumeTextAreaRef = useRef<HTMLTextAreaElement>(null);
+	const descTextAreaRef = useRef<HTMLTextAreaElement>(null);
 	const [visibility, setVisibility] = useState<boolean>(false);
 	const [error, setError] = useState<Error | null>(null);
 
@@ -73,6 +75,17 @@ export default function Edit({ params }: { params: { productId: number } }) {
 			return newStates;
 		});
 	};
+
+	useEffect(() => {
+		if (resumeTextAreaRef.current) {
+			resumeTextAreaRef.current.style.height = 'auto';
+			resumeTextAreaRef.current.style.height = `${resumeTextAreaRef.current.scrollHeight}px`;
+		}
+		if (descTextAreaRef.current) {
+			descTextAreaRef.current.style.height = 'auto';
+			descTextAreaRef.current.style.height = `${descTextAreaRef.current.scrollHeight}px`;
+		}
+	}, [product.resume, product.desc]);
 
 	const updateProduct = async () => {
 		try {
@@ -148,6 +161,7 @@ export default function Edit({ params }: { params: { productId: number } }) {
 					name: 'resume',
 					value: product?.resume,
 					onChange: handleTextAreaChange,
+					ref: resumeTextAreaRef,
 				}}
 				state={states.resume}
 				stateRelatedMessage="Veuillez saisir un résumé correct."
@@ -159,6 +173,7 @@ export default function Edit({ params }: { params: { productId: number } }) {
 					name: 'desc',
 					value: product?.desc,
 					onChange: handleTextAreaChange,
+					ref: descTextAreaRef,
 				}}
 				state={states.desc}
 				stateRelatedMessage="Veuillez saisir une description correcte."
