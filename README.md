@@ -6,7 +6,7 @@
 - [Stack](#-stack)
 - [Commandes Make](#-commandes-make)
 - [Tests](#-tests)
-- [Accès et routage](#-accès)
+- [Accès](#-accès)
 - [Ressources](#-ressources)
 
 ## 💻 Fonctionnalités
