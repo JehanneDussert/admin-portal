@@ -24,6 +24,7 @@ export default function RootLayout({ children }: { children: JSX.Element }) {
 			<head>
 				<title>Test Jehanne Dussert</title>
 				<StartDsfr />
+				{/* disable header from DSFR for testing with cypress */}
 				{isClient && <DsfrHead Link={Link} />}
 			</head>
 			<body>

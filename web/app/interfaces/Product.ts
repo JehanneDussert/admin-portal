@@ -22,3 +22,12 @@ export interface AllProducts {
 	deletedProducts: Product[];
 	redoProducts: Product[];
 }
+
+export type Severity = 'success' | 'error' | 'default';
+
+export interface SeverityStates {
+	price: Severity;
+	title: Severity;
+	resume: Severity;
+	desc: Severity;
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useFetch } from '../hooks/hooks';
 import {
 	UPDATE_REDO_PRODUCT,
@@ -6,7 +6,7 @@ import {
 } from '../constants/constants';
 import Button from '@codegouvfr/react-dsfr/Button';
 import { UndoRedoButtonsProps } from 'app/interfaces/ComponentsProps';
-import { Product } from 'app/interfaces/Product';
+import { setAllProductsFromData } from 'app/utils/utils';
 
 export const UndoRedoButtons: React.FC<UndoRedoButtonsProps> = ({
 	setAllProducts,
@@ -14,41 +14,44 @@ export const UndoRedoButtons: React.FC<UndoRedoButtonsProps> = ({
 	redoVisibility,
 	productId,
 }) => {
-	const handleRedo = async () => {
-		const data = await useFetch({
-			url: UPDATE_REDO_PRODUCT,
-			method: 'POST',
-		});
+	const [error, setError] = useState<Error | null>(null);
+	const [errorMsg, setErrorMsg] = useState<string>('');
 
-		setAllProducts((prevState) => ({
-			...prevState,
-			availableProducts: data.products.filter(
-				(product: Product) => !product.is_deleted,
-			),
-			deletedProducts: data.products.filter(
-				(product: Product) => product.is_deleted,
-			),
-			redoProducts: data.redo_products,
-		}));
+	const handleRedo = async () => {
+		try {
+			const data = await useFetch({
+				url: UPDATE_REDO_PRODUCT,
+				method: 'POST',
+			});
+
+			setAllProductsFromData(data, setAllProducts);
+		} catch (error) {
+			setError(error as Error);
+			setErrorMsg(
+				'erreur lors de la tentative de re-suppression du produit.',
+			);
+		}
 	};
 
 	const handleRestoreProducts = async (productId: number) => {
-		const data = await useFetch({
-			url: UPDATE_RESTORE_PRODUCT + `/${productId}`,
-			method: 'POST',
-		});
+		try {
+			const data = await useFetch({
+				url: UPDATE_RESTORE_PRODUCT + `/${productId}`,
+				method: 'POST',
+			});
 
-		setAllProducts((prevState) => ({
-			...prevState,
-			availableProducts: data.products.filter(
-				(product: Product) => !product.is_deleted,
-			),
-			deletedProducts: data.products.filter(
-				(product: Product) => product.is_deleted,
-			),
-			redoProducts: data.redo_products,
-		}));
+			setAllProductsFromData(data, setAllProducts);
+		} catch (error) {
+			setError(error as Error);
+			setErrorMsg('erreur lors de la tentative de restauration produit.');
+		}
 	};
+
+	useEffect(() => {
+		if (error) {
+			throw new Error(errorMsg);
+		}
+	}, [error]);
 
 	return (
 		<div>

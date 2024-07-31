@@ -1,39 +1,26 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { GET_ALL_PRODUCTS } from '../../../constants/constants';
 import { Product } from 'app/interfaces/Product';
 import { useRouter } from 'next/navigation';
 import Button from '@codegouvfr/react-dsfr/Button';
 import { Input } from '@codegouvfr/react-dsfr/Input';
-import { useFetch } from '../../../hooks/hooks';
+import {
+	useFetch,
+	useInputValidation,
+	useResizeTextArea,
+} from '../../../hooks/hooks';
 import { Notice } from '@codegouvfr/react-dsfr/Notice';
-
-type Severity = 'success' | 'error' | 'default';
+import { defaultProduct } from 'app/interfaces/DefaultValues';
 
 export default function Edit({ params }: { params: { productId: number } }) {
-	const [product, setProduct] = useState<Product>({
-		title: '',
-		desc: '',
-		resume: '',
-		id: -1,
-		price: 0,
-		average_rate: 0,
-		reviews: [],
-		last_modified: new Date(),
-		is_deleted: false,
-	});
-	const router = useRouter();
-	const [states, setStates] = useState({
-		price: 'default' as Severity,
-		title: 'default' as Severity,
-		resume: 'default' as Severity,
-		desc: 'default' as Severity,
-	});
-	const resumeTextAreaRef = useRef<HTMLTextAreaElement>(null);
-	const descTextAreaRef = useRef<HTMLTextAreaElement>(null);
-	const [visibility, setVisibility] = useState<boolean>(false);
+	const [product, setProduct] = useState<Product>(defaultProduct);
 	const [error, setError] = useState<Error | null>(null);
+	const { states, visibility, validateField } = useInputValidation();
+	const resumeTextAreaRef = useResizeTextArea(product.resume);
+	const descTextAreaRef = useResizeTextArea(product.desc);
+	const router = useRouter();
 
 	useEffect(() => {
 		const getProductData = async () => {
@@ -50,42 +37,6 @@ export default function Edit({ params }: { params: { productId: number } }) {
 		};
 		getProductData();
 	}, []);
-
-	const validateField = (name: string, value: string) => {
-		let state: Severity = 'default';
-
-		if (
-			name === 'price' &&
-			(isNaN(+value) || value.length === 0 || +value <= 0)
-		)
-			state = 'error';
-		else if (value.length === 0) state = 'error';
-
-		setStates((prevStates) => {
-			const newStates = {
-				...prevStates,
-				[name]: state,
-			};
-
-			const hasError = Object.values(newStates).some(
-				(state) => state === 'error',
-			);
-			setVisibility(hasError);
-
-			return newStates;
-		});
-	};
-
-	useEffect(() => {
-		if (resumeTextAreaRef.current) {
-			resumeTextAreaRef.current.style.height = 'auto';
-			resumeTextAreaRef.current.style.height = `${resumeTextAreaRef.current.scrollHeight}px`;
-		}
-		if (descTextAreaRef.current) {
-			descTextAreaRef.current.style.height = 'auto';
-			descTextAreaRef.current.style.height = `${descTextAreaRef.current.scrollHeight}px`;
-		}
-	}, [product.resume, product.desc]);
 
 	const updateProduct = async () => {
 		try {

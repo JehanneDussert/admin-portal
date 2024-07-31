@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useFetch } from '../hooks/hooks';
 import {
 	DELETE_PRODUCT_BY_ID,
@@ -11,50 +11,58 @@ import {
 } from 'app/interfaces/ComponentsProps';
 import { Products } from './Products';
 import { Product } from 'app/interfaces/Product';
+import { setAllProductsFromData } from 'app/utils/utils';
 
 export const ProductsList: React.FC<ProductsListProps> = ({
 	value,
 	allProducts,
 	setAllProducts,
 }) => {
-	const handleDelete = async (id: number) => {
-		const data = await useFetch({
-			url: DELETE_PRODUCT_BY_ID + `/${id}`,
-			method: 'DELETE',
-		});
+	const [error, setError] = useState<Error | null>(null);
 
-		setAllProducts((prevState) => ({
-			...prevState,
-			availableProducts: data.filter(
-				(product: Product) => !product.is_deleted,
-			),
-			deletedProducts: data.filter(
-				(product: Product) => product.is_deleted,
-			),
-		}));
+	const handleDelete = async (id: number) => {
+		try {
+			const data = await useFetch({
+				url: DELETE_PRODUCT_BY_ID + `/${id}`,
+				method: 'DELETE',
+			});
+
+			setAllProducts((prevState) => ({
+				...prevState,
+				availableProducts: data.filter(
+					(product: Product) => !product.is_deleted,
+				),
+				deletedProducts: data.filter(
+					(product: Product) => product.is_deleted,
+				),
+			}));
+		} catch (error) {
+			setError(error as Error);
+		}
 	};
 
 	const handleRestoreProducts = async (id: number) => {
-		const data = await useFetch({
-			url: UPDATE_RESTORE_PRODUCT + `/${id}`,
-			method: 'POST',
-		});
+		try {
+			const data = await useFetch({
+				url: UPDATE_RESTORE_PRODUCT + `/${id}`,
+				method: 'POST',
+			});
 
-		setAllProducts((prevState) => ({
-			...prevState,
-			availableProducts: data.products.filter(
-				(product: Product) => !product.is_deleted,
-			),
-			deletedProducts: data.products.filter(
-				(product: Product) => product.is_deleted,
-			),
-			redoProducts: data.redo_products,
-		}));
+			setAllProductsFromData(data, setAllProducts);
+		} catch (error) {
+			setError(error as Error);
+		}
 	};
 
 	const isValueSelected = (productType: string, products: Product[]) => {
 		return value !== productType && products.length !== 0;
 	};
+
+	useEffect(() => {
+		if (error) {
+			throw new Error(`erreur au chargement de la liste produits.`);
+		}
+	}, [error]);
 
 	return (
 		<>

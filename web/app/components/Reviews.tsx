@@ -1,16 +1,12 @@
 import React from 'react';
 import Card from '@codegouvfr/react-dsfr/Card';
-import { ReviewsProps } from 'app/interfaces/ComponentsProps';
+import { dateOptions } from 'app/constants/DefaultValues';
+import { Review } from 'app/interfaces/Product';
 
-export const Reviews: React.FC<ReviewsProps> = ({ reviews }) => {
-	const options: Intl.DateTimeFormatOptions = {
-		year: 'numeric',
-		month: 'long',
-		day: 'numeric',
-	};
-
+export const Reviews: React.FC<{ reviews: Review[] }> = ({ reviews }) => {
 	return (
 		<div>
+			<h6 className="fr-my-2w">Avis clients ({reviews.length})</h6>
 			{reviews &&
 				reviews.map((review, index) => (
 					<div className="fr-py-1w" key={index}>
@@ -39,7 +35,7 @@ export const Reviews: React.FC<ReviewsProps> = ({ reviews }) => {
 											review.date,
 										).toLocaleDateString(
 											undefined,
-											options,
+											dateOptions,
 										)}
 									</p>
 								</div>

@@ -15,7 +15,6 @@ export const Products: React.FC<ProductsProps> = ({
 }) => {
 	const router = useRouter();
 
-	// TODO: truncate title + desc
 	return (
 		<>
 			<h1>{title}</h1>

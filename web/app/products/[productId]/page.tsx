@@ -3,15 +3,14 @@
 import React, { useEffect, useState } from 'react';
 import { GET_ALL_PRODUCTS } from '../../constants/constants';
 import { Product } from 'app/interfaces/Product';
-import { Accordion } from '@codegouvfr/react-dsfr/Accordion';
 import { useFetch } from '../../hooks/hooks';
-import { ModifyDeleteButtons } from '../../components/ModifyDeleteButtons';
+import { UtilitaryProductButtons } from '../../components/UtilitaryProductButtons';
 import { Reviews } from 'app/components/Reviews';
 import { Badge } from '@codegouvfr/react-dsfr/Badge';
 import { getSeverity } from 'app/utils/utils';
 import { Severity } from 'app/interfaces/ComponentsProps';
-import Button from '@codegouvfr/react-dsfr/Button';
-import { useRouter } from 'next/navigation';
+import { dateOptions } from 'app/constants/DefaultValues';
+import { ProductDetailedInfos } from 'app/components/ProductDetailedInfos';
 
 export default function ProductInfos({
 	params,
@@ -19,12 +18,6 @@ export default function ProductInfos({
 	params: { productId: number };
 }) {
 	const [product, setProduct] = useState<Product | null>();
-	const options: Intl.DateTimeFormatOptions = {
-		year: 'numeric',
-		month: 'long',
-		day: 'numeric',
-	};
-	const router = useRouter();
 	const [error, setError] = useState<Error | null>(null);
 
 	useEffect(() => {
@@ -53,21 +46,14 @@ export default function ProductInfos({
 			{product && (
 				<>
 					<div className="fr-grid-col">
-						<div className="fr-grid-row fr-my-4w">
-							<Button
-								iconId="fr-icon-arrow-left-s-line"
-								onClick={() => router.push('/')}
-							>
-								Retour
-							</Button>
-							<ModifyDeleteButtons product={product} />
-						</div>
-						<h1 className="">{product.title}</h1>
+						{/* Back home, modify, delete buttons */}
+						<UtilitaryProductButtons product={product} />
+						<h1>{product.title}</h1>
 						<p>
 							Modifié le{' '}
 							{new Date(product.last_modified).toLocaleDateString(
 								undefined,
-								options,
+								dateOptions,
 							)}
 						</p>
 					</div>
@@ -85,20 +71,8 @@ export default function ProductInfos({
 					>
 						{product.is_deleted ? 'Supprimé' : 'En ligne'}
 					</Badge>
-					<h3 className="fr-my-2w">{product.price}€</h3>
-					<div className="fr-container fr-my-4w">
-						<div className="fr-grid-row fr-grid-row--center">
-							<img
-								className="fr-mb-2w"
-								src="https://www.systeme-de-design.gouv.fr/img/placeholder.16x9.png"
-							/>
-						</div>
-					</div>
-					<Accordion label="Résumé">{product.resume}</Accordion>
-					<Accordion label="Description">{product.desc}</Accordion>
-					<h6 className="fr-my-2w">
-						Avis clients ({product.reviews.length})
-					</h6>
+					{/* Price, resume, description */}
+					<ProductDetailedInfos product={product} />
 					<Reviews reviews={product.reviews} />
 				</>
 			)}
