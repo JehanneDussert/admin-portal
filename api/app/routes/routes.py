@@ -51,7 +51,7 @@ async def get_products_searched_by_name(
     "/products/sort_by_date",
     response_model=ProductsResponse,
 )
-def get_products_sorted_by_date() -> ProductsResponse:
+def get_products_sorted_by_date():
     sorted_products = sorted(
         list_products,
         key=lambda p: (

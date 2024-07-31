@@ -5,12 +5,12 @@ from datetime import datetime
 import pytest
 from fastapi.testclient import TestClient
 
-from app.main import app
-
 sys.path.insert(
     0,
     os.path.abspath(os.path.join(os.path.dirname(__file__), "..")),
 )
+
+from app.main import app
 
 client = TestClient(app)
 
@@ -25,10 +25,10 @@ def test_get_products():
 
 # GET product by name
 def test_get_products_by_name():
-    response = client.get("/api/products_by_name?product_name=N")
+    response = client.get("/api/search_by_name?product_name=N")
 
     assert response.status_code == 200
-    assert response.json()["products"][0]["title"] == "Produit N"
+    assert response.json()["products"][0]["title"] == "Produit MN"
 
 
 # GET products sorted by date
@@ -83,10 +83,10 @@ def test_get_products_sorted_by_name():
 
 # GET product sorted by id
 def test_get_product_by_id():
-    response = client.get("/api/products/0")
+    response = client.get("/api/products/1")
 
     assert response.status_code == 200
-    assert response.json()["title"] == "Produit A"
+    assert response.json()["title"] == "Produit BC"
 
 
 # DELETE product & check deleted_products list
@@ -104,7 +104,7 @@ def test_delete_product():
 # RESTORE product & check deleted_products list
 def test_restore_product():
     client.delete("/api/delete_product/1")
-    response = client.post("/api/restore_product")
+    response = client.post("/api/restore_product/1")
 
     assert response.status_code == 200
     assert len(response.json()["products"]) == 19
