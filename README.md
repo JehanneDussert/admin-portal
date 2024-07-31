@@ -1,7 +1,26 @@
-<!-- Parler des fonctionnalités -->
+## 💻 Fonctionnalités
+
+### 📄 Consultation de la liste des produits
+- [x] Triée par défaut par noms, possibilité de trier par note et date de modification
+- [x] Filtrée par défaut sur tous les produits, possibilité de filtrer par produit en ligne ou supprimé
+
+### ℹ️ Consultation des informations relatives à un produit
+- [x] Boutons de retour, de modification, de suppression
+- [x] Informations disponibles : note, date de modification, nom du produit, résumé, description, avis
+
+### ✏️ Modification des informations d’un produit
+- [x] Depuis la page d'accueil avec redirection vers la page produit
+- [x] Depuis la page produit
+- [x] ⚠️ Les avis et notes laissées par les internautes ne peuvent pas être modifiés
+
+### 🗑️ Suppression d’un produit du catalogue
+- [x] Depuis la page d'accueil
+- [x] Depuis la page produit avec redirection vers l'accueil
+Le produit peut ensuite être restauré grâce au bouton "Restaurer" sur la carte produit ou grâce au bouton "Undo" / flèche retour. La suppression peut-être rejouée si annulée grâce au bouton "Redo".
+
 ## 💻 Installation
 
-### Stack
+### 🔋 Stack
 
 #### Frontend
 
@@ -186,5 +205,6 @@ http://localhost:8000/api/delete_product/{productId}
 
 ### Ressources
 
+- [Tutoriel NextJS 13 en 1 HEURE | Apprendre l'ESSENTIEL en 2024](https://www.youtube.com/watch?v=c6yk8apme_c&t=1092s)
 - [Cypress docs](https://docs.cypress.io/guides/end-to-end-testing/writing-your-first-end-to-end-test)
 - [Mocking API Response In Cypress](https://kailash-pathak.medium.com/mocking-api-response-in-cypress-a73dea514cfd)
