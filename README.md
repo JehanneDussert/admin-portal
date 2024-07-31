@@ -1,3 +1,14 @@
+# 📦 Catalogue de Produits
+
+## Table des matières
+- [Fonctionnalités](#-fonctionnalités)
+- [Installation](#-installation)
+- [Stack](#-stack)
+- [Commandes Make](#-commandes-make)
+- [Tests](#-tests)
+- [Accès et routage](#-accès)
+- [Ressources](#-ressources)
+
 ## 💻 Fonctionnalités
 
 ### 📄 Consultation de la liste des produits
