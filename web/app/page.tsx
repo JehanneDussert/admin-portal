@@ -55,7 +55,7 @@ export default function Home() {
 
 	useEffect(() => {
 		if (error) {
-			throw new Error(`Error loading products`);
+			throw new Error(`erreur au chargement de la liste produits.`);
 		}
 	}, [error]);
 
@@ -65,6 +65,7 @@ export default function Home() {
 				<SearchBar
 					className="fr-col-9 fr-p-0"
 					data-testid="search-bar"
+					label="Rechercher un produit"
 					onButtonClick={handleSearch}
 					allowEmptySearch={true}
 				/>
@@ -87,6 +88,7 @@ export default function Home() {
 						{
 							label: 'Nom',
 							nativeInputProps: {
+								defaultChecked: true,
 								value: 'name',
 								onClick: () => handleSort('sort_by_name'),
 							},

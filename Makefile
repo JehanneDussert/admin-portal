@@ -20,6 +20,7 @@ test:
 format:
 	cd web && pnpm run format && pnpm run lint
 	cd ..
+	cd api/ && black . && isort . && flake8 .
 
 clean:
 	docker-compose down -v

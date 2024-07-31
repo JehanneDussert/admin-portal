@@ -111,7 +111,7 @@ export default function Edit({ params }: { params: { productId: number } }) {
 
 	useEffect(() => {
 		if (error) {
-			throw new Error(`Error loading products`);
+			throw new Error(`erreur au chargement du produit à éditer.`);
 		}
 	}, [error]);
 

@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect } from 'react';
-import { Error404 } from '../../components/Error404';
+import { Error404 } from 'app/components/Error404';
+import React from 'react';
 
 export default function NotFound({
 	error,
@@ -10,8 +10,5 @@ export default function NotFound({
 	error: Error & { digest?: string };
 	reset: () => void;
 }) {
-	useEffect(() => {
-		console.log('error ICI: ', error);
-	});
-	return <Error404 />;
+	return <Error404 reset={reset} error={error} />;
 }

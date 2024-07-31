@@ -5,7 +5,8 @@
     "types": ["cypress"],
     "baseUrl": "./",
     "paths": {
-      "@codegouvfr/react-dsfr/*": ["node_modules/@codegouvfr/react-dsfr/*"]
+      "@codegouvfr/react-dsfr/*": ["node_modules/@codegouvfr/react-dsfr/*"],
+      "@pictograms": ["node_modules/@codegouvfr/react-dsfr/dsfr/artwork/pictograms"]
     },
     "allowJs": true,
     "skipLibCheck": true,
