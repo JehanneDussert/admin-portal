@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useFetch } from '../hooks/hooks';
 import {
 	UPDATE_REDO_PRODUCT,

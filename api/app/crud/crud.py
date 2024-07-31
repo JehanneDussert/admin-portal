@@ -133,7 +133,7 @@ def restore_product(
     deleted_products.remove(product_to_restore)
     redo_products.append(product_to_restore)
 
-    return { "products": list_products, "redo_products": redo_products }
+    return {"products": list_products, "redo_products": redo_products}
 
 
 #   Replay product deletion and return updated list
@@ -150,4 +150,4 @@ def redo_product() -> List[Product]:
 
     deleted_products.append(product_to_redo)
 
-    return { "products": list_products, "redo_products": redo_products }
+    return {"products": list_products, "redo_products": redo_products}
