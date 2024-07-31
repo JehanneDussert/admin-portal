@@ -1,28 +1,38 @@
 <!-- Parler des fonctionnalités -->
-## Installation
+## 💻 Installation
 
 ### Stack
 
 #### Frontend
 
-- Next.js : pour le rendu côté serveur et la génération statique
+##### 🧰 Général
+- Next.js : pour le système de routing et la gestion du loading/d'erreurs
 - TypeScript : pour assurer la robustesse de l'application
 - React : pour générer des composants réutilisables
 - DSFR : pour uniformiser et rendre accessibles les interfaces
+
+##### 💅 Linting
 - Eslint / prettier : pour formater les fichiers
 
 #### Backend
 
+##### 🧰 Général
 - Python
 - FastAPI : pour construire une API rapide
 
-#### Conteneurisation
+##### 💅 Linting
+- Black pour : formater les fichiers
+- Isort : pour organiser les imports
+- Flake8 : pour vérifier que les conventions de style PEP 8 sont respectées
+
+#### 🐋 Conteneurisation
 
 - Docker : pour assurer la portabilité de l'application
 - Docker-compose : pour la gestion multi-conteneurs
 
-### Pré-requis
+### ⚠️ Pré-requis
 - docker et docker-compose
+- python
 
 ### Commandes make
 
@@ -31,10 +41,11 @@ make install    # installation des dépendances du projet
 make build      # construction des images Docker
 make run        # lancement des conteneurs Docker
 make test       # exécution des tests front/back
+make format     # formatage des fichiers front/back
 make clean      # nettoyage de l'environnement
 ```
 
-## Tests
+## 🧪 Tests
 
 - Frontend : tests end-to-end avec Cypress
 
@@ -64,9 +75,9 @@ L'application est composée comme suit :
         - affichage des produits
         - boutons défaire/refaire
     - les interfaces
-    - un dossier utils comprenant :
-        - un hook personnalisé useFetch pour gérer plus simplement les appels API et gérer les éventuelles erreurs
-        - un fichier constants pour lister les différentes URL à appeler
+    - un dossier utils
+    - un dossier hooks comprenant un hook personnalisé useFetch pour gérer plus simplement les appels API et gérer les éventuelles erreurs
+    - un dossier constants notamment pour lister les différents endpoints à appeler
     - un dossier products/ qui comporte les différentes pages de l'application
 
 #### Accès
@@ -103,6 +114,9 @@ L'application est composée comme suit :
     - un dossier models qui définit le modèle Product utilisé
     - un dossier routes qui définit les routes de l'API
 - dossier pyetst-rest-api composé des tests des différentes routes
+- dossier data comprenant le fichier de produits fictifs
+
+⚠️ Les produits en ligne et supprimés se distinguent grâce à un boolean "is_deleted". Les fiches produit ont été rédigées par chatGPT
 
 #### Accès
 
@@ -112,7 +126,7 @@ Le back-end écoute sur le __port 8000__ et peut être lancé dans le dossier ap
 fastapi dev main.py
 ```
 
-Un swagger est accessible à l'adresse :
+📄 Un swagger est accessible à l'adresse :
 ```bash
 http://localhost:8000/docs
 ```
@@ -123,35 +137,50 @@ Les routes sont les suivantes :
 
 #   GET
 
-#   liste des produits: disponibles, supprimés, restaurés
+#   liste des produits
+#    retourne les produits (disponibles et supprimés) et les produits restaurés
 http://localhost:8000/api/products
+
+#   liste des produits composés dans leur title du product_name spécifié
+#    retourne les produits (disponibles et supprimés) et les produits restaurés
+#   si le champs est vide, tous les produits sont retournés
+http://localhost:8000/api/search_by_name/?product_name={productName}
+
+#   liste des produits triés par date
+#    retourne les produits (disponibles et supprimés) et les produits restaurés
+http://localhost:8000/api/products/sort_by_date
+
+#   liste des produits triés par note
+#    retourne les produits (disponibles et supprimés) et les produits restaurés
+http://localhost:8000/api/products/sort_by_rate
+
+#   liste des produits triés par nom
+#    retourne les produits (disponibles et supprimés) et les produits restaurés
+http://localhost:8000/api/products/sort_by_name
 
 #   produit particulier identifié par son id
 http://localhost:8000/api/products/{productId}
 
-#   liste des produits composés dans leur title du product_name spécifié
-#   si le champs est vide, tous les produits sont retournés
-http://localhost:8000/api/products_by_name/?product_name={productName}
-
-#   liste des produits supprimés
-http://localhost:8000/api/deleted_products
-
 #   POST
 
-#   restauration du dernier produit supprimé
+#   restaure un produit identifié par son product_id
+#   retourne les produits (disponibles et supprimés) et les produits restaurés
 http://localhost:8000/api/restore_product
 
 #   suppression du dernier produit restauré
+#   retourne les produits (disponibles et supprimés) et les produits restaurés
 http://localhost:8000/api/redo_product
 
 #   PUT
 
 #   modification d'un produit identifié par son id
+#   retourne le produit modifié
 http://localhost:8000/api/products/{productId}
 
 #   DELETE
 
 #   suppression d'un produit identifié par son id
+#   retourne les produits (disponibles et supprimés)
 http://localhost:8000/api/delete_product/{productId}
 ```
 
