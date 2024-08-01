@@ -2,8 +2,10 @@ import json
 from pathlib import Path
 from typing import List
 
-from api.app.db.configurations import collection
+from app.db.configurations import collection
 from app.models.product import Product
+
+collection.delete_many({})
 
 
 def load_products_from_file(

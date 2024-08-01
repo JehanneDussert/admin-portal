@@ -54,7 +54,7 @@ def update_product(product: Product) -> Product:
         )
 
     product.last_modified = datetime.now(timezone.utc).strftime(
-        "%Y-%m-%d %H:%M:%S"
+        "%Y-%m-%d",
     )
 
     product.reviews = [
@@ -65,7 +65,7 @@ def update_product(product: Product) -> Product:
     list_products[product.id] = product
 
     update = collection.update_one(
-        {"id": product.id}, {"$set": product.dict()}
+        {"id": product.id}, {"$set": product.model_dump()}
     )
 
     if update.modified_count == 0:
@@ -89,7 +89,7 @@ def delete_product(product_id: int) -> List[Product]:
     product = list_products[product_id]
     product.is_deleted = True
     product.last_modified = datetime.now(timezone.utc).strftime(
-        "%Y-%m-%d %H:%M:%S"
+        "%Y-%m-%d",
     )
     product.reviews = [
         Review(**review) if isinstance(review, dict) else review
@@ -102,7 +102,7 @@ def delete_product(product_id: int) -> List[Product]:
     list_products[product_id] = product
 
     update = collection.update_one(
-        {"id": product.id}, {"$set": product.dict()}
+        {"id": product.id}, {"$set": product.model_dump()}
     )
 
     if update.modified_count == 0:
@@ -141,7 +141,7 @@ def restore_product(
 
     product_to_restore.is_deleted = False
     product_to_restore.last_modified = datetime.now(timezone.utc).strftime(
-        "%Y-%m-%d %H:%M:%S"
+        "%Y-%m-%d",
     )
     product_to_restore.reviews = [
         Review(**review) if isinstance(review, dict) else review
@@ -152,7 +152,8 @@ def restore_product(
     redo_products.append(product_to_restore)
 
     update = collection.update_one(
-        {"id": product_to_restore.id}, {"$set": product_to_restore.dict()}
+        {"id": product_to_restore.id},
+        {"$set": product_to_restore.model_dump()},
     )
 
     if update.modified_count == 0:
