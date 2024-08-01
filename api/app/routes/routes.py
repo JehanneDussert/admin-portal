@@ -1,18 +1,46 @@
 from datetime import datetime
 from typing import List
 
-from fastapi import APIRouter, Path, Query
+from fastapi import APIRouter, HTTPException, Path, Query
 
 from app.crud.crud import (delete_product, get_product_by_id, get_products,
-                           list_products, redo_product, redo_products,
-                           restore_product, update_product)
+                           redo_product, redo_products, restore_product,
+                           update_product)
+from app.db.configurations import collection
+from app.db.data import list_products
 from app.models.product import Product, ProductsResponse
 
 router = APIRouter()
 
+
+@router.get("/")
+def check_api():
+    return "API is running"
+
+
+@router.get("/db")
+async def check_db():
+    products_data = list(collection.find())
+    list_products = [Product(**product) for product in products_data]
+
+    return list_products
+
+
 #   ---------------
 #         GET
 #   ---------------
+
+
+@router.post("/db")
+async def create_product(new_product: Product):
+    try:
+        resp = collection.insert_one(dict(new_product))
+
+        return {"status_code": 200, "id": str(resp.inserted_id)}
+    except Exception as e:
+        raise HTTPException(
+            status_code=500, detail=f"Some error occurred: {e}"
+        )
 
 
 #   Return all the products
@@ -169,7 +197,6 @@ async def delete_product_by_id(
     product_id: int = Path(..., ge=0)
 ) -> ProductsResponse:
     delete_product(product_id)
-    redo_products = []
 
     return ProductsResponse(
         products=list_products, redo_products=redo_products
