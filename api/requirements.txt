@@ -7,3 +7,5 @@ pathlib
 black
 isort
 flake8
+pymongo
+python-dotenv
