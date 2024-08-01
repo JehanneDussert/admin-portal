@@ -14,13 +14,15 @@
 - [x] Depuis la page d'accueil avec redirection vers la page produit
 - [x] Depuis la page produit
 
-<br/>⚠️ Les avis et notes laissées par les internautes ne peuvent pas être modifiés
+<br/>Le produit est modifié dans la base de données MongoDB.
+
+<br/>⚠️ Les avis et notes laissés par les internautes ne peuvent pas être modifiés
 
 ### 🗑️ Suppression d’un produit du catalogue
 - [x] Depuis la page d'accueil
 - [x] Depuis la page produit avec redirection vers l'accueil
 
-<br/>Le produit peut ensuite être restauré grâce au bouton "Restaurer" sur la carte produit ou grâce au bouton "Undo" / flèche retour. La suppression peut-être rejouée si annulée grâce au bouton "Redo".
+<br/>Le produit peut ensuite être restauré grâce au bouton "Restaurer" sur la carte produit ou grâce au bouton "Undo" / flèche retour. La suppression peut-être rejouée si annulée grâce au bouton "Redo". Le produit n'est jamais supprimé de la base de données afin de permettre la restauration.
 
 ## 💻 Installation
 
@@ -42,6 +44,7 @@
 ##### 🧰 Général
 - Python
 - FastAPI : pour construire une API rapide
+- MongoDB : pour stocker les produits
 
 ##### 💅 Linting
 - Black pour : formater les fichiers
@@ -136,12 +139,18 @@ L'application est composée comme suit :
     - un dossier crud qui définit la logique de chaque route
     - un dossier models qui définit le modèle Product utilisé
     - un dossier routes qui définit les routes de l'API
+    - dossier db comprenant le fichier de produits fictifs (product.json) utilisé pour donner des exemples de produits à insérer dans la base de données ainsi qu'un .env.example. Le fichier insert_products.py permet de reset la base de données.
 - dossier pyetst-rest-api composé des tests des différentes routes
-- dossier data comprenant le fichier de produits fictifs
 
 ⚠️ Les produits en ligne et supprimés se distinguent grâce à un boolean "is_deleted". Les fiches produit ont été rédigées par chatGPT
 
 #### Accès
+
+⚠️ Le fichier /api/app/db/.env.example doit être renommé. Les valeurs <username> et <password> doivent être modifiées pour accéder à la base de données.
+
+```bash
+mv api/app/db/.env.example .env
+```
 
 Le back-end écoute sur le __port 8000__ et peut être lancé dans le dossier api/app/ avec la commande :
 
