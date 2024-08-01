@@ -4,8 +4,9 @@ from typing import List
 from fastapi import APIRouter, Path, Query
 
 from app.crud.crud import (delete_product, get_product_by_id, get_products,
-                           list_products, redo_product, redo_products,
-                           restore_product, update_product)
+                           redo_product, redo_products, restore_product,
+                           update_product)
+from app.db.data import list_products
 from app.models.product import Product, ProductsResponse
 
 router = APIRouter()
@@ -13,6 +14,12 @@ router = APIRouter()
 #   ---------------
 #         GET
 #   ---------------
+
+
+# Check API
+@router.get("/")
+def check_api():
+    return "API is running"
 
 
 #   Return all the products
@@ -169,7 +176,6 @@ async def delete_product_by_id(
     product_id: int = Path(..., ge=0)
 ) -> ProductsResponse:
     delete_product(product_id)
-    redo_products = []
 
     return ProductsResponse(
         products=list_products, redo_products=redo_products

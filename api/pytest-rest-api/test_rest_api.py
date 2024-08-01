@@ -89,19 +89,7 @@ def test_get_product_by_id():
     assert response.json()["title"] == "Produit BC"
 
 
-# DELETE product & check deleted_products list
-def test_delete_product():
-    response = client.delete("/api/delete_product/0")
-
-    assert response.status_code == 200
-    assert len(response.json()) == 19
-
-    response = client.delete("/api/deleted_products")
-
-    assert len(response.json()) == 1
-
-
-# RESTORE product & check deleted_products list
+# DELETE then RESTORE product & check deleted_products list
 def test_restore_product():
     client.delete("/api/delete_product/1")
     response = client.post("/api/restore_product/1")
@@ -118,10 +106,10 @@ def test_restore_product():
 # PUT product & check update
 def test_update_product():
     response = client.put(
-        "/api/products/0",
+        "/api/products/1",
         json={
-            "id": 0,
-            "title": "Produit A modifié",
+            "id": 1,
+            "title": "Produit BC modifié",
             "resume": "Un nouveau résumé",
             "desc": "Une nouvelle description",
             "price": 12,
@@ -133,4 +121,4 @@ def test_update_product():
     )
 
     assert response.status_code == 200
-    assert response.json()["title"] == "Produit A modifié"
+    assert response.json()["title"] == "Produit BC modifié"
