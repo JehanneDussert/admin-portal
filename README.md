@@ -215,9 +215,9 @@ http://localhost:8000/api/products/{productId}
 http://localhost:8000/api/delete_product/{productId}
 ```
 
-### Illustrations
+### 📷 Illustrations
 
-#### Liste des produits
+#### 📄 Liste des produits
 
 - Triés par noms (1) puis par notes (2)
 <p align="center">
@@ -232,7 +232,7 @@ http://localhost:8000/api/delete_product/{productId}
 	<img src="./doc/list_products_deleted.png" >
 </p>
 
-#### Fiche produit
+#### ℹ️ Fiche produit
 
 - En mode lecture
 <p align="center">
