@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "types": ["cypress"],
+    "types": ["node"],
     "baseUrl": "./",
     "paths": {
       "@codegouvfr/react-dsfr/*": ["node_modules/@codegouvfr/react-dsfr/*"],
