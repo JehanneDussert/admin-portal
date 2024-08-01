@@ -179,7 +179,7 @@ def redo_product() -> List[Product]:
     product_to_redo.is_deleted = True
 
     deleted_products.append(product_to_redo)
-    
+
     update = collection.update_one(
         {"id": product_to_redo.id},
         {"$set": product_to_redo.model_dump()},
