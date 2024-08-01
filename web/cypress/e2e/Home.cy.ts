@@ -1,5 +1,6 @@
-describe('Home page tests', () => {
-	const products = [
+import { Product } from "app/interfaces/Product";
+
+export const products = [
         {
             "id": 0,
             "title": "Produit A",
@@ -58,6 +59,8 @@ describe('Home page tests', () => {
         }
     ];
 
+describe('Home page tests', () => {
+
 	/**
 	 * Mocking API Response
 	 * w/ an empty products list
@@ -66,29 +69,26 @@ describe('Home page tests', () => {
 	 */
 
     beforeEach(() => {
-        cy.intercept('GET', 'http://localhost:8000/api/products_by_name?product_name=', {
+        cy.intercept('GET', 'http://localhost:8000/api/search_by_name?product_name=', {
             statusCode: 200,
             body: {
                 products: [],
-                deleted_products: [],
                 redo_products: []
             },
         }).as('getInitialProducts');
 
-        cy.intercept('GET', 'http://localhost:8000/api/products_by_name?product_name=Produit', {
+        cy.intercept('GET', 'http://localhost:8000/api/search_by_name?product_name=Produit', {
             statusCode: 200,
             body: {
                 products: products,
-                deleted_products: [],
                 redo_products: []
             },
         }).as('getAllProducts');
 
-        cy.intercept('GET', 'http://localhost:8000/api/products_by_name?product_name=Produit%20B', {
+        cy.intercept('GET', 'http://localhost:8000/api/search_by_name?product_name=Produit%20B', {
             statusCode: 200,
             body: {
                 products: [products[1]],
-                deleted_products: [],
                 redo_products: []
             },
         }).as('getProduct2');
@@ -108,69 +108,66 @@ describe('Home page tests', () => {
             statusCode: 200,
             body: {
                 products: updatedProducts,
-                deleted_products: [updatedProducts[productIndex]],
                 redo_products: []
             },
         });
     }).as('deleteProduct');
 
-    // cy.intercept('GET', 'http://localhost:8000/api/deleted_products', {
-    //     statusCode: 200,
-    //     body: [products[2]],  // Ensure this is an array
-    // }).as('getDeletedProducts');
+    cy.intercept('GET', 'http://localhost:8000/api/products/2', (req) => {
+        req.reply({
+            statusCode: 200,
+            body: products[2],
+        });
+    }).as('getProduct2Edit');
+
     });
 
 	/**
 	 * Basic home page without any products to display
 	 */
-    // it('should display the homepage without interacting with DsfrHead', () => {
-    //     cy.visit('/');
+    it('should display the homepage without interacting with DsfrHead', () => {
+		cy.visit('/');
 
-    //     cy.get('body').should('not.contain', '[data-testid="dsfr-head"]');
-        
-	// 	cy.wait('@getInitialProducts');
+		cy.get('body').should('not.contain', '[data-testid="dsfr-head"]');
 
-    //     cy.get('[data-testid="products-list"]').should('not.contain', 'Produit A');
-    //     cy.get('[data-testid="products-list"]').should('not.contain', 'Produit B');
-    //     cy.get('[data-testid="products-list"]').should('not.contain', 'Produit C');
-    //     cy.get('[data-testid="products-list"]').should('not.contain', 'Produit D');
-    //     cy.get('[data-testid="products-list"]').should('not.contain', 'Produit E');
-    //     cy.get('[data-testid="products-list"]').should('not.contain', 'Produit F');
-    // });
+		cy.wait('@getInitialProducts');
+
+		cy.contains('h1', 'Aucun produit ne correspond à votre recherche.').should('be.visible');
+	});
 
 	/**
 	 * Display all products from list
 	 */
-    // it('should find the search bar, type into it and get all articles', () => {
-    //     cy.visit('/');
+    it('should find the search bar, type into it and get all articles', () => {
+        cy.visit('/');
 
-    //     cy.get('[data-testid="search-bar"] input').type('Produit{enter}');
-    //     cy.get('[data-testid="search-bar"] button').click();
+        cy.get('[data-testid="search-bar"] input').type('Produit{enter}');
+        cy.get('[data-testid="search-bar"] button').click();
 
-    //     cy.wait('@getAllProducts');
+        cy.wait('@getAllProducts');
 
-    //     cy.get('[data-testid="products-list"]').should('contain', 'Produit A');
-    //     cy.get('[data-testid="products-list"]').should('contain', 'Produit B');
-    //     cy.get('[data-testid="products-list"]').should('contain', 'Produit C');
-    //     cy.get('[data-testid="products-list"]').should('contain', 'Produit D');
-    // });
+        cy.get('[data-testid="products-list"]').should('contain', 'Produit A');
+        cy.get('[data-testid="products-list"]').should('contain', 'Produit B');
+        cy.get('[data-testid="products-list"]').should('contain', 'Produit C');
+        cy.get('[data-testid="products-list"]').should('contain', 'Produit D');
+    });
 
 	/**
 	 * Display Produit B
 	 */
-    // it('should find the search bar, type into it and get article 2', () => {
-    //     cy.visit('/');
+    it('should find the search bar, type into it and get article 2', () => {
+        cy.visit('/');
 
-    //     cy.get('[data-testid="search-bar"] input').type('Produit B{enter}');
-    //     cy.get('[data-testid="search-bar"] button').click();
+        cy.get('[data-testid="search-bar"] input').type('Produit B{enter}');
+        cy.get('[data-testid="search-bar"] button').click();
 
-    //     cy.wait('@getProduct2');
+        cy.wait('@getProduct2');
 
-    //     cy.get('[data-testid="products-list"]').should('contain', 'Produit B');
-    //     cy.get('[data-testid="products-list"]').should('not.contain', 'Produit A');
-    //     cy.get('[data-testid="products-list"]').should('not.contain', 'Produit C');
-    //     cy.get('[data-testid="products-list"]').should('not.contain', 'Produit D');
-    // });
+        cy.get('[data-testid="products-list"]').should('contain', 'Produit B');
+        cy.get('[data-testid="products-list"]').should('not.contain', 'Produit A');
+        cy.get('[data-testid="products-list"]').should('not.contain', 'Produit C');
+        cy.get('[data-testid="products-list"]').should('not.contain', 'Produit D');
+    });
 
 	/**
 	 * Delete Produit C
@@ -181,45 +178,39 @@ describe('Home page tests', () => {
     cy.get('[data-testid="search-bar"] input').type('Produit{enter}');
     cy.get('[data-testid="search-bar"] button').click();
 
-    // Attendez que les produits soient chargés
     cy.wait('@getAllProducts').then((interception) => {
         if (interception.response) {
             console.log('Intercepted data:', interception.response.body);
         }
     });
-
-    // Cliquez sur le bouton de suppression du produit avec id 2
     cy.get('[data-testid="delete-button-2"]').click();
 
-    // Attendez la réponse de l'API de suppression
-    cy.wait('@deleteProduct');
-    // cy.wait('@getDeletedProducts');
+    cy.wait('@deleteProduct').then((interception) => {
+            if (interception.response) {
+                const updatedProducts = interception.response.body.products;
+                const productC = updatedProducts.find((product: Product) => product.id === 2);
+                
+                expect(productC).to.exist;
+                expect(productC.is_deleted).to.be.true;
 
-    // Vérifiez que le produit C a bien is_deleted à true et qu'il est toujours dans la liste
-    cy.wait('@getAllProducts').then((interception) => {
-        if (interception.response) {
-            const updatedProducts = interception.response.body.products;
-            const productC = updatedProducts.find(product => product.id === 2);
-            expect(productC).to.exist;
-            expect(productC.is_deleted).to.be.true;
-
-        }
+            }
+        })
     });
 
-    // Vérifiez que le produit C a une opacité réduite dans l'affichage (optionnel)
-    cy.get('[data-testid="product-2"]').should('have.css', 'opacity', '0.2');
+	it('should navigate to the edit page when edit button is clicked', () => {
+         cy.visit('/');
+
+        cy.get('[data-testid="search-bar"] input').type('Produit{enter}');
+        cy.get('[data-testid="search-bar"] button').click();
+
+        cy.wait('@getAllProducts');
+        cy.get('[data-testid="search-bar"] button').click();
+
+
+        cy.get('[data-testid="edit-button-2"]').click();
+
+        cy.url().should('include', '/products/2/edit');
+
+        cy.wait('@getProduct2Edit')
     });
-
-	// it('should navigate to the edit page when edit button is clicked', () => {
-    //     cy.visit('/');
-
-    //     cy.get('[data-testid="search-bar"] input').type('Product{enter}');
-    //     cy.get('[data-testid="search-bar"] button').click();
-
-    //     cy.wait('@getAllProducts');
-
-    //     cy.get('[data-testid="edit-button-2"]').click();
-
-    //     cy.url().should('include', '/products/2/edit');
-    // });
 });

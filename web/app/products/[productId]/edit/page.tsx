@@ -86,6 +86,7 @@ export default function Edit({ params }: { params: { productId: number } }) {
 				title="Vous êtes en mode édition, pensez à sauvegarder vos modifications avant de quitter."
 			/>
 			<Input
+				data-testid="price-input"
 				label="Prix du produit"
 				nativeInputProps={{
 					name: 'price',
@@ -96,6 +97,7 @@ export default function Edit({ params }: { params: { productId: number } }) {
 				stateRelatedMessage="Veuillez saisir un montant correct."
 			/>
 			<Input
+				data-testid="title-input"
 				label="Nom du produit"
 				nativeInputProps={{
 					name: 'title',
@@ -106,6 +108,7 @@ export default function Edit({ params }: { params: { productId: number } }) {
 				stateRelatedMessage="Veuillez saisir un nom de produit."
 			/>
 			<Input
+				data-testid="resume-input"
 				label="Résumé du produit"
 				textArea
 				nativeTextAreaProps={{
@@ -118,6 +121,7 @@ export default function Edit({ params }: { params: { productId: number } }) {
 				stateRelatedMessage="Veuillez saisir un résumé correct."
 			/>
 			<Input
+				data-testid="desc-input"
 				label="Description du produit"
 				textArea
 				nativeTextAreaProps={{
@@ -130,6 +134,7 @@ export default function Edit({ params }: { params: { productId: number } }) {
 				stateRelatedMessage="Veuillez saisir une description correcte."
 			/>
 			<Button
+				data-testid="validate-inputs-button"
 				disabled={visibility}
 				iconId="fr-icon-save-fill"
 				onClick={updateProduct}
