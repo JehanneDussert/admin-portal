@@ -17,7 +17,6 @@
 - [x] Depuis la page produit
 
 <br/>Le produit est modifié dans la base de données MongoDB.
-
 <br/>⚠️ Les avis et notes laissés par les internautes ne peuvent pas être modifiés
 
 ### 🗑️ Suppression d’un produit du catalogue
