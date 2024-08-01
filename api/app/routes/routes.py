@@ -3,9 +3,15 @@ from typing import List
 
 from fastapi import APIRouter, Path, Query
 
-from app.crud.crud import (delete_product, get_product_by_id, get_products,
-                           redo_product, redo_products, restore_product,
-                           update_product)
+from app.crud.crud import (
+    delete_product,
+    get_product_by_id,
+    get_products,
+    redo_product,
+    redo_products,
+    restore_product,
+    update_product,
+)
 from app.db.data import list_products
 from app.models.product import Product, ProductsResponse
 

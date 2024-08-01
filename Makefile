@@ -14,11 +14,11 @@ run:
 test:
 	pytest
 	rm -rf .pytest_cache
-	cd web && pnpm run cypress:run
+	cd web && pnpm i && pnpm run cypress:run
 	cd ..
 
 format:
-	cd web && pnpm run format && pnpm run lint
+	cd web && pnpm i && pnpm run format && pnpm run lint
 	cd ..
 	cd api/ && black . && isort . && flake8 .
 
