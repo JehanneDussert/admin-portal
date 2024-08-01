@@ -2,6 +2,8 @@
 
 ## 💻 Fonctionnalités
 
+📷 Des illustrations sont disponibles en fin de documentation.
+
 ### 📄 Consultation de la liste des produits
 - [x] Triée par défaut par noms, possibilité de trier par note et date de modification
 - [x] Filtrée par défaut sur tous les produits, possibilité de filtrer par produit en ligne ou supprimé
@@ -96,13 +98,10 @@ pytest
 L'application est composée comme suit :
 - fichiers de configuration et Dockerfile à la racine
 - dossier app/ comprenant :
-    - les composants réutilisables : 
-        - boutons de modification et suppression de produits
-        - affichage des produits
-        - boutons défaire/refaire
+    - les composants réutilisables
     - les interfaces
     - un dossier utils
-    - un dossier hooks comprenant un hook personnalisé useFetch pour gérer plus simplement les appels API et gérer les éventuelles erreurs
+    - un dossier hooks comprenant des hooks personnalisés
     - un dossier constants notamment pour lister les différents endpoints à appeler
     - un dossier products/ qui comporte les différentes pages de l'application
 
@@ -215,6 +214,38 @@ http://localhost:8000/api/products/{productId}
 #   retourne les produits (disponibles et supprimés)
 http://localhost:8000/api/delete_product/{productId}
 ```
+
+### Illustrations
+
+#### Liste des produits
+
+- Triés par noms (1) puis par notes (2)
+<p align="center">
+	<img src="./doc/list_products_by_name.png" >
+</p>
+<p align="center">
+	<img src="./doc/list_products_by_rate.png" >
+</p>
+
+- Filtrés par produits supprimés
+<p align="center">
+	<img src="./doc/list_products_deleted.png" >
+</p>
+
+#### Fiche produit
+
+- En mode lecture
+<p align="center">
+	<img src="./doc/product_page.png" >
+</p>
+
+- En mode édition sans erreur (1) puis avec une erreur dans le prix (2)
+<p align="center">
+	<img src="./doc/edit_page.png" >
+</p>
+<p align="center">
+	<img src="./doc/edit_page_wrong_price.png" >
+</p>
 
 ### Ressources
 
