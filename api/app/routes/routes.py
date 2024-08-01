@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import List
 
-from fastapi import APIRouter, Path, Query
+from fastapi import APIRouter, HTTPException, Path, Query
 
 from app.crud.crud import (delete_product, get_product_by_id, get_products,
                            redo_product, redo_products, restore_product,
@@ -10,6 +10,20 @@ from app.db.data import list_products
 from app.models.product import Product, ProductsResponse
 
 router = APIRouter()
+
+
+@router.get("/")
+def check_api():
+    return "API is running"
+
+
+@router.get("/db")
+async def check_db():
+    products_data = list(collection.find())
+    list_products = [Product(**product) for product in products_data]
+
+    return list_products
+
 
 #   ---------------
 #         GET
