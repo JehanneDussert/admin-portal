@@ -7,8 +7,8 @@
         "price": 29,
         "last_modified": "2024-07-10",
         "reviews": [
-            {"title": "Excellent!", "desc": "Ce produit a dépassé mes attentes.", "rate": 5, "date": "2024-07-20"},
-            {"title": "Pas mal", "desc": "Le produit est bon mais pourrait être amélioré.", "rate": 3, "date": "2024-06-15"}
+            {"title": "Excellent!", "desc": "Ce produit a dépassé mes attentes.", "rate": 5, "date": "2024-07-15"},
+            {"title": "Pas mal", "desc": "Le produit est bon mais pourrait être amélioré.", "rate": 3, "date": "2024-07-05"}
         ],
         "is_deleted": false
     },
@@ -18,10 +18,10 @@
         "resume": "Une brève description du produit B.",
         "desc": "Description détaillée du produit B.",
         "price": 49,
-        "last_modified": "2024-06-15",
+        "last_modified": "2024-07-10",
         "reviews": [
             {"title": "Bon rapport qualité-prix", "desc": "Vaut chaque centime!", "rate": 4, "date": "2024-07-10"},
-            {"title": "Pourrait être mieux", "desc": "Le produit a quelques défauts.", "rate": 2, "date": "2024-06-25"}
+            {"title": "Pourrait être mieux", "desc": "Le produit a quelques défauts.", "rate": 2, "date": "2024-07-01"}
         ],
         "is_deleted": false
     },
@@ -31,10 +31,10 @@
         "resume": "Une brève description du produit C.",
         "desc": "Description détaillée du produit C.",
         "price": 19,
-        "last_modified": "2024-08-01",
+        "last_modified": "2024-07-05",
         "reviews": [
             {"title": "Parfait pour le prix", "desc": "Bonne qualité pour un prix bas.", "rate": 5, "date": "2024-07-05"},
-            {"title": "Correct", "desc": "Pas le meilleur, mais acceptable.", "rate": 3, "date": "2024-06-30"}
+            {"title": "Correct", "desc": "Pas le meilleur, mais acceptable.", "rate": 3, "date": "2024-07-01"}
         ],
         "is_deleted": false
     },
@@ -44,10 +44,10 @@
         "resume": "Une brève description du produit D.",
         "desc": "Description détaillée du produit D.",
         "price": 89,
-        "last_modified": "2024-06-25",
+        "last_modified": "2024-07-10",
         "reviews": [
             {"title": "Haute qualité", "desc": "Ce produit est bien fabriqué et durable.", "rate": 5, "date": "2024-07-15"},
-            {"title": "Cher", "desc": "Trop cher pour ce qu'il offre.", "rate": 2, "date": "2024-06-20"}
+            {"title": "Cher", "desc": "Trop cher pour ce qu'il offre.", "rate": 2, "date": "2024-07-01"}
         ],
         "is_deleted": false
     },
@@ -73,7 +73,7 @@
         "last_modified": "2024-07-15",
         "reviews": [
             {"title": "Vaut bien le prix", "desc": "Excellente performance et fonctionnalités.", "rate": 5, "date": "2024-07-12"},
-            {"title": "Moyen", "desc": "C'est correct mais sans plus.", "rate": 3, "date": "2024-06-22"}
+            {"title": "Moyen", "desc": "C'est correct mais sans plus.", "rate": 3, "date": "2024-07-01"}
         ],
         "is_deleted": false
     },
@@ -83,7 +83,7 @@
         "resume": "Une brève description du produit G.",
         "desc": "Description détaillée du produit G.",
         "price": 45,
-        "last_modified": "2024-08-10",
+        "last_modified": "2024-07-15",
         "reviews": [
             {"title": "Bon produit", "desc": "Répond aux attentes.", "rate": 4, "date": "2024-07-08"},
             {"title": "Pas satisfait", "desc": "La qualité pourrait être meilleure.", "rate": 2, "date": "2024-06-18"}
@@ -96,7 +96,7 @@
         "resume": "Une brève description du produit H.",
         "desc": "Description détaillée du produit H.",
         "price": 22,
-        "last_modified": "2024-06-01",
+        "last_modified": "2024-06-30",
         "reviews": [
             {"title": "Bon rapport qualité-prix", "desc": "Un bon deal pour le prix.", "rate": 4, "date": "2024-07-03"},
             {"title": "Décevant", "desc": "Le produit n'a pas répondu à mes attentes.", "rate": 1, "date": "2024-06-26"}
@@ -122,9 +122,9 @@
         "resume": "Une brève description du produit J.",
         "desc": "Description détaillée du produit J.",
         "price": 60,
-        "last_modified": "2024-06-30",
+        "last_modified": "2024-07-01",
         "reviews": [
-            {"title": "Bonne qualité", "desc": "Construction solide et fiable.", "rate": 4, "date": "2024-07-22"},
+            {"title": "Bonne qualité", "desc": "Construction solide et fiable.", "rate": 4, "date": "2024-07-01"},
             {"title": "Expérience moyenne", "desc": "C'est correct, mais j'attendais plus.", "rate": 3, "date": "2024-06-17"}
         ],
         "is_deleted": false
@@ -137,7 +137,7 @@
         "price": 12,
         "last_modified": "2024-07-01",
         "reviews": [
-            {"title": "Bon marché et joyeux", "desc": "Correct pour le prix.", "rate": 4, "date": "2024-07-25"},
+            {"title": "Bon marché et joyeux", "desc": "Correct pour le prix.", "rate": 4, "date": "2024-07-15"},
             {"title": "Pas génial", "desc": "Le produit semble fragile.", "rate": 2, "date": "2024-06-09"}
         ],
         "is_deleted": false
@@ -148,7 +148,7 @@
         "resume": "Une brève description du produit L.",
         "desc": "Description détaillée du produit L.",
         "price": 92,
-        "last_modified": "2024-08-05",
+        "last_modified": "2024-07-15",
         "reviews": [
             {"title": "Excellente qualité", "desc": "Produit de premier ordre, fortement recommandé.", "rate": 5, "date": "2024-07-13"},
             {"title": "Très cher", "desc": "Prix élevé pour un tel produit.", "rate": 3, "date": "2024-06-21"}
@@ -161,9 +161,9 @@
         "resume": "Une brève description du produit M.",
         "desc": "Description détaillée du produit M.",
         "price": 28,
-        "last_modified": "2024-06-20",
+        "last_modified": "2024-07-05",
         "reviews": [
-            {"title": "Bon rapport qualité-prix", "desc": "Abordable et fonctionne bien.", "rate": 4, "date": "2024-07-14"},
+            {"title": "Bon rapport qualité-prix", "desc": "Abordable et fonctionne bien.", "rate": 4, "date": "2024-07-01"},
             {"title": "Médiocre", "desc": "C'est correct, rien de spécial.", "rate": 3, "date": "2024-06-27"}
         ],
         "is_deleted": false
@@ -174,7 +174,7 @@
         "resume": "Une brève description du produit N.",
         "desc": "Description détaillée du produit N.",
         "price": 65,
-        "last_modified": "2024-07-20",
+        "last_modified": "2024-07-15",
         "reviews": [
             {"title": "Bon achat", "desc": "Je suis content de cet achat.", "rate": 4, "date": "2024-07-16"},
             {"title": "Pas impressionné", "desc": "J'attendais une meilleure qualité.", "rate": 2, "date": "2024-06-23"}
@@ -187,7 +187,7 @@
         "resume": "Une brève description du produit O.",
         "desc": "Description détaillée du produit O.",
         "price": 38,
-        "last_modified": "2024-06-10",
+        "last_modified": "2024-07-10",
         "reviews": [
             {"title": "Bon produit", "desc": "C'est un bel ajout.", "rate": 4, "date": "2024-07-17"},
             {"title": "Décevant", "desc": "Pas aussi bien que je l'espérais.", "rate": 2, "date": "2024-06-29"}
@@ -200,7 +200,7 @@
         "resume": "Une brève description du produit P.",
         "desc": "Description détaillée du produit P.",
         "price": 85,
-        "last_modified": "2024-08-20",
+        "last_modified": "2024-07-15",
         "reviews": [
             {"title": "Qualité supérieure", "desc": "Produit fantastique, fortement recommandé.", "rate": 5, "date": "2024-07-21"},
             {"title": "Cher", "desc": "Le prix est assez élevé.", "rate": 3, "date": "2024-06-19"}
@@ -213,7 +213,7 @@
         "resume": "Une brève description du produit Q.",
         "desc": "Description détaillée du produit Q.",
         "price": 21,
-        "last_modified": "2024-06-30",
+        "last_modified": "2024-07-01",
         "reviews": [
             {"title": "Bon pour le prix", "desc": "Fonctionne bien et abordable.", "rate": 4, "date": "2024-07-04"},
             {"title": "Qualité moyenne", "desc": "Pas la meilleure qualité mais acceptable.", "rate": 3, "date": "2024-06-16"}
@@ -226,7 +226,7 @@
         "resume": "Une brève description du produit R.",
         "desc": "Description détaillée du produit R.",
         "price": 74,
-        "last_modified": "2024-07-30",
+        "last_modified": "2024-07-15",
         "reviews": [
             {"title": "Très bien", "desc": "Je suis satisfait de cet achat.", "rate": 4, "date": "2024-07-23"},
             {"title": "Pas à la hauteur", "desc": "Le produit ne justifie pas le coût.", "rate": 2, "date": "2024-06-24"}
@@ -239,7 +239,7 @@
         "resume": "Une brève description du produit S.",
         "desc": "Description détaillée du produit S.",
         "price": 48,
-        "last_modified": "2024-08-15",
+        "last_modified": "2024-07-30",
         "reviews": [
             {"title": "Bon produit", "desc": "Fiable et bonnes performances.", "rate": 4, "date": "2024-07-19"},
             {"title": "Médiocre", "desc": "Pas aussi bon que prévu.", "rate": 1, "date": "2024-06-14"}

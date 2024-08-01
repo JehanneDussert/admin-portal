@@ -179,6 +179,16 @@ def redo_product() -> List[Product]:
     product_to_redo.is_deleted = True
 
     deleted_products.append(product_to_redo)
+    
+    update = collection.update_one(
+        {"id": product_to_redo.id},
+        {"$set": product_to_redo.model_dump()},
+    )
+
+    if update.modified_count == 0:
+        raise HTTPException(
+            status_code=500, detail="Failed to update product in database"
+        )
 
     return ProductsResponse(
         products=list_products, redo_products=redo_products

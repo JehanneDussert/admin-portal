@@ -127,11 +127,7 @@ async def get_product(product_id: int = Path(..., ge=0)) -> List[Product]:
 async def restore_product_endpoint(
     product_id: int = Path(..., ge=0)
 ) -> ProductsResponse:
-    restore_product(product_id)
-
-    return ProductsResponse(
-        products=list_products, redo_products=redo_products
-    )
+    return restore_product(product_id)
 
 
 #   Redo last restored product deletion
