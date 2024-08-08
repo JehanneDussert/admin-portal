@@ -55,16 +55,8 @@ export default function Edit({ params }: { params: { productId: number } }) {
 		router.push(`/products/${product?.id}`);
 	};
 
-	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setProduct((prevProduct: Product) => ({
-			...prevProduct,
-			[e.target.name]: e.target.value,
-		}));
-		validateField(e.target.name, e.target.value);
-	};
-
-	const handleTextAreaChange = (
-		e: React.ChangeEvent<HTMLTextAreaElement>,
+	const handleInputChange = (
+		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
 	) => {
 		setProduct((prevProduct: Product) => ({
 			...prevProduct,
@@ -114,7 +106,7 @@ export default function Edit({ params }: { params: { productId: number } }) {
 				nativeTextAreaProps={{
 					name: 'resume',
 					value: product?.resume,
-					onChange: handleTextAreaChange,
+					onChange: handleInputChange,
 					ref: resumeTextAreaRef,
 				}}
 				state={states.resume}
@@ -127,7 +119,7 @@ export default function Edit({ params }: { params: { productId: number } }) {
 				nativeTextAreaProps={{
 					name: 'desc',
 					value: product?.desc,
-					onChange: handleTextAreaChange,
+					onChange: handleInputChange,
 					ref: descTextAreaRef,
 				}}
 				state={states.desc}

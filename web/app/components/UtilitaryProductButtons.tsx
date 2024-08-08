@@ -39,12 +39,14 @@ export const UtilitaryProductButtons: React.FC<{ product: Product }> = ({
 							href: `/products/${product.id}/edit`,
 						}}
 					/>
-					<Button
-						iconId="fr-icon-delete-fill"
-						priority="tertiary no outline"
-						title="Supprimer"
-						onClick={() => handleDelete(product.id)}
-					/>
+					{!product.is_deleted && (
+						<Button
+							iconId="fr-icon-delete-fill"
+							priority="tertiary no outline"
+							title="Supprimer"
+							onClick={() => handleDelete(product.id)}
+						/>
+					)}
 				</div>
 			</div>
 		</div>

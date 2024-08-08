@@ -6,7 +6,7 @@ from fastapi import APIRouter, Path, Query
 from app.crud.crud import (delete_product, get_product_by_id, get_products,
                            redo_product, redo_products, restore_product,
                            update_product)
-from app.db.data import list_products
+from app.db.data import filtered_products, list_products
 from app.models.product import Product, ProductsResponse
 
 router = APIRouter()
@@ -36,12 +36,14 @@ async def get_products_list() -> ProductsResponse:
 async def get_products_searched_by_name(
     product_name: str = Query(None),
 ) -> ProductsResponse:
+    filtered_products.clear()
+
     if product_name:
-        filtered_products = [
+        filtered_products.extend(
             product
             for product in list_products
             if product_name.lower() in product.title.lower()
-        ]
+        )
         return ProductsResponse(
             products=filtered_products, redo_products=redo_products
         )
@@ -57,8 +59,12 @@ async def get_products_searched_by_name(
     response_model=ProductsResponse,
 )
 def get_products_sorted_by_date():
+    products: List[Product] = (
+        filtered_products if filtered_products else list_products
+    )
+
     sorted_products = sorted(
-        list_products,
+        products,
         key=lambda p: (
             datetime.strptime(p.last_modified, "%Y-%m-%d")
             if p.last_modified
@@ -78,8 +84,12 @@ def get_products_sorted_by_date():
     response_model=ProductsResponse,
 )
 def get_products_sorted_by_rate() -> ProductsResponse:
+    products: List[Product] = (
+        filtered_products if filtered_products else list_products
+    )
+
     sorted_products = sorted(
-        list_products,
+        products,
         key=lambda p: p.average_rate,
         reverse=True,
     )
@@ -95,8 +105,12 @@ def get_products_sorted_by_rate() -> ProductsResponse:
     response_model=ProductsResponse,
 )
 def get_products_sorted_by_name() -> ProductsResponse:
+    products: List[Product] = (
+        filtered_products if filtered_products else list_products
+    )
+
     sorted_products = sorted(
-        list_products,
+        products,
         key=lambda p: p.title.lower(),
     )
 
