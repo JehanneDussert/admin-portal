@@ -5,7 +5,7 @@
 📷 Des illustrations sont disponibles en fin de documentation.
 
 ### 📄 Consultation de la liste des produits
-- [x] Triée par défaut par noms, possibilité de trier par note et date de modification
+- [x] Triée par défaut par nom, possibilité de trier par note et date de modification
 - [x] Filtrée par défaut sur tous les produits, possibilité de filtrer par produit en ligne ou supprimé
 
 ### ℹ️ Consultation des informations relatives à un produit
